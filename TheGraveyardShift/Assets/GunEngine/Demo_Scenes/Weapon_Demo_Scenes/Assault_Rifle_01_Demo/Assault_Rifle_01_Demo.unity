@@ -8326,6 +8326,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba67efa6dcab9a54aac7e607f17f759c, type: 3}
+--- !u!4 &1149903438 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4943854361810558, guid: b9ca752c3df4dec4cadafd04fc5d444b, type: 3}
+  m_PrefabInstance: {fileID: 235800567}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1189026401
 GameObject:
   m_ObjectHideFlags: 0
@@ -9566,8 +9571,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f80ab6a53e002c64b8665e07c55a0fdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  casingSpawnPoint: {fileID: 1319631651}
-  bulletSpawnPoint: {fileID: 729304731}
+  casingSpawnPoint: {fileID: 2118560741}
+  bulletSpawnPoint: {fileID: 1149903438}
 --- !u!114 &1402942047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13425,6 +13430,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2108947649}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &2118560741 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4403548763994940, guid: b9ca752c3df4dec4cadafd04fc5d444b, type: 3}
+  m_PrefabInstance: {fileID: 235800567}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2124785684
 GameObject:
   m_ObjectHideFlags: 0
