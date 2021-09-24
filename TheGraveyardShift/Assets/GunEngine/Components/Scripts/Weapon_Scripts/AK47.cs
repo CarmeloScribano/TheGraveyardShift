@@ -22,19 +22,19 @@ public class AK47 : Gun {
 
 	//public float aimFov = 25.0f;
 
-	[Header("UI Weapon Name")]
-	[Tooltip("Name of the current weapon, shown in the game UI.")]
-	public string weaponName;
+	//[Header("UI Weapon Name")]
+	//[Tooltip("Name of the current weapon, shown in the game UI.")]
+	//public string weaponName;
 	private string storedWeaponName;
 
-	[Header("Weapon Sway")]
-	//Enables weapon sway
-	[Tooltip("Toggle weapon sway.")]
-	public bool weaponSway;
+	//[Header("Weapon Sway")]
+	////Enables weapon sway
+	//[Tooltip("Toggle weapon sway.")]
+	//public bool weaponSway;
 
-	public float swayAmount = 0.02f;
-	public float maxSwayAmount = 0.06f;
-	public float swaySmoothValue = 4.0f;
+	//public float swayAmount = 0.02f;
+	//public float maxSwayAmount = 0.06f;
+	//public float swaySmoothValue = 4.0f;
 
 	private Vector3 initialSwayPosition;
 
@@ -53,9 +53,10 @@ public class AK47 : Gun {
 	private bool isReloading;
 
 	//Holstering weapon
-	private bool hasBeenHolstered = false;
+	//private bool hasBeenHolstered = false;
+
 	//If weapon is holstered
-	private bool holstered;
+	//private bool holstered;
 	//Check if running
 	private bool isRunning;
 	//Check if aiming
@@ -83,8 +84,8 @@ public class AK47 : Gun {
 	[Tooltip("The bullet model inside the mag, not used for all weapons.")]
 	public SkinnedMeshRenderer bulletInMagRenderer;
 
-	[Header("Grenade Settings")]
-	public float grenadeSpawnDelay = 0.35f;
+	//[Header("Grenade Settings")]
+	//public float grenadeSpawnDelay = 0.35f;
 
 	[Header("Muzzleflash Settings")]
 	public bool randomMuzzleflash = false;
@@ -125,7 +126,7 @@ public class AK47 : Gun {
 		[Header("Prefabs")]
 		public Transform bulletPrefab;
 		public Transform casingPrefab;
-		public Transform grenadePrefab;
+		//public Transform grenadePrefab;
 	}
 	public prefabs Prefabs;
 	
@@ -140,7 +141,7 @@ public class AK47 : Gun {
 		//Bullet prefab spawn from this point
 		public Transform bulletSpawnPoint;
 
-		public Transform grenadeSpawnPoint;
+		//public Transform grenadeSpawnPoint;
 	}
 	public spawnpoints Spawnpoints;
 
@@ -299,12 +300,12 @@ public class AK47 : Gun {
 		}
 			
 		//Throw grenade when pressing G key
-		if (Input.GetKeyDown (KeyCode.G) && !isInspecting) 
-		{
-			StartCoroutine (GrenadeSpawnDelay ());
-			//Play grenade throw animation
-			anim.Play("GrenadeThrow", 0, 0.0f);
-		}
+		//if (Input.GetKeyDown (KeyCode.G) && !isInspecting) 
+		//{
+		//	StartCoroutine (GrenadeSpawnDelay ());
+		//	//Play grenade throw animation
+		//	anim.Play("GrenadeThrow", 0, 0.0f);
+		//}
 
 		//If out of ammo
 		if (currentAmmo == 0) 
@@ -427,33 +428,33 @@ public class AK47 : Gun {
 		}
 
 		//Toggle weapon holster when E key is pressed
-		if (Input.GetKeyDown (KeyCode.E) && !hasBeenHolstered) 
-		{
-			holstered = true;
+		//if (Input.GetKeyDown (KeyCode.E) && !hasBeenHolstered) 
+		//{
+		//	holstered = true;
 
-			mainAudioSource.clip = SoundClips.holsterSound;
-			mainAudioSource.Play();
+		//	mainAudioSource.clip = SoundClips.holsterSound;
+		//	mainAudioSource.Play();
 
-			hasBeenHolstered = true;
-		} 
-		else if (Input.GetKeyDown (KeyCode.E) && hasBeenHolstered) 
-		{
-			holstered = false;
+		//	hasBeenHolstered = true;
+		//} 
+		//else if (Input.GetKeyDown (KeyCode.E) && hasBeenHolstered) 
+		//{
+		//	holstered = false;
 
-			mainAudioSource.clip = SoundClips.takeOutSound;
-			mainAudioSource.Play ();
+		//	mainAudioSource.clip = SoundClips.takeOutSound;
+		//	mainAudioSource.Play ();
 
-			hasBeenHolstered = false;
-		}
-		//Holster anim toggle
-		if (holstered == true) 
-		{
-			anim.SetBool ("Holster", true);
-		} 
-		else 
-		{
-			anim.SetBool ("Holster", false);
-		}
+		//	hasBeenHolstered = false;
+		//}
+		////Holster anim toggle
+		//if (holstered == true) 
+		//{
+		//	anim.SetBool ("Holster", true);
+		//} 
+		//else 
+		//{
+		//	anim.SetBool ("Holster", false);
+		//}
 
 		//Reload 
 		if (Input.GetKeyDown (KeyCode.R) && !isReloading && !isInspecting) 
@@ -492,15 +493,15 @@ public class AK47 : Gun {
 		}
 	}
 
-	private IEnumerator GrenadeSpawnDelay () {
+	//private IEnumerator GrenadeSpawnDelay () {
 		
-		//Wait for set amount of time before spawning grenade
-		yield return new WaitForSeconds (grenadeSpawnDelay);
-		//Spawn grenade prefab at spawnpoint
-		Instantiate(Prefabs.grenadePrefab, 
-			Spawnpoints.grenadeSpawnPoint.transform.position, 
-			Spawnpoints.grenadeSpawnPoint.transform.rotation);
-	}
+	//	//Wait for set amount of time before spawning grenade
+	//	yield return new WaitForSeconds (grenadeSpawnDelay);
+	//	//Spawn grenade prefab at spawnpoint
+	//	Instantiate(Prefabs.grenadePrefab, 
+	//		Spawnpoints.grenadeSpawnPoint.transform.position, 
+	//		Spawnpoints.grenadeSpawnPoint.transform.rotation);
+	//}
 
 	private IEnumerator AutoReload () {
 		//Wait set amount of time

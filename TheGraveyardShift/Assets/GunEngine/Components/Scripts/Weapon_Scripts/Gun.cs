@@ -21,6 +21,19 @@ public class Gun : MonoBehaviour
 
     public float aimFov = 10.0f;
 
+    [Header("UI Weapon Name")]
+    [Tooltip("Name of the current weapon, shown in the game UI.")]
+    public string weaponName;
+
+    [Header("Weapon Sway")]
+    //Enables weapon sway
+    [Tooltip("Toggle weapon sway.")]
+    public bool weaponSway;
+
+    public float swayAmount = 0.02f;
+    public float maxSwayAmount = 0.06f;
+    public float swaySmoothValue = 4.0f;
+
     // Start is called before the first frame update
     void Start()
     {
