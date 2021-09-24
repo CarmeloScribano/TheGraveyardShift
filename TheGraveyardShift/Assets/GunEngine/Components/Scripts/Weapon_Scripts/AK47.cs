@@ -3,24 +3,24 @@ using System.Collections;
 using UnityEngine.UI;
 
 // ----- Low Poly FPS Pack Free Version -----
-public class AutomaticGunScriptLPFP : MonoBehaviour {
+public class AK47 : Gun {
 
 	//Animator component attached to weapon
-	Animator anim;
+	//Animator anim;
 
-	[Header("Gun Camera")]
-	//Main gun camera
-	public Camera gunCamera;
+	//[Header("Gun Camera")]
+	////Main gun camera
+	//public Camera gunCamera;
 
-	[Header("Gun Camera Options")]
-	//How fast the camera field of view changes when aiming 
-	[Tooltip("How fast the camera field of view changes when aiming.")]
-	public float fovSpeed = 15.0f;
-	//Default camera field of view
-	[Tooltip("Default value for camera field of view (40 is recommended).")]
-	public float defaultFov = 40.0f;
+	//[Header("Gun Camera Options")]
+	////How fast the camera field of view changes when aiming 
+	//[Tooltip("How fast the camera field of view changes when aiming.")]
+	//public float fovSpeed = 15.0f;
+	////Default camera field of view
+	//[Tooltip("Default value for camera field of view (40 is recommended).")]
+	//public float defaultFov = 40.0f;
 
-	public float aimFov = 25.0f;
+	//public float aimFov = 25.0f;
 
 	[Header("UI Weapon Name")]
 	[Tooltip("Name of the current weapon, shown in the game UI.")]
