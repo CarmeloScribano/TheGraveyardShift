@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 
 // ----- Low Poly FPS Pack Free Version -----
-public class M9 : MonoBehaviour {
+public class AutomaticGunScriptLPFP : MonoBehaviour {
 
 	//Animator component attached to weapon
 	Animator anim;
@@ -20,7 +20,7 @@ public class M9 : MonoBehaviour {
 	[Tooltip("Default value for camera field of view (40 is recommended).")]
 	public float defaultFov = 40.0f;
 
-	public float aimFov = 15.0f;
+	public float aimFov = 25.0f;
 
 	[Header("UI Weapon Name")]
 	[Tooltip("Name of the current weapon, shown in the game UI.")]
@@ -38,11 +38,12 @@ public class M9 : MonoBehaviour {
 
 	private Vector3 initialSwayPosition;
 
+	//Used for fire rate
+	private float lastFired;
 	[Header("Weapon Settings")]
-
-	public float sliderBackTimer = 1.58f;
-	private bool hasStartedSliderBack;
-
+	//How fast the weapon fires, higher value means faster rate of fire
+	[Tooltip("How fast the weapon fires, higher value means faster rate of fire.")]
+	public float fireRate;
 	//Eanbles auto reloading when out of ammo
 	[Tooltip("Enables auto reloading when out of ammo.")]
 	public bool autoReload;
@@ -75,9 +76,9 @@ public class M9 : MonoBehaviour {
 	[Header("Bullet Settings")]
 	//Bullet
 	[Tooltip("How much force is applied to the bullet when shooting.")]
-	public float bulletForce = 400;
+	public float bulletForce = 400.0f;
 	[Tooltip("How long after reloading that the bullet model becomes visible " +
-		"again, only used for out of ammo reload aniamtions.")]
+		"again, only used for out of ammo reload animations.")]
 	public float showBulletInMagDelay = 0.6f;
 	[Tooltip("The bullet model inside the mag, not used for all weapons.")]
 	public SkinnedMeshRenderer bulletInMagRenderer;
@@ -133,11 +134,12 @@ public class M9 : MonoBehaviour {
 	{  
 		[Header("Spawnpoints")]
 		//Array holding casing spawn points 
+		//(some weapons use more than one casing spawn)
 		//Casing spawn point array
 		public Transform casingSpawnPoint;
 		//Bullet prefab spawn from this point
 		public Transform bulletSpawnPoint;
-		//Grenade prefab spawn from this point
+
 		public Transform grenadeSpawnPoint;
 	}
 	public spawnpoints Spawnpoints;
@@ -156,8 +158,8 @@ public class M9 : MonoBehaviour {
 
 	private bool soundHasPlayed = false;
 
-	private void Awake () 
-	{
+	private void Awake () {
+		
 		//Set the animator component
 		anim = GetComponent<Animator>();
 		//Set current ammo to total ammo value
@@ -167,6 +169,7 @@ public class M9 : MonoBehaviour {
 	}
 
 	private void Start () {
+		
 		//Save the weapon name
 		storedWeaponName = weaponName;
 		//Get weapon name from string to text
@@ -182,8 +185,10 @@ public class M9 : MonoBehaviour {
 	}
 
 	private void LateUpdate () {
+		
 		//Weapon sway
-		if (weaponSway == true) {
+		if (weaponSway == true) 
+		{
 			float movementX = -Input.GetAxis ("Mouse X") * swayAmount;
 			float movementY = -Input.GetAxis ("Mouse Y") * swayAmount;
 			//Clamp movement to min and max values
@@ -196,7 +201,7 @@ public class M9 : MonoBehaviour {
 				(movementX, movementY, 0);
 			transform.localPosition = Vector3.Lerp 
 				(transform.localPosition, finalSwayPosition + 
-				initialSwayPosition, Time.deltaTime * swaySmoothValue);
+					initialSwayPosition, Time.deltaTime * swaySmoothValue);
 		}
 	}
 	
@@ -207,12 +212,13 @@ public class M9 : MonoBehaviour {
 		if(Input.GetButton("Fire2") && !isReloading && !isRunning && !isInspecting) 
 		{
 			
-			gunCamera.fieldOfView = Mathf.Lerp (gunCamera.fieldOfView,
-				aimFov, fovSpeed * Time.deltaTime);
-			
 			isAiming = true;
-
+			//Start aiming
 			anim.SetBool ("Aim", true);
+
+			//When right click is released
+			gunCamera.fieldOfView = Mathf.Lerp(gunCamera.fieldOfView,
+				aimFov,fovSpeed * Time.deltaTime);
 
 			if (!soundHasPlayed) 
 			{
@@ -229,13 +235,16 @@ public class M9 : MonoBehaviour {
 				defaultFov,fovSpeed * Time.deltaTime);
 
 			isAiming = false;
-	
+			//Stop aiming
 			anim.SetBool ("Aim", false);
+				
+			soundHasPlayed = false;
 		}
 		//Aiming end
 
 		//If randomize muzzleflash is true, genereate random int values
-		if (randomMuzzleflash == true) {
+		if (randomMuzzleflash == true) 
+		{
 			randomMuzzleflashValue = Random.Range (minRandomValue, maxRandomValue);
 		}
 
@@ -246,7 +255,7 @@ public class M9 : MonoBehaviour {
 			Time.timeScale = 1.0f;
 			timescaleText.text = "1.0";
 		}
-		//Change timescale to 50% when 2 key is pressed
+		//Change timesccale to 50% when 2 key is pressed
 		if (Input.GetKeyDown (KeyCode.Alpha2)) 
 		{
 			Time.timeScale = 0.5f;
@@ -309,11 +318,6 @@ public class M9 : MonoBehaviour {
 			{
 				StartCoroutine (AutoReload ());
 			}
-				
-			//Set slider back
-			anim.SetBool ("Out Of Ammo Slider", true);
-			//Increase layer weight for blending to slider back pose
-			anim.SetLayerWeight (1, 1.0f);
 		} 
 		else 
 		{
@@ -322,89 +326,107 @@ public class M9 : MonoBehaviour {
 			//Toggle bool
 			outOfAmmo = false;
 			//anim.SetBool ("Out Of Ammo", false);
-			anim.SetLayerWeight (1, 0.0f);
 		}
-
-		//Shooting 
-		if (Input.GetMouseButtonDown (0) && !outOfAmmo && !isReloading && !isInspecting && !isRunning) 
+			
+		//AUtomatic fire
+		//Left click hold 
+		if (Input.GetMouseButton (0) && !outOfAmmo && !isReloading && !isInspecting && !isRunning) 
 		{
-			anim.Play ("Fire", 0, 0f);
-	
-			muzzleParticles.Emit (1);
-				
-			//Remove 1 bullet from ammo
-			currentAmmo -= 1;
-
-			shootAudioSource.clip = SoundClips.shootSound;
-			shootAudioSource.Play ();
-
-			//Light flash start
-			StartCoroutine(MuzzleFlashLight());
-
-			if (!isAiming) //if not aiming
+			//Shoot automatic
+			if (Time.time - lastFired > 1 / fireRate) 
 			{
-				anim.Play ("Fire", 0, 0f);
-		
-				muzzleParticles.Emit (1);
+				lastFired = Time.time;
 
-				if (enableSparks == true) 
+				//Remove 1 bullet from ammo
+				currentAmmo -= 1;
+
+				shootAudioSource.clip = SoundClips.shootSound;
+				shootAudioSource.Play ();
+
+				if (!isAiming) //if not aiming
 				{
-					//Emit random amount of spark particles
-					sparkParticles.Emit (Random.Range (1, 6));
-				}
-			} 
-			else //if aiming
-			{
-				anim.Play ("Aim Fire", 0, 0f);
-					
-				//If random muzzle is false
-				if (!randomMuzzleflash) {
-					muzzleParticles.Emit (1);
-					//If random muzzle is true
-				} 
-				else if (randomMuzzleflash == true) 
-				{
-					//Only emit if random value is 1
-					if (randomMuzzleflashValue == 1) 
+					anim.Play ("Fire", 0, 0f);
+					//If random muzzle is false
+					if (!randomMuzzleflash && 
+						enableMuzzleflash == true) 
 					{
-						if (enableSparks == true) 
+						muzzleParticles.Emit (1);
+						//Light flash start
+						StartCoroutine(MuzzleFlashLight());
+					} 
+					else if (randomMuzzleflash == true)
+					{
+						//Only emit if random value is 1
+						if (randomMuzzleflashValue == 1) 
 						{
-							//Emit random amount of spark particles
-							sparkParticles.Emit (Random.Range (1, 6));
+							if (enableSparks == true) 
+							{
+								//Emit random amount of spark particles
+								sparkParticles.Emit (Random.Range (minSparkEmission, maxSparkEmission));
+							}
+							if (enableMuzzleflash == true) 
+							{
+								muzzleParticles.Emit (1);
+								//Light flash start
+								StartCoroutine (MuzzleFlashLight ());
+							}
 						}
-						if (enableMuzzleflash == true) 
+					}
+				} 
+				else //if aiming
+				{
+					
+					anim.Play ("Aim Fire", 0, 0f);
+
+					//If random muzzle is false
+					if (!randomMuzzleflash) {
+						muzzleParticles.Emit (1);
+					//If random muzzle is true
+					} 
+					else if (randomMuzzleflash == true) 
+					{
+						//Only emit if random value is 1
+						if (randomMuzzleflashValue == 1) 
 						{
-							muzzleParticles.Emit (1);
-							//Light flash start
-							StartCoroutine (MuzzleFlashLight ());
+							if (enableSparks == true) 
+							{
+								//Emit random amount of spark particles
+								sparkParticles.Emit (Random.Range (minSparkEmission, maxSparkEmission));
+							}
+							if (enableMuzzleflash == true) 
+							{
+								muzzleParticles.Emit (1);
+								//Light flash start
+								StartCoroutine (MuzzleFlashLight ());
+							}
 						}
 					}
 				}
-			}
+
+				//Spawn bullet from bullet spawnpoint
+				var bullet = (Transform)Instantiate (
+					Prefabs.bulletPrefab,
+					Spawnpoints.bulletSpawnPoint.transform.position,
+					Spawnpoints.bulletSpawnPoint.transform.rotation);
+
+				//Add velocity to the bullet
+				bullet.GetComponent<Rigidbody>().velocity = 
+					bullet.transform.forward * bulletForce;
 				
-			//Spawn bullet at bullet spawnpoint
-			var bullet = (Transform)Instantiate (
-				Prefabs.bulletPrefab,
-				Spawnpoints.bulletSpawnPoint.transform.position,
-				Spawnpoints.bulletSpawnPoint.transform.rotation);
-
-			//Add velocity to the bullet
-			bullet.GetComponent<Rigidbody>().velocity = 
-			bullet.transform.forward * bulletForce;
-
-			//Spawn casing prefab at spawnpoint
-			Instantiate (Prefabs.casingPrefab, 
-				Spawnpoints.casingSpawnPoint.transform.position, 
-				Spawnpoints.casingSpawnPoint.transform.rotation);
+				//Spawn casing prefab at spawnpoint
+				Instantiate (Prefabs.casingPrefab, 
+					Spawnpoints.casingSpawnPoint.transform.position, 
+					Spawnpoints.casingSpawnPoint.transform.rotation);
+			}
 		}
 
-		//Inspect weapon when pressing T key
+		//Inspect weapon when T key is pressed
 		if (Input.GetKeyDown (KeyCode.T)) 
 		{
 			anim.SetTrigger ("Inspect");
 		}
 
-		//Toggle weapon holster when pressing E key
+		//Toggle weapon holster when E key is pressed
 		if (Input.GetKeyDown (KeyCode.E) && !hasBeenHolstered) 
 		{
 			holstered = true;
@@ -423,7 +445,6 @@ public class M9 : MonoBehaviour {
 
 			hasBeenHolstered = false;
 		}
-
 		//Holster anim toggle
 		if (holstered == true) 
 		{
@@ -439,12 +460,6 @@ public class M9 : MonoBehaviour {
 		{
 			//Reload
 			Reload ();
-
-			if (!hasStartedSliderBack) 
-			{
-				hasStartedSliderBack = true;
-				StartCoroutine (HandgunSliderBackDelay());
-			}
 		}
 
 		//Walking when pressing down WASD keys
@@ -467,25 +482,18 @@ public class M9 : MonoBehaviour {
 		}
 		
 		//Run anim toggle
-		if (isRunning == true) {
+		if (isRunning == true) 
+		{
 			anim.SetBool ("Run", true);
-		} else {
+		} 
+		else 
+		{
 			anim.SetBool ("Run", false);
 		}
 	}
 
-	private IEnumerator HandgunSliderBackDelay () {
-		//Wait set amount of time
-		yield return new WaitForSeconds (sliderBackTimer);
-		//Set slider back
-		anim.SetBool ("Out Of Ammo Slider", false);
-		//Increase layer weight for blending to slider back pose
-		anim.SetLayerWeight (1, 0.0f);
-
-		hasStartedSliderBack = false;
-	}
-
 	private IEnumerator GrenadeSpawnDelay () {
+		
 		//Wait for set amount of time before spawning grenade
 		yield return new WaitForSeconds (grenadeSpawnDelay);
 		//Spawn grenade prefab at spawnpoint
@@ -495,17 +503,11 @@ public class M9 : MonoBehaviour {
 	}
 
 	private IEnumerator AutoReload () {
-
-		if (!hasStartedSliderBack) 
-		{
-			hasStartedSliderBack = true;
-
-			StartCoroutine (HandgunSliderBackDelay());
-		}
-		//Wait for set amount of time
+		//Wait set amount of time
 		yield return new WaitForSeconds (autoReloadDelay);
 
-		if (outOfAmmo == true) {
+		if (outOfAmmo == true) 
+		{
 			//Play diff anim if out of ammo
 			anim.Play ("Reload Out Of Ammo", 0, 0f);
 
@@ -571,22 +573,23 @@ public class M9 : MonoBehaviour {
 
 	//Enable bullet in mag renderer after set amount of time
 	private IEnumerator ShowBulletInMag () {
+		
 		//Wait set amount of time before showing bullet in mag
 		yield return new WaitForSeconds (showBulletInMagDelay);
 		bulletInMagRenderer.GetComponent<SkinnedMeshRenderer> ().enabled = true;
 	}
 
 	//Show light when shooting, then disable after set amount of time
-	private IEnumerator MuzzleFlashLight () 
-	{
+	private IEnumerator MuzzleFlashLight () {
+		
 		muzzleflashLight.enabled = true;
 		yield return new WaitForSeconds (lightDuration);
 		muzzleflashLight.enabled = false;
 	}
 
 	//Check current animation playing
-	private void AnimationCheck () 
-	{
+	private void AnimationCheck () {
+		
 		//Check if reloading
 		//Check both animations
 		if (anim.GetCurrentAnimatorStateInfo (0).IsName ("Reload Out Of Ammo") || 
