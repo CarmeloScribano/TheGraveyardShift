@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System;
 
 // ----- Low Poly FPS Pack Free Version -----
 public class AK47 : Gun {
@@ -37,8 +38,17 @@ public class AK47 : Gun {
 
     private void Update()
     {
-		Shoot(this.fireRate, this.bulletForce, this.mainAudioSource, this.shootAudioSource, this.soundClips, this.prefabs, this.spawnPoints, this.muzzleflashLight, this.lightDuration);
-    }
+		Shoot(fireRate, 
+			bulletForce, 
+			mainAudioSource, 
+			shootAudioSource, 
+			soundClips, 
+			prefabs, 
+			spawnPoints, 
+			muzzleflashLight, 
+			lightDuration);
 
+		UpdateMethods(soundClips, mainAudioSource, bulletInMagRenderer, showBulletInMagDelay);
+    }
 }
 // ----- Low Poly FPS Pack Free Version -----

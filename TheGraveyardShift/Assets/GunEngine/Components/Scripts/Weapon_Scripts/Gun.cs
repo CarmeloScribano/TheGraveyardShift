@@ -371,7 +371,7 @@ public class Gun : MonoBehaviour
 		outOfAmmo = false;
 	}
 
-	private void UpdateMethods(SoundClips soundClips, AudioSource mainAudioSource, SkinnedMeshRenderer bulletInMagRenderer, float showBulletInMagDelay)
+	public void UpdateMethods(SoundClips soundClips, AudioSource mainAudioSource, SkinnedMeshRenderer bulletInMagRenderer, float showBulletInMagDelay)
 	{
 		//Reload 
 		if (Input.GetKeyDown(KeyCode.R) && !isReloading && !isInspecting)
