@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44937944, g: 0.49945617, b: 0.5757003, a: 1}
+  m_IndirectSpecularColor: {r: 0.44937968, g: 0.4994567, b: 0.5757008, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1379,6 +1379,10 @@ PrefabInstance:
       propertyPath: soundClips
       value: 
       objectReference: {fileID: 1402942043}
+    - target: {fileID: 114216158892903854, guid: b9ca752c3df4dec4cadafd04fc5d444b, type: 3}
+      propertyPath: spawnPoints
+      value: 
+      objectReference: {fileID: 1402942044}
     - target: {fileID: 114985937948325432, guid: b9ca752c3df4dec4cadafd04fc5d444b, type: 3}
       propertyPath: jumpForce
       value: 35
