@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Target
+  - Metal
+  - ExplosiveBarrel
+  - HUD
+  - WeaponName
+  - WeaponAmmo
+  - WeaponTotalAmmo
   layers:
   - Default
   - TransparentFX
