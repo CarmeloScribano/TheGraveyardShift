@@ -339,6 +339,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1385369264, guid: 6c882b415cc4fc04f93385ddf3553765, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1385369265, guid: 6c882b415cc4fc04f93385ddf3553765, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1668002390, guid: 6c882b415cc4fc04f93385ddf3553765, type: 3}
+      propertyPath: m_Name
+      value: arms
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401800002220471228, guid: 6c882b415cc4fc04f93385ddf3553765, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7180919365650414504, guid: 6c882b415cc4fc04f93385ddf3553765, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -349,7 +365,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7180919365650414504, guid: 6c882b415cc4fc04f93385ddf3553765, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.77
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7180919365650414504, guid: 6c882b415cc4fc04f93385ddf3553765, type: 3}
       propertyPath: m_LocalPosition.z
@@ -387,6 +403,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7805509897996095436, guid: 6c882b415cc4fc04f93385ddf3553765, type: 3}
+      propertyPath: weapons.Array.data[1]
+      value: 
+      objectReference: {fileID: 1401800002220471228}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c882b415cc4fc04f93385ddf3553765, type: 3}
 --- !u!1001 &604024377
@@ -1244,6 +1264,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1279437348525638701, guid: e2e682b966e3f644392ffbfab511e0e2, type: 3}
   m_PrefabInstance: {fileID: 1825213771}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1401800002220471228 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1401800002220471228, guid: 6c882b415cc4fc04f93385ddf3553765, type: 3}
+  m_PrefabInstance: {fileID: 379839562}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1912967432402655575
 PrefabInstance:

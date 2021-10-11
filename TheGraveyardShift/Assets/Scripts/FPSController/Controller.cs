@@ -1,16 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace FPSControllerLPFP
+namespace Controller
 {
     /// Manages a first person character
     [RequireComponent(typeof(Rigidbody))]
     [RequireComponent(typeof(CapsuleCollider))]
     [RequireComponent(typeof(AudioSource))]
-    public class FpsControllerLPFP : MonoBehaviour
+    public class Controller : MonoBehaviour
     {
-#pragma warning disable 649
 		[Header("Arms")]
         [Tooltip("The transform component that holds the gun camera."), SerializeField]
         private Transform arms;
@@ -55,8 +55,6 @@ namespace FPSControllerLPFP
 
         [Tooltip("The names of the axes and buttons for Unity's Input Manager."), SerializeField]
         private FpsInput input;
-#pragma warning restore 649
-
         private Rigidbody _rigidbody;
         private CapsuleCollider _collider;
         private AudioSource _audioSource;
@@ -93,7 +91,7 @@ namespace FPSControllerLPFP
 			arms.SetPositionAndRotation(t.position, t.rotation);
 			return arms;
         }
-        
+
         /// Clamps <see cref="minVerticalAngle"/> and <see cref="maxVerticalAngle"/> to valid values and
         /// ensures that <see cref="minVerticalAngle"/> is less than <see cref="maxVerticalAngle"/>.
         private void ValidateRotationRestriction()
@@ -140,7 +138,26 @@ namespace FPSControllerLPFP
             MoveCharacter();
             _isGrounded = false;
         }
-			
+
+        //void ChangeWeapon(int number)
+        //{
+        //    if (m_CurrentWeapon != -1)
+        //    {
+        //        m_Weapons[m_CurrentWeapon].PutAway();
+        //        m_Weapons[m_CurrentWeapon].gameObject.SetActive(false);
+        //    }
+
+        //    m_CurrentWeapon = number;
+
+        //    if (m_CurrentWeapon < 0)
+        //        m_CurrentWeapon = m_Weapons.Count - 1;
+        //    else if (m_CurrentWeapon >= m_Weapons.Count)
+        //        m_CurrentWeapon = 0;
+
+        //    m_Weapons[m_CurrentWeapon].gameObject.SetActive(true);
+        //    m_Weapons[m_CurrentWeapon].Selected();
+        //}
+
         /// Moves the camera to the character, processes jumping and plays sounds every frame.
         private void Update()
         {

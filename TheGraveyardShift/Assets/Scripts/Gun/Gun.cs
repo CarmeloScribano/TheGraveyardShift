@@ -28,6 +28,16 @@ public class Gun : MonoBehaviour
 
     public float aimFov = 10.0f;
 
+    public virtual void OnWeaponUse()
+    {
+   //     if (currentWeaponIcon != null)
+   //     {
+			//currentWeaponIcon.sprite = WeaponIcon;
+   //     }
+
+		totalAmmoText.text = ammo.ToString();
+    }
+
     [Header("UI Weapon Name")]
     [Tooltip("Name of the current weapon, shown in the game UI.")]
     public string weaponName;
