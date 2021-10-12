@@ -28,15 +28,36 @@ public class Gun : MonoBehaviour
 
     public float aimFov = 10.0f;
 
-    public virtual void OnWeaponUse()
-    {
-   //     if (currentWeaponIcon != null)
-   //     {
-			//currentWeaponIcon.sprite = WeaponIcon;
-   //     }
+	[Header("Weapon Settings")]
+	[Tooltip("How the gun shoots.")]
+	public FireWeaponSettings fireType;
+	//How fast the weapon fires, higher value means faster rate of fire
+	[Tooltip("How fast the weapon fires, higher value means faster rate of fire.")]
+	public float fireRate;
+	[Header("Bullet Settings")]
+	//Bullet
+	[Tooltip("How much force is applied to the bullet when shooting.")]
+	public float bulletForce = 400.0f;
+	[Tooltip("How long after reloading that the bullet model becomes visible " +
+		"again, only used for out of ammo reload animations.")]
+	public float showBulletInMagDelay = 0.6f;
+	[Tooltip("The bullet model inside the mag, not used for all weapons.")]
+	public SkinnedMeshRenderer bulletInMagRenderer;
 
-		totalAmmoText.text = ammo.ToString();
-    }
+	[Header("Muzzleflash Light Settings")]
+	public Light muzzleflashLight;
+	public float lightDuration = 0.02f;
+
+	[Header("Audio Source")]
+	//Main audio source
+	public AudioSource mainAudioSource;
+	//Audio source used for shoot sound
+	public AudioSource shootAudioSource;
+
+	[Header("Classes")]
+	public Prefabs prefabs;
+	public SoundClips soundClips;
+	public SpawnPoints spawnPoints;
 
     [Header("UI Weapon Name")]
     [Tooltip("Name of the current weapon, shown in the game UI.")]
@@ -113,8 +134,23 @@ public class Gun : MonoBehaviour
 	public int minSparkEmission = 1;
 	public int maxSparkEmission = 7;
 
+
+	public PlayerController controller;
+
+	private void Awake()
+	{
+
+		//Set the animator component
+		anim = GetComponent<Animator>();
+		//Set current ammo to total ammo value
+		currentAmmo = ammo;
+
+		//muzzleflashLight.enabled = false;
+	}
+
 	private void Start()
     {
+		controller = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
 
 		//GameObject canvas = GameObject.FindGameObjectWithTag("HUD");
 		currentWeaponText = GameObject.FindGameObjectWithTag("WeaponName").GetComponent<Text>();
@@ -131,17 +167,6 @@ public class Gun : MonoBehaviour
 		//Weapon sway
 		initialSwayPosition = transform.localPosition;
     }
-
-	private void Awake()
-	{
-
-		//Set the animator component
-		anim = GetComponent<Animator>();
-		//Set current ammo to total ammo value
-		currentAmmo = ammo;
-
-		//muzzleflashLight.enabled = false;
-	}
 
 	private void LateUpdate()
 	{
@@ -165,7 +190,31 @@ public class Gun : MonoBehaviour
 		}
 	}
 
-	public void Shoot(float fireRate, float bulletForce, AudioSource mainAudioSource, AudioSource shootAudioSource, SoundClips soundClips, Prefabs prefabs, SpawnPoints spawnPoints, Light muzzleflashLight, float lightDuration)
+	/// TODO: 
+	/// Fix Switching Guns 
+	///
+	public virtual void OnWeaponUse()
+	{
+		//     if (currentWeaponIcon != null)
+		//     {
+		//currentWeaponIcon.sprite = WeaponIcon;
+		//     }
+
+		//SwitchWeapon status = GameObject.FindGameObjectWithTag("Player").GetComponent<SwitchWeapon>();
+
+		Debug.Log("Called");
+
+		if (controller != null)
+        {
+			controller.arms = this.transform;
+        }
+
+		//controller.arms = status.weapons[status.currentWpnIndex].transform;
+
+		//totalAmmoText.text = ammo.ToString();
+	}
+
+	public void Shoot()
     {
 		//Aiming
 		//Toggle camera FOV when right click is held down
@@ -350,7 +399,7 @@ public class Gun : MonoBehaviour
 		}
 	}
 
-	private void Reload(SoundClips soundClips, AudioSource mainAudioSource, SkinnedMeshRenderer bulletInMagRenderer, float showBulletInMagDelay)
+	private void Reload()
 	{
 
 		if (outOfAmmo == true)
@@ -392,13 +441,13 @@ public class Gun : MonoBehaviour
 		outOfAmmo = false;
 	}
 
-	public void UpdateMethods(SoundClips soundClips, AudioSource mainAudioSource, SkinnedMeshRenderer bulletInMagRenderer, float showBulletInMagDelay)
+	public void UpdateMethods()
 	{
 		//Reload 
 		if (Input.GetKeyDown(KeyCode.R) && !isReloading && !isInspecting)
 		{
 			//Reload
-			Reload(soundClips, mainAudioSource, bulletInMagRenderer, showBulletInMagDelay);
+			Reload();
 		}
 
 		//Walking when pressing down WASD keys
@@ -474,47 +523,6 @@ public class Gun : MonoBehaviour
 	//}
 
 	//Reload
-	private void Reload(AudioSource mainAudioSource, SoundClips soundClips, SkinnedMeshRenderer bulletInMagRenderer, float showBulletInMagDelay)
-	{
-
-		if (outOfAmmo == true)
-		{
-			//Play diff anim if out of ammo
-			anim.Play("Reload Out Of Ammo", 0, 0f);
-
-			mainAudioSource.clip = soundClips.reloadSoundOutOfAmmo;
-			mainAudioSource.Play();
-
-			//If out of ammo, hide the bullet renderer in the mag
-			//Do not show if bullet renderer is not assigned in inspector
-			if (bulletInMagRenderer != null)
-			{
-				bulletInMagRenderer.GetComponent
-				<SkinnedMeshRenderer>().enabled = false;
-				//Start show bullet delay
-				StartCoroutine(ShowBulletInMag(showBulletInMagDelay, bulletInMagRenderer));
-			}
-		}
-		else
-		{
-			//Play diff anim if ammo left
-			anim.Play("Reload Ammo Left", 0, 0f);
-
-			mainAudioSource.clip = soundClips.reloadSoundAmmoLeft;
-			mainAudioSource.Play();
-
-			//If reloading when ammo left, show bullet in mag
-			//Do not show if bullet renderer is not assigned in inspector
-			if (bulletInMagRenderer != null)
-			{
-				bulletInMagRenderer.GetComponent
-				<SkinnedMeshRenderer>().enabled = true;
-			}
-		}
-		//Restore ammo when reloading
-		currentAmmo = ammo;
-		outOfAmmo = false;
-	}
 
 	//Enable bullet in mag renderer after set amount of time
 	private IEnumerator ShowBulletInMag(float showBulletInMagDelay, SkinnedMeshRenderer bulletInMagRenderer)

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SwitchWeapon : MonoBehaviour
 {
-    private int currentWpnIndex = 0;
+    public int currentWpnIndex = 0;
 
     public GameObject[] weapons;
 
@@ -23,10 +23,10 @@ public class SwitchWeapon : MonoBehaviour
 
             currentWpnIndex = (currentWpnIndex + 1) % weapons.Length;
 
-            var controller = weapons[currentWpnIndex].GetComponent<Gun>();
-            if (controller != null)
+            Gun gun = weapons[currentWpnIndex].GetComponent<Gun>();
+            if (gun != null)
             {
-                controller.OnWeaponUse();
+                gun.OnWeaponUse();
             }
 
             SetWeaponActive(true);
