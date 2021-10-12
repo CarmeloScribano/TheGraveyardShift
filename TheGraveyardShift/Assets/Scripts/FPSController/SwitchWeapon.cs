@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SwitchWeapon : MonoBehaviour
 {
-    public int currentWpnIndex = 0;
+    private int currentWpnIndex = 0;
 
     public GameObject[] weapons;
 

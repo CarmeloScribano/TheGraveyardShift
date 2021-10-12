@@ -75,9 +75,9 @@ public class Gun : MonoBehaviour
 
 	[Header("UI Components")]
 	//public Text timescaleText;
-	public Text currentWeaponText;
-	public Text currentAmmoText;
-	public Text totalAmmoText;
+	private Text currentWeaponText;
+	private Text currentAmmoText;
+	private Text totalAmmoText;
 
 	private Vector3 initialSwayPosition;
 
@@ -204,11 +204,11 @@ public class Gun : MonoBehaviour
 
 		//SwitchWeapon status = GameObject.FindGameObjectWithTag("Player").GetComponent<SwitchWeapon>();
 
-		Debug.Log("Called");
+		Debug.Log(this.name);
 
 		if (controller != null)
         {
-			controller.arms = this.transform;
+			controller.arms = this.GetComponentInParent<Transform>();
         }
 
 		//controller.arms = status.weapons[status.currentWpnIndex].transform;

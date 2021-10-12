@@ -1137,9 +1137,6 @@ MonoBehaviour:
   swayAmount: 0.02
   maxSwayAmount: 0.06
   swaySmoothValue: 10
-  currentWeaponText: {fileID: 0}
-  currentAmmoText: {fileID: 0}
-  totalAmmoText: {fileID: 0}
   autoReload: 0
   autoReloadDelay: 0.25
   ammo: 30
