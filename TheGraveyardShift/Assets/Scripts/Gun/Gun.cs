@@ -331,7 +331,7 @@ public class Gun : MonoBehaviour
 					{
 						muzzleParticles.Emit(1);
 						//Light flash start
-						StartCoroutine(MuzzleFlashLight(muzzleflashLight, lightDuration));
+						StartCoroutine(MuzzleFlashLight());
 					}
 					else if (randomMuzzleflash == true)
 					{
@@ -347,7 +347,7 @@ public class Gun : MonoBehaviour
 							{
 								muzzleParticles.Emit(1);
 								//Light flash start
-								StartCoroutine(MuzzleFlashLight(muzzleflashLight, lightDuration));
+								StartCoroutine(MuzzleFlashLight());
 							}
 						}
 					}
@@ -377,7 +377,7 @@ public class Gun : MonoBehaviour
 							{
 								muzzleParticles.Emit(1);
 								//Light flash start
-								StartCoroutine(MuzzleFlashLight(muzzleflashLight, lightDuration));
+								StartCoroutine(MuzzleFlashLight());
 							}
 						}
 					}
@@ -555,7 +555,7 @@ public class Gun : MonoBehaviour
 	}
 
 	//Show light when shooting, then disable after set amount of time
-	private IEnumerator MuzzleFlashLight(Light muzzleflashLight, float lightDuration)
+	private IEnumerator MuzzleFlashLight()
 	{
 
 		muzzleflashLight.enabled = true;
