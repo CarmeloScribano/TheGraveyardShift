@@ -5,14 +5,14 @@ using UnityEngine.UI;
 
 public class Gun : MonoBehaviour
 {
-    //Animator component attached to weapon
-    Animator anim;
-
 	public enum FireWeaponSettings
-    {
+	{
 		Automatic,
 		Semi
-    }
+	}
+
+    //Animator component attached to weapon
+    Animator anim;
 
     [Header("Gun Camera")]
     //Main gun camera
@@ -134,10 +134,12 @@ public class Gun : MonoBehaviour
 	public int minSparkEmission = 1;
 	public int maxSparkEmission = 7;
 
+	private int totalAmmo;
 
-	public PlayerController controller;
 
-	private void Awake()
+    public PlayerController controller;
+
+	public void OnAwake()
 	{
 
 		//Set the animator component
@@ -148,8 +150,10 @@ public class Gun : MonoBehaviour
 		//muzzleflashLight.enabled = false;
 	}
 
-	private void Start()
+	public void OnStart()
     {
+		totalAmmo = ammo;
+
 		controller = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
 
 		//GameObject canvas = GameObject.FindGameObjectWithTag("HUD");
@@ -167,11 +171,9 @@ public class Gun : MonoBehaviour
 		//Weapon sway
 		initialSwayPosition = transform.localPosition;
     }
-
-	private void LateUpdate()
-	{
-
-		//Weapon sway
+	
+	public void OnLateUpdate()
+    {
 		if (weaponSway == true)
 		{
 			float movementX = -Input.GetAxis("Mouse X") * swayAmount;
@@ -381,22 +383,39 @@ public class Gun : MonoBehaviour
 					}
 				}
 
-				//Spawn bullet from bullet spawnpoint
-				var bullet = (Transform)Instantiate(
-					prefabs.bulletPrefab,
-					spawnPoints.bulletSpawnPoint.transform.position,
-					spawnPoints.bulletSpawnPoint.transform.rotation);
-
-				//Add velocity to the bullet
-				bullet.GetComponent<Rigidbody>().velocity =
-					bullet.transform.forward * bulletForce;
-
-				//Spawn casing prefab at spawnpoint
-				Instantiate(prefabs.casingPrefab,
-					spawnPoints.casingSpawnPoint.transform.position,
-					spawnPoints.casingSpawnPoint.transform.rotation);
+				CreateBullet();
 			}
 		}
+	}
+
+	private void CreateBullet() {
+		//Spawn bullet from bullet spawnpoint
+		var bullet = (Transform)Instantiate(
+			prefabs.bulletPrefab,
+			spawnPoints.bulletSpawnPoint.transform.position,
+			spawnPoints.bulletSpawnPoint.transform.rotation);
+
+		//Add velocity to the bullet
+		bullet.GetComponent<Rigidbody>().velocity =
+			bullet.transform.forward * bulletForce;
+
+		//Spawn casing prefab at spawnpoint
+		Instantiate(prefabs.casingPrefab,
+			spawnPoints.casingSpawnPoint.transform.position,
+			spawnPoints.casingSpawnPoint.transform.rotation);
+	}
+
+	private void TextColorChange()
+    {
+		if (currentAmmo < (totalAmmo * 0.3f))
+		{
+			currentAmmoText.color = new Color(255, 0, 0);
+		}
+        else
+        {
+			currentAmmoText.color = new Color(255, 255, 255);
+		}
+
 	}
 
 	private void Reload()
@@ -482,6 +501,8 @@ public class Gun : MonoBehaviour
 		{
 			anim.SetBool("Run", false);
 		}
+
+		TextColorChange();
 	}
 
 	//private IEnumerator GrenadeSpawnDelay () {

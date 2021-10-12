@@ -23,5 +23,20 @@ public class AK47 : Gun {
 
 		UpdateMethods();
     }
+
+    private void LateUpdate()
+    {
+		OnLateUpdate();
+    }
+
+    private void Start()
+    {
+		OnStart();
+    }
+
+    private void Awake()
+    {
+		OnAwake();
+    }
 }
 // ----- Low Poly FPS Pack Free Version -----
