@@ -11,6 +11,5 @@ public class SpawnPoints : MonoBehaviour
 	public Transform casingSpawnPoint;
 	//Bullet prefab spawn from this point
 	public Transform bulletSpawnPoint;
-
-	//public Transform grenadeSpawnPoint;
+	public Transform grenadeSpawnPoint;
 }

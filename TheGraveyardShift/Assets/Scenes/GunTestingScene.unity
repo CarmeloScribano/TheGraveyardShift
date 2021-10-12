@@ -1364,10 +1364,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1912967432467309838, guid: c2cd175d5a58b1141b921728bd10717f, type: 3}
-      propertyPath: m_TagString
-      value: WeaponTotalAmmo
-      objectReference: {fileID: 0}
     - target: {fileID: 1912967433525819237, guid: c2cd175d5a58b1141b921728bd10717f, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1455,14 +1451,6 @@ PrefabInstance:
     - target: {fileID: 1912967433525819257, guid: c2cd175d5a58b1141b921728bd10717f, type: 3}
       propertyPath: m_Name
       value: HUD
-      objectReference: {fileID: 0}
-    - target: {fileID: 1912967433693982714, guid: c2cd175d5a58b1141b921728bd10717f, type: 3}
-      propertyPath: m_TagString
-      value: WeaponAmmo
-      objectReference: {fileID: 0}
-    - target: {fileID: 1912967434211259590, guid: c2cd175d5a58b1141b921728bd10717f, type: 3}
-      propertyPath: m_TagString
-      value: WeaponName
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2cd175d5a58b1141b921728bd10717f, type: 3}

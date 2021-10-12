@@ -1065,14 +1065,16 @@ MonoBehaviour:
   lightDuration: 0.02
   mainAudioSource: {fileID: 846736895}
   shootAudioSource: {fileID: 846736896}
-  prefabs: {fileID: 0}
-  soundClips: {fileID: 0}
-  spawnPoints: {fileID: 0}
+  grenadeSpawnDelay: 0.35
+  prefabs: {fileID: 3263979143734966423}
+  soundClips: {fileID: 3112146306081806092}
+  spawnPoints: {fileID: 3645915621514163159}
   weaponName: AK47
   weaponSway: 1
   swayAmount: 0.02
   maxSwayAmount: 0.06
   swaySmoothValue: 10
+  WeaponIcon: {fileID: 21300000, guid: 364206cb355dcf7479b2cdec20b8ec68, type: 3}
   autoReload: 0
   autoReloadDelay: 0.25
   ammo: 30
@@ -1084,7 +1086,6 @@ MonoBehaviour:
   sparkParticles: {fileID: 1116899457}
   minSparkEmission: 1
   maxSparkEmission: 7
-  controller: {fileID: 0}
 --- !u!114 &3112146306081806092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1116,6 +1117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   casingSpawnPoint: {fileID: 10728505}
   bulletSpawnPoint: {fileID: 2100322248}
+  grenadeSpawnPoint: {fileID: 0}
 --- !u!114 &3263979143734966423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1130,6 +1132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 4879702113200764, guid: 5953171a59c27394e9ad5cbb564affa8, type: 3}
   casingPrefab: {fileID: 4420745226056240, guid: 7be59128a5ee3424faf33d7a408c0b2e, type: 3}
+  grenadePrefab: {fileID: 0}
 --- !u!95 &498897179453728871
 Animator:
   serializedVersion: 3
@@ -13741,14 +13744,16 @@ MonoBehaviour:
   lightDuration: 0.02
   mainAudioSource: {fileID: 1320788737458443242}
   shootAudioSource: {fileID: 1320137801652413150}
-  prefabs: {fileID: 0}
-  soundClips: {fileID: 0}
-  spawnPoints: {fileID: 0}
+  grenadeSpawnDelay: 0.35
+  prefabs: {fileID: 1459640329092473720}
+  soundClips: {fileID: 4771267007925141956}
+  spawnPoints: {fileID: 8483351971163016299}
   weaponName: M9
   weaponSway: 1
   swayAmount: 0.02
   maxSwayAmount: 0.06
   swaySmoothValue: 10
+  WeaponIcon: {fileID: 21300000, guid: d6e4dc2ab496ac845a119b14c5abbb91, type: 3}
   autoReload: 0
   autoReloadDelay: 0.15
   ammo: 9
@@ -13760,7 +13765,6 @@ MonoBehaviour:
   sparkParticles: {fileID: 1275505763091770342}
   minSparkEmission: 1
   maxSparkEmission: 7
-  controller: {fileID: 0}
 --- !u!114 &4771267007925141956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13792,6 +13796,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 4879702113200764, guid: 5953171a59c27394e9ad5cbb564affa8, type: 3}
   casingPrefab: {fileID: 4924048156253418, guid: b1995a53a949fac4db5722fc1df9efe4, type: 3}
+  grenadePrefab: {fileID: 0}
 --- !u!114 &8483351971163016299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13806,6 +13811,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   casingSpawnPoint: {fileID: 1396469996718287518}
   bulletSpawnPoint: {fileID: 1404885095648265352}
+  grenadeSpawnPoint: {fileID: 0}
 --- !u!95 &8149555280074619218
 Animator:
   serializedVersion: 3
@@ -24263,5 +24269,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapons:
-  - {fileID: 1385369264}
-  - {fileID: 0}
+  - {fileID: 846736890}
+  - {fileID: 1402578988056413040}

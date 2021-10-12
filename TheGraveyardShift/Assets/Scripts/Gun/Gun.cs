@@ -54,6 +54,9 @@ public class Gun : MonoBehaviour
 	//Audio source used for shoot sound
 	public AudioSource shootAudioSource;
 
+	[Header("Grenade Settings")]
+	public float grenadeSpawnDelay = 0.35f;
+
 	[Header("Classes")]
 	public Prefabs prefabs;
 	public SoundClips soundClips;
@@ -78,6 +81,8 @@ public class Gun : MonoBehaviour
 	private Text currentWeaponText;
 	private Text currentAmmoText;
 	private Text totalAmmoText;
+	private Image currentWeaponIcon;
+	public Sprite WeaponIcon;
 
 	private Vector3 initialSwayPosition;
 
@@ -136,12 +141,8 @@ public class Gun : MonoBehaviour
 
 	private int totalAmmo;
 
-
-    public PlayerController controller;
-
 	public void OnAwake()
 	{
-
 		//Set the animator component
 		anim = GetComponent<Animator>();
 		//Set current ammo to total ammo value
@@ -152,14 +153,13 @@ public class Gun : MonoBehaviour
 
 	public void OnStart()
     {
+		FindHUDElements();
+
+		TakeOut();
+
 		totalAmmo = ammo;
 
-		controller = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-
 		//GameObject canvas = GameObject.FindGameObjectWithTag("HUD");
-		currentWeaponText = GameObject.FindGameObjectWithTag("WeaponName").GetComponent<Text>();
-		currentAmmoText = GameObject.FindGameObjectWithTag("WeaponAmmo").GetComponent<Text>();
-		totalAmmoText = GameObject.FindGameObjectWithTag("WeaponTotalAmmo").GetComponent<Text>();
 
 		//Save the weapon name
 		storedWeaponName = weaponName;
@@ -172,6 +172,14 @@ public class Gun : MonoBehaviour
 		initialSwayPosition = transform.localPosition;
     }
 	
+	private void FindHUDElements()
+    {
+		currentWeaponText = GameObject.FindGameObjectWithTag("WeaponName").GetComponent<Text>();
+		currentAmmoText = GameObject.FindGameObjectWithTag("WeaponAmmo").GetComponent<Text>();
+		totalAmmoText = GameObject.FindGameObjectWithTag("WeaponTotalAmmo").GetComponent<Text>();
+		currentWeaponIcon = GameObject.FindGameObjectWithTag("WeaponIcon").GetComponent<Image>();
+	}
+
 	public void OnLateUpdate()
     {
 		if (weaponSway == true)
@@ -197,23 +205,16 @@ public class Gun : MonoBehaviour
 	///
 	public virtual void OnWeaponUse()
 	{
-		//     if (currentWeaponIcon != null)
-		//     {
-		//currentWeaponIcon.sprite = WeaponIcon;
-		//     }
+		FindHUDElements();
 
-		//SwitchWeapon status = GameObject.FindGameObjectWithTag("Player").GetComponent<SwitchWeapon>();
+		TakeOut();
 
-		Debug.Log(this.name);
+		//if (currentWeaponIcon != null)
+		  //  {
+		currentWeaponIcon.sprite = WeaponIcon;
+		 //}
 
-		if (controller != null)
-        {
-			controller.arms = this.GetComponentInParent<Transform>();
-        }
-
-		//controller.arms = status.weapons[status.currentWpnIndex].transform;
-
-		//totalAmmoText.text = ammo.ToString();
+		totalAmmoText.text = ammo.ToString();
 	}
 
 	public void Shoot()
@@ -266,24 +267,9 @@ public class Gun : MonoBehaviour
 		//is currently playing
 		AnimationCheck();
 
-		//Play knife attack 1 animation when Q key is pressed
-		if (Input.GetKeyDown(KeyCode.Q) && !isInspecting)
-		{
-			anim.Play("Knife Attack 1", 0, 0f);
-		}
-		//Play knife attack 2 animation when F key is pressed
-		if (Input.GetKeyDown(KeyCode.F) && !isInspecting)
-		{
-			anim.Play("Knife Attack 2", 0, 0f);
-		}
+		Knife();
 
-		//Throw grenade when pressing G key
-		//if (Input.GetKeyDown (KeyCode.G) && !isInspecting) 
-		//{
-		//	StartCoroutine (GrenadeSpawnDelay ());
-		//	//Play grenade throw animation
-		//	anim.Play("GrenadeThrow", 0, 0.0f);
-		//}
+		//Grenade();
 
 		//If out of ammo
 		if (currentAmmo == 0)
@@ -307,85 +293,198 @@ public class Gun : MonoBehaviour
 			//anim.SetBool ("Out Of Ammo", false);
 		}
 
+		Shooting();
+	}
+
+	private void TakeOut()
+    {
+		mainAudioSource.clip = soundClips.takeOutSound;
+		mainAudioSource.Play();
+	}
+
+	private void Shooting()
+    {
 		//AUtomatic fire
 		//Left click hold 
 		if (Input.GetMouseButton(0) && !outOfAmmo && !isReloading && !isInspecting && !isRunning)
 		{
-			//Shoot automatic
-			if (Time.time - lastFired > 1 / fireRate)
+			if (fireType == FireWeaponSettings.Automatic)
 			{
-				lastFired = Time.time;
+				//Shoot automatic
+				if (Time.time - lastFired > 1 / fireRate)
+				{
+					lastFired = Time.time;
 
-				//Remove 1 bullet from ammo
-				currentAmmo -= 1;
+					//Remove 1 bullet from ammo
+					currentAmmo -= 1;
 
-				shootAudioSource.clip = soundClips.shootSound;
-				shootAudioSource.Play();
+					shootAudioSource.clip = soundClips.shootSound;
+					shootAudioSource.Play();
 
-				if (!isAiming) //if not aiming
+					if (!isAiming) //if not aiming
+					{
+						anim.Play("Fire", 0, 0f);
+						CreateBullet();
+						//If random muzzle is false
+						if (!randomMuzzleflash &&
+							enableMuzzleflash == true)
+						{
+							muzzleParticles.Emit(1);
+							//Light flash start
+							StartCoroutine(MuzzleFlashLight());
+						}
+						else if (randomMuzzleflash == true)
+						{
+							//Only emit if random value is 1
+							if (randomMuzzleflashValue == 1)
+							{
+								if (enableSparks == true)
+								{
+									//Emit random amount of spark particles
+									sparkParticles.Emit(Random.Range(minSparkEmission, maxSparkEmission));
+								}
+								if (enableMuzzleflash == true)
+								{
+									muzzleParticles.Emit(1);
+									//Light flash start
+									StartCoroutine(MuzzleFlashLight());
+								}
+							}
+						}
+					}
+					else //if aiming
+					{
+
+						anim.Play("Aim Fire", 0, 0f);
+						CreateBullet();
+
+						//If random muzzle is false
+						if (!randomMuzzleflash)
+						{
+							muzzleParticles.Emit(1);
+							//If random muzzle is true
+						}
+						else if (randomMuzzleflash == true)
+						{
+							//Only emit if random value is 1
+							if (randomMuzzleflashValue == 1)
+							{
+								if (enableSparks == true)
+								{
+									//Emit random amount of spark particles
+									sparkParticles.Emit(Random.Range(minSparkEmission, maxSparkEmission));
+								}
+								if (enableMuzzleflash == true)
+								{
+									muzzleParticles.Emit(1);
+									//Light flash start
+									StartCoroutine(MuzzleFlashLight());
+								}
+							}
+						}
+					}
+				}				
+			}
+			else if (fireType == FireWeaponSettings.Semi)
+			{
+				//Shooting 
+				if (Input.GetMouseButtonDown(0) && !outOfAmmo && !isReloading && !isInspecting && !isRunning)
 				{
 					anim.Play("Fire", 0, 0f);
-					//If random muzzle is false
-					if (!randomMuzzleflash &&
-						enableMuzzleflash == true)
+
+					muzzleParticles.Emit(1);
+
+					//Remove 1 bullet from ammo
+					currentAmmo -= 1;
+
+					shootAudioSource.clip = soundClips.shootSound;
+					shootAudioSource.Play();
+
+					//Light flash start
+					StartCoroutine(MuzzleFlashLight());
+
+					if (!isAiming) //if not aiming
 					{
+						anim.Play("Fire", 0, 0f);
+						CreateBullet();
+
 						muzzleParticles.Emit(1);
-						//Light flash start
-						StartCoroutine(MuzzleFlashLight());
-					}
-					else if (randomMuzzleflash == true)
-					{
-						//Only emit if random value is 1
-						if (randomMuzzleflashValue == 1)
+
+						if (enableSparks == true)
 						{
-							if (enableSparks == true)
+							//Emit random amount of spark particles
+							sparkParticles.Emit(Random.Range(1, 6));
+						}
+					}
+					else //if aiming
+					{
+						anim.Play("Aim Fire", 0, 0f);
+						CreateBullet();
+
+						//If random muzzle is false
+						if (!randomMuzzleflash)
+						{
+							muzzleParticles.Emit(1);
+							//If random muzzle is true
+						}
+						else if (randomMuzzleflash == true)
+						{
+							//Only emit if random value is 1
+							if (randomMuzzleflashValue == 1)
 							{
-								//Emit random amount of spark particles
-								sparkParticles.Emit(Random.Range(minSparkEmission, maxSparkEmission));
-							}
-							if (enableMuzzleflash == true)
-							{
-								muzzleParticles.Emit(1);
-								//Light flash start
-								StartCoroutine(MuzzleFlashLight());
+								if (enableSparks == true)
+								{
+									//Emit random amount of spark particles
+									sparkParticles.Emit(Random.Range(1, 6));
+								}
+								if (enableMuzzleflash == true)
+								{
+									muzzleParticles.Emit(1);
+									//Light flash start
+									StartCoroutine(MuzzleFlashLight());
+								}
 							}
 						}
 					}
 				}
-				else //if aiming
-				{
-
-					anim.Play("Aim Fire", 0, 0f);
-
-					//If random muzzle is false
-					if (!randomMuzzleflash)
-					{
-						muzzleParticles.Emit(1);
-						//If random muzzle is true
-					}
-					else if (randomMuzzleflash == true)
-					{
-						//Only emit if random value is 1
-						if (randomMuzzleflashValue == 1)
-						{
-							if (enableSparks == true)
-							{
-								//Emit random amount of spark particles
-								sparkParticles.Emit(Random.Range(minSparkEmission, maxSparkEmission));
-							}
-							if (enableMuzzleflash == true)
-							{
-								muzzleParticles.Emit(1);
-								//Light flash start
-								StartCoroutine(MuzzleFlashLight());
-							}
-						}
-					}
-				}
-
-				CreateBullet();
 			}
 		}
+	}
+
+	private void Knife()
+    {
+		//Play knife attack 1 animation when Q key is pressed
+		if (Input.GetKeyDown(KeyCode.Q) && !isInspecting)
+		{
+			anim.Play("Knife Attack 1", 0, 0f);
+		}
+		//Play knife attack 2 animation when F key is pressed
+		if (Input.GetKeyDown(KeyCode.F) && !isInspecting)
+		{
+			anim.Play("Knife Attack 2", 0, 0f);
+		}
+	}
+
+	private void Grenade()
+    {
+		////Throw grenade when pressing G key
+		if (Input.GetKeyDown (KeyCode.G) && !isInspecting) 
+		{
+			StartCoroutine (GrenadeSpawnDelay ());
+			//Play grenade throw animation
+			anim.Play("GrenadeThrow", 0, 0.0f);
+		}
+	}
+
+	private IEnumerator GrenadeSpawnDelay()
+	{
+
+		//Wait for set amount of time before spawning grenade
+		yield return new WaitForSeconds(grenadeSpawnDelay);
+		//Spawn grenade prefab at spawnpoint
+		Instantiate(prefabs.grenadePrefab,
+			spawnPoints.grenadeSpawnPoint.transform.position,
+			spawnPoints.grenadeSpawnPoint.transform.rotation);
 	}
 
 	private void CreateBullet() {
@@ -505,47 +604,34 @@ public class Gun : MonoBehaviour
 		TextColorChange();
 	}
 
-	//private IEnumerator GrenadeSpawnDelay () {
+	private IEnumerator AutoReload()
+	{
+		//Wait set amount of time
+		yield return new WaitForSeconds(autoReloadDelay);
 
-	//	//Wait for set amount of time before spawning grenade
-	//	yield return new WaitForSeconds (grenadeSpawnDelay);
-	//	//Spawn grenade prefab at spawnpoint
-	//	Instantiate(Prefabs.grenadePrefab, 
-	//		Spawnpoints.grenadeSpawnPoint.transform.position, 
-	//		Spawnpoints.grenadeSpawnPoint.transform.rotation);
-	//}
+		if (outOfAmmo == true)
+		{
+			//Play diff anim if out of ammo
+			anim.Play("Reload Out Of Ammo", 0, 0f);
 
-	//private IEnumerator AutoReload()
-	//{
-	//	//Wait set amount of time
-	//	yield return new WaitForSeconds(autoReloadDelay);
+			mainAudioSource.clip = soundClips.reloadSoundOutOfAmmo;
+			mainAudioSource.Play();
 
-	//	if (outOfAmmo == true)
-	//	{
-	//		//Play diff anim if out of ammo
-	//		anim.Play("Reload Out Of Ammo", 0, 0f);
+			//If out of ammo, hide the bullet renderer in the mag
+			//Do not show if bullet renderer is not assigned in inspector
+			if (bulletInMagRenderer != null)
+			{
+				bulletInMagRenderer.GetComponent
+				<SkinnedMeshRenderer>().enabled = false;
+				//Start show bullet delay
+				StartCoroutine(ShowBulletInMag());
+			}
+		}
+		//Restore ammo when reloading
+		currentAmmo = ammo;
+		outOfAmmo = false;
+	}
 
-	//		mainAudioSource.clip = SoundClips.reloadSoundOutOfAmmo;
-	//		mainAudioSource.Play();
-
-	//		//If out of ammo, hide the bullet renderer in the mag
-	//		//Do not show if bullet renderer is not assigned in inspector
-	//		if (bulletInMagRenderer != null)
-	//		{
-	//			bulletInMagRenderer.GetComponent
-	//			<SkinnedMeshRenderer>().enabled = false;
-	//			//Start show bullet delay
-	//			StartCoroutine(ShowBulletInMag());
-	//		}
-	//	}
-	//	//Restore ammo when reloading
-	//	currentAmmo = ammo;
-	//	outOfAmmo = false;
-	//}
-
-	//Reload
-
-	//Enable bullet in mag renderer after set amount of time
 	private IEnumerator ShowBulletInMag()
 	{
 
@@ -554,7 +640,6 @@ public class Gun : MonoBehaviour
 		bulletInMagRenderer.GetComponent<SkinnedMeshRenderer>().enabled = true;
 	}
 
-	//Show light when shooting, then disable after set amount of time
 	private IEnumerator MuzzleFlashLight()
 	{
 
@@ -563,7 +648,6 @@ public class Gun : MonoBehaviour
 		muzzleflashLight.enabled = false;
 	}
 
-	//Check current animation playing
 	private void AnimationCheck()
 	{
 

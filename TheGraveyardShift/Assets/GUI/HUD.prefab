@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1912967432467309836}
   m_Layer: 5
   m_Name: TotalAmmoText
-  m_TagString: Untagged
+  m_TagString: WeaponTotalAmmo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 1912967432586879376}
   m_Layer: 5
   m_Name: GunIcon
-  m_TagString: Untagged
+  m_TagString: WeaponIcon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -433,7 +433,7 @@ GameObject:
   - component: {fileID: 1912967433693982712}
   m_Layer: 5
   m_Name: CurrentAmmoText
-  m_TagString: Untagged
+  m_TagString: WeaponAmmo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -754,7 +754,7 @@ GameObject:
   - component: {fileID: 1912967434211259588}
   m_Layer: 5
   m_Name: CurrentWeaponText
-  m_TagString: Untagged
+  m_TagString: WeaponName
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
