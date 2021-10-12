@@ -207,14 +207,14 @@ public class Gun : MonoBehaviour
 	{
 		FindHUDElements();
 
-		TakeOut();
-
 		//if (currentWeaponIcon != null)
 		  //  {
 		currentWeaponIcon.sprite = WeaponIcon;
 		 //}
 
 		totalAmmoText.text = ammo.ToString();
+
+		TakeOut();
 	}
 
 	public void Shoot()
