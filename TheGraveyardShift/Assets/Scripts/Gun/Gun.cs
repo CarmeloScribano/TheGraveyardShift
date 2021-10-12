@@ -436,7 +436,7 @@ public class Gun : MonoBehaviour
 				bulletInMagRenderer.GetComponent
 				<SkinnedMeshRenderer>().enabled = false;
 				//Start show bullet delay
-				StartCoroutine(ShowBulletInMag(showBulletInMagDelay, bulletInMagRenderer));
+				StartCoroutine(ShowBulletInMag());
 			}
 		}
 		else
@@ -546,7 +546,7 @@ public class Gun : MonoBehaviour
 	//Reload
 
 	//Enable bullet in mag renderer after set amount of time
-	private IEnumerator ShowBulletInMag(float showBulletInMagDelay, SkinnedMeshRenderer bulletInMagRenderer)
+	private IEnumerator ShowBulletInMag()
 	{
 
 		//Wait set amount of time before showing bullet in mag
