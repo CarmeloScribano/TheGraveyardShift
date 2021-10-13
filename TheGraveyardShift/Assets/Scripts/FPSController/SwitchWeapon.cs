@@ -17,19 +17,50 @@ public class SwitchWeapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.U))
+        for (int i = 0; i < 3; ++i)
         {
-            SetWeaponActive(false);
-
-            currentWpnIndex = (currentWpnIndex + 1) % weapons.Length;
-
-            Gun gun = weapons[currentWpnIndex].GetComponent<Gun>();
-            if (gun != null)
+            if (Input.GetKeyDown(KeyCode.Alpha0 + i))
             {
-                gun.OnWeaponUse();
-            }
+                int num = 0;
+                if (i == 0 || i == currentWpnIndex + 1)
+                    return;
+                else
+                    num = i - 1;
 
-            SetWeaponActive(true);
+                Switch(num);
+            }
         }
+
+
+        //if (Input.GetKeyDown(KeyCode.U))
+        //{
+        //    SetWeaponActive(false);
+
+        //    currentWpnIndex = (currentWpnIndex + 1) % weapons.Length;
+
+        //    Gun gun = weapons[currentWpnIndex].GetComponent<Gun>();
+        //    if (gun != null)
+        //    {
+        //        gun.OnWeaponUse();
+        //    }
+
+        //    SetWeaponActive(true);
+        //}
     }
+
+    private void Switch(int num)
+    {
+        SetWeaponActive(false);
+
+        currentWpnIndex = num;
+
+        Gun gun = weapons[currentWpnIndex].GetComponent<Gun>();
+        if (gun != null)
+        {
+            gun.OnWeaponUse();
+        }
+
+        SetWeaponActive(true);
+    }
+
 }
