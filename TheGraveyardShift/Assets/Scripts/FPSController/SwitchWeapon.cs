@@ -17,7 +17,7 @@ public class SwitchWeapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        for (int i = 0; i < 3; ++i)
+        for (int i = 0; i < weapons.Length + 1; ++i)
         {
             if (Input.GetKeyDown(KeyCode.Alpha0 + i))
             {
