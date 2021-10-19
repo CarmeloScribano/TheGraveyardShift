@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class Gun : MonoBehaviour
 {
-	public enum FireWeaponSettings
+    #region Fields
+    public enum FireWeaponSettings
 	{
 		Automatic,
 		Semi
@@ -140,8 +141,9 @@ public class Gun : MonoBehaviour
 	public int maxSparkEmission = 7;
 
 	private int totalAmmo;
+    #endregion
 
-	public void OnAwake()
+    public void OnAwake()
 	{
 		//Set the animator component
 		anim = GetComponent<Animator>();
