@@ -7,18 +7,6 @@ public class AK47 : Gun {
 
     private void Update()
     {
-		//Shoot(fireRate, 
-		//	bulletForce, 
-		//	mainAudioSource, 
-		//	shootAudioSource, 
-		//	soundClips, 
-		//	prefabs, 
-		//	spawnPoints, 
-		//	muzzleflashLight, 
-		//	lightDuration);
-
-		//UpdateMethods(soundClips, mainAudioSource, bulletInMagRenderer, showBulletInMagDelay);
-
 		Shoot();
 
 		UpdateMethods();
@@ -39,4 +27,3 @@ public class AK47 : Gun {
 		OnAwake();
     }
 }
-// ----- Low Poly FPS Pack Free Version -----
