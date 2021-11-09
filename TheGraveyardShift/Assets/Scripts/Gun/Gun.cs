@@ -456,12 +456,12 @@ public class Gun : MonoBehaviour
 	private void Knife()
     {
 		//Play knife attack 1 animation when Q key is pressed
-		if (Input.GetKeyDown(KeyCode.Q) && !isInspecting)
-		{
-			anim.Play("Knife Attack 1", 0, 0f);
-		}
+		//if (Input.GetKeyDown(KeyCode.Q) && !isInspecting)
+		//{
+		//	anim.Play("Knife Attack 1", 0, 0f);
+		//}
 		//Play knife attack 2 animation when F key is pressed
-		if (Input.GetKeyDown(KeyCode.F) && !isInspecting)
+		if (Input.GetKeyDown(KeyCode.V) && !isInspecting)
 		{
 			anim.Play("Knife Attack 2", 0, 0f);
 		}

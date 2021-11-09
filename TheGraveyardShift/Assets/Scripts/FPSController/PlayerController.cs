@@ -13,6 +13,10 @@ public class PlayerController : MonoBehaviour
     [Tooltip("The transform component that holds the gun camera.")]
     public Transform arms;
 
+    [Header("Flashlight")]
+    [Tooltip("Flashlight game object.")]
+    public GameObject flashlight;
+
     [Tooltip("The position of the arms and gun camera relative to the fps controller GameObject."), SerializeField]
     private Vector3 armPosition;
 
@@ -162,6 +166,11 @@ public class PlayerController : MonoBehaviour
 		arms.position = transform.position + transform.TransformVector(armPosition);
         Jump();
         PlayFootstepSounds();
+    }
+
+    private void ToggleFlashlight()
+    {
+        
     }
 
     private void RotateCameraAndCharacter()
