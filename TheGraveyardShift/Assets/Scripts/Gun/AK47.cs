@@ -5,7 +5,7 @@ using System;
 
 public class AK47 : Gun {
 
-    private void Update()
+    private void FixedUpdate()
     {
 		Shoot();
 
