@@ -36,33 +36,10 @@ public class YetiAI : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // Vector3 fwd = transform.TransformDirection(Vector3.forward);
-
-        //if (Physics.Raycast(transform.position, fwd, sightRange))
-        //{
-        //    playerInSightRange = true;
-        //}
-        //else
-        //{
-        //    playerInSightRange = false;
-        //}
-
-        //if (Physics.Raycast(transform.position, fwd, attackRange))
-        //{
-        //    playerInAttackRange = true;
-        //}
-        //else
-        //{
-        //    playerInAttackRange = false;
-        //}
-
-        //Check for sight and attack range
-        //playerInCloseSightRange = Physics.CheckSphere(transform.position, (sightRange - (sightRange * 0.8f)), whatIsPlayer);
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
         if (!playerInSightRange && !playerInAttackRange) Patroling();
-        //if ((playerInSightRange || playerInCloseSightRange) && !playerInAttackRange) ChasePlayer();
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
         if (playerInAttackRange && playerInSightRange) AttackPlayer();
     }
@@ -75,11 +52,6 @@ public class YetiAI : MonoBehaviour
     private void Patroling()
     {
         changeAnim("isChasing", false);
-        changeAnim("isAttacking", false);
-
-        
-        // Debug.Log(animator.IsInTransition(0)); check if animation is transitioning
-
 
         if (!walkPointSet) SearchWalkPoint();
 
@@ -107,29 +79,13 @@ public class YetiAI : MonoBehaviour
     private void ChasePlayer()
     {
         changeAnim("isChasing", true);
-        changeAnim("isAttacking", false);
         agent.SetDestination(player.position);
         
     }
 
-    bool AnimatorIsPlaying()
+    private bool AnimatorIsFinished()
     {
-        Debug.Log("Playing? " + (animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1));
-        return animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1;
-    }
-
-    bool AnimatorIsPlaying(string stateName)
-    {
-        return AnimatorIsPlaying() && animator.GetCurrentAnimatorStateInfo(0).IsName(stateName);
-    }
-
-    private void IdleForAnimation()
-    {
-        if (!AnimatorIsPlaying("Base Layer.YetiAttack"))
-        {
-            //changeAnim("isChasing", false);
-            //changeAnim("isAttacking", false);
-        }
+        return animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1;
     }
 
     private void AttackPlayer()
@@ -139,8 +95,12 @@ public class YetiAI : MonoBehaviour
 
         transform.LookAt(player);
 
+        changeAnim("isAttacking", false);
+        changeAnim("isChasing", false);
+
         if (!alreadyAttacked)
         {
+            Debug.Log("Attack");
             ///Attack code here
             //Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
             //rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
@@ -148,13 +108,10 @@ public class YetiAI : MonoBehaviour
             ///End of attack code
 
             alreadyAttacked = true;
-            changeAnim("isChasing", false);
-            changeAnim("isAttacking", true);
+            animator.Play("Attack");
+            //changeAnim("isChasing", false);
+            //changeAnim("isAttacking", true);
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
-        }
-        else
-        {
-            IdleForAnimation();
         }
     }
     private void ResetAttack()
