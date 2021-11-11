@@ -28,6 +28,8 @@ public class YetiAI : MonoBehaviour
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
+    private bool dead = false;
+
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
@@ -36,6 +38,12 @@ public class YetiAI : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (dead)
+        {
+            agent.SetDestination(transform.position);
+            return;
+        }
+
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
@@ -92,6 +100,7 @@ public class YetiAI : MonoBehaviour
     {
         //Make sure enemy doesn't move
         agent.SetDestination(transform.position);
+        
 
         transform.LookAt(player);
 
@@ -100,17 +109,8 @@ public class YetiAI : MonoBehaviour
 
         if (!alreadyAttacked)
         {
-            Debug.Log("Attack");
-            ///Attack code here
-            //Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            //rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            //rb.AddForce(transform.up * 8f, ForceMode.Impulse);
-            ///End of attack code
-
             alreadyAttacked = true;
             animator.Play("Attack");
-            //changeAnim("isChasing", false);
-            //changeAnim("isAttacking", true);
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
     }
@@ -119,11 +119,22 @@ public class YetiAI : MonoBehaviour
         alreadyAttacked = false;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
+        if (dead)
+        {
+            return;
+        }
+
         health -= damage;
 
-        if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
+        if (health <= 0)
+        {
+            dead = true;
+            animator.Play("Death");
+
+            Invoke(nameof(DestroyEnemy), 3f);
+        }
     }
     private void DestroyEnemy()
     {

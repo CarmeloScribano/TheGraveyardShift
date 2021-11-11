@@ -142,7 +142,8 @@ public class Gun : MonoBehaviour
 
 	private int totalAmmo;
 
-	[SerializeField] private float maxDistance;
+	[SerializeField] private float bulletRange;
+	[SerializeField] private float damage;
 
     #endregion
 
@@ -495,7 +496,18 @@ public class Gun : MonoBehaviour
 	private void CastDamage()
     {
 		RaycastHit hit;
-		// Check if raycast hits game object of tag enemy to deal damage
+		Vector3 fwd = transform.TransformDirection(Vector3.forward);
+		if (Physics.Raycast(spawnPoints.bulletSpawnPoint.position, fwd, out hit, bulletRange))
+        {
+			if (hit.transform.tag == "Enemy")
+            {
+				YetiAI ai = hit.transform.gameObject.GetComponent<YetiAI>();
+				if (ai != null)
+                {
+					ai.TakeDamage(damage);
+                }
+            }
+        }
     }
 
 	private void CreateBullet() {
