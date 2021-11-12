@@ -5,11 +5,14 @@ using System;
 
 public class AK47 : Gun {
 
+    private void Update()
+    {
+		UpdateMethods();
+    }
+
     private void FixedUpdate()
     {
-		Shoot();
-
-		UpdateMethods();
+        Shoot();
     }
 
     private void LateUpdate()

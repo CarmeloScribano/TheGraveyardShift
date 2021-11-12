@@ -5,15 +5,17 @@ using System;
 
 public class M9 : Gun
 {
-	private void FixedUpdate()
+	private void Update()
 	{
-
-		Shoot();
-
 		UpdateMethods();
 	}
 
-	private void LateUpdate()
+    private void FixedUpdate()
+    {
+		Shoot();
+	}
+
+    private void LateUpdate()
 	{
 		OnLateUpdate();
 	}

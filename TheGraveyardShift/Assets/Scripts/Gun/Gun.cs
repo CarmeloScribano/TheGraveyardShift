@@ -544,7 +544,6 @@ public class Gun : MonoBehaviour
 
 	private void Reload()
 	{
-
 		if (outOfAmmo == true)
 		{
 			//Play diff anim if out of ammo
