@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -68,7 +69,7 @@ public class PlayerController : MonoBehaviour
     private bool _isGrounded;
     private bool flashlightToggle;
     private bool flashlightDead;
-    private float flashlightLife = 10f;
+    private float flashlightLife = 60f;
 
     private readonly RaycastHit[] _groundCastResults = new RaycastHit[8];
     private readonly RaycastHit[] _wallCastResults = new RaycastHit[8];
@@ -302,12 +303,22 @@ public class PlayerController : MonoBehaviour
                 flashlight.SetActive(false);
                 flashlightLife = 0;
             }
-            else if(flashlightLife <= 5)
+            else if(flashlightLife <= 50)
             {
-                flashlightComponent.intensity = 1f;
+                StartCoroutine(FlashlightDrain());
             }
+            Debug.Log(flashlightLife);
         }            
     }
+    private IEnumerator FlashlightDrain()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            flashlightComponent.intensity -= 0.002f;
+            yield return new WaitForSeconds(1f);
+        }
+    }
+
 
     private void PlayFootstepSounds()
     {
@@ -327,7 +338,7 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-			
+
     /// A helper for assistance with smoothing the camera rotation.
     private class SmoothRotation
     {
