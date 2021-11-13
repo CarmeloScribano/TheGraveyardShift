@@ -7601,7 +7601,7 @@ Transform:
   - {fileID: 1110805309}
   - {fileID: 1473001725}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &637590217
 PrefabInstance:
@@ -26525,7 +26525,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Those are the settings
+  m_Text: SETTINGS
 --- !u!222 &1259382977
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -28128,7 +28128,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1415267739
 PrefabInstance:
