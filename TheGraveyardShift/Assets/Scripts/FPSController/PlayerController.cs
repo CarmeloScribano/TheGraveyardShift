@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// Manages a first person character
 [RequireComponent(typeof(Rigidbody))]
@@ -61,6 +62,10 @@ public class PlayerController : MonoBehaviour
     private SmoothVelocity _velocityX;
     private SmoothVelocity _velocityZ;
     private bool _isGrounded;
+
+    //Testing purposes
+    public float health = 10f;
+    //public GameOverScreen GameOverScreen;
 
     private readonly RaycastHit[] _groundCastResults = new RaycastHit[8];
     private readonly RaycastHit[] _wallCastResults = new RaycastHit[8];
@@ -162,6 +167,11 @@ public class PlayerController : MonoBehaviour
 		arms.position = transform.position + transform.TransformVector(armPosition);
         Jump();
         PlayFootstepSounds();
+
+        if (health == 0f)
+        {
+            //gameOverScreen.Setup();
+        }
     }
 
     private void RotateCameraAndCharacter()
