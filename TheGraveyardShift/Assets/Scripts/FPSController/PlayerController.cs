@@ -65,7 +65,9 @@ public class PlayerController : MonoBehaviour
 
     //Testing purposes
     public float health = 10f;
-    //public GameOverScreen GameOverScreen;
+    public ScreenController gameOverScreen;
+    public ScreenController pauseScreen;
+    public GameObject hud;
 
     private readonly RaycastHit[] _groundCastResults = new RaycastHit[8];
     private readonly RaycastHit[] _wallCastResults = new RaycastHit[8];
@@ -168,9 +170,16 @@ public class PlayerController : MonoBehaviour
         Jump();
         PlayFootstepSounds();
 
-        if (health == 0f)
+        if (health == 0)
         {
-            //gameOverScreen.Setup();
+            gameOverScreen.Setup();
+            hud.SetActive(false);
+        }
+
+        if (Input.GetKeyDown("m"))
+        {
+            pauseScreen.Setup();
+            hud.SetActive(false);
         }
     }
 
