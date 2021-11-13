@@ -172,12 +172,14 @@ public class PlayerController : MonoBehaviour
 
         if (health == 0)
         {
+            Time.timeScale = 0;
             gameOverScreen.Setup();
             hud.SetActive(false);
         }
 
         if (Input.GetKeyDown("m"))
         {
+            Time.timeScale = 0;
             pauseScreen.Setup();
             hud.SetActive(false);
         }

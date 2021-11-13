@@ -19,30 +19,36 @@ public class ScreenController : MonoBehaviour
     public void RestartTutorialButton()
     {
         SceneManager.LoadScene("TutorialScene");
+        Time.timeScale = 1;
     }
 
     public void MainMapButton()
     {
         SceneManager.LoadScene("MainMap");
+        Time.timeScale = 1;
     }
 
     public void MainMenuButton()
     {
         SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1;
     }
 
     public void StartButton()
     {
         SceneManager.LoadScene("TutorialScene");
+        Time.timeScale = 1;
     }
 
     public void AboutButton()
     {
         SceneManager.LoadScene("About");
+        Time.timeScale = 1;
     }
 
     public void ResumeButton()
     {
+        Time.timeScale = 1;
         gameObject.SetActive(false);
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
