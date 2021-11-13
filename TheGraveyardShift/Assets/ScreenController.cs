@@ -21,6 +21,11 @@ public class ScreenController : MonoBehaviour
         SceneManager.LoadScene("TutorialScene");
     }
 
+    public void MainMapButton()
+    {
+        SceneManager.LoadScene("MainMap");
+    }
+
     public void MainMenuButton()
     {
         SceneManager.LoadScene("MainMenu");
