@@ -115,6 +115,15 @@ public class EnemyAI : MonoBehaviour
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
     }
+
+    private void DealDamange()
+    {
+        /*
+            when attack animation is done
+            check distance between enemy and player 
+            if within distance then deal damage
+         */
+    }
     private void ResetAttack()
     {
         alreadyAttacked = false;
