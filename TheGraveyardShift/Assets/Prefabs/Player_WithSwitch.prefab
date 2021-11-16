@@ -10808,7 +10808,7 @@ GameObject:
   - component: {fileID: 1385369265}
   - component: {fileID: 2001331250}
   - component: {fileID: 2001331251}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Arm_Hold
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -23884,7 +23884,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2189393070060545204}
   - component: {fileID: 8114292265981843007}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24160,6 +24160,10 @@ MonoBehaviour:
     strafe: Vertical
     run: Fire3
     jump: Jump
+  health: 10
+  gameOverScreen: {fileID: 0}
+  pauseScreen: {fileID: 0}
+  hud: {fileID: 0}
 --- !u!114 &7805509897996095436
 MonoBehaviour:
   m_ObjectHideFlags: 0
