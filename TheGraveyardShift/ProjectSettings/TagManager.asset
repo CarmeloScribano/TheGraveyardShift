@@ -12,6 +12,7 @@ TagManager:
   - WeaponAmmo
   - WeaponTotalAmmo
   - WeaponIcon
+  - Enemy
   layers:
   - Default
   - TransparentFX

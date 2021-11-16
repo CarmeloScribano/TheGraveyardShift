@@ -892,6 +892,8 @@ MonoBehaviour:
   sparkParticles: {fileID: 1116899457}
   minSparkEmission: 1
   maxSparkEmission: 7
+  bulletRange: 50
+  damage: 30
 --- !u!114 &3112146306081806092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13572,6 +13574,8 @@ MonoBehaviour:
   sparkParticles: {fileID: 1275505763091770342}
   minSparkEmission: 1
   maxSparkEmission: 7
+  bulletRange: 0
+  damage: 0
 --- !u!114 &4771267007925141956
 MonoBehaviour:
   m_ObjectHideFlags: 0

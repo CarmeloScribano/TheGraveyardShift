@@ -141,6 +141,10 @@ public class Gun : MonoBehaviour
 	public int maxSparkEmission = 7;
 
 	private int totalAmmo;
+
+	[SerializeField] private float bulletRange;
+	[SerializeField] private float damage;
+
     #endregion
 
     public void OnAwake()
@@ -456,12 +460,12 @@ public class Gun : MonoBehaviour
 	private void Knife()
     {
 		//Play knife attack 1 animation when Q key is pressed
-		if (Input.GetKeyDown(KeyCode.Q) && !isInspecting)
-		{
-			anim.Play("Knife Attack 1", 0, 0f);
-		}
+		//if (Input.GetKeyDown(KeyCode.Q) && !isInspecting)
+		//{
+		//	anim.Play("Knife Attack 1", 0, 0f);
+		//}
 		//Play knife attack 2 animation when F key is pressed
-		if (Input.GetKeyDown(KeyCode.F) && !isInspecting)
+		if (Input.GetKeyDown(KeyCode.V) && !isInspecting)
 		{
 			anim.Play("Knife Attack 2", 0, 0f);
 		}
@@ -489,7 +493,26 @@ public class Gun : MonoBehaviour
 			spawnPoints.grenadeSpawnPoint.transform.rotation);
 	}
 
+	private void CastDamage()
+    {
+		RaycastHit hit;
+		Vector3 fwd = transform.TransformDirection(Vector3.forward);
+		if (Physics.Raycast(spawnPoints.bulletSpawnPoint.position, fwd, out hit, bulletRange))
+        {
+			if (hit.transform.tag == "Enemy")
+            {
+				YetiAI ai = hit.transform.gameObject.GetComponent<YetiAI>();
+				if (ai != null)
+                {
+					ai.TakeDamage(damage);
+                }
+            }
+        }
+    }
+
 	private void CreateBullet() {
+		CastDamage();
+
 		//Spawn bullet from bullet spawnpoint
 		var bullet = (Transform)Instantiate(
 			prefabs.bulletPrefab,
@@ -521,7 +544,6 @@ public class Gun : MonoBehaviour
 
 	private void Reload()
 	{
-
 		if (outOfAmmo == true)
 		{
 			//Play diff anim if out of ammo

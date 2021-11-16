@@ -7,9 +7,12 @@ public class AK47 : Gun {
 
     private void Update()
     {
-		Shoot();
-
 		UpdateMethods();
+    }
+
+    private void FixedUpdate()
+    {
+        Shoot();
     }
 
     private void LateUpdate()

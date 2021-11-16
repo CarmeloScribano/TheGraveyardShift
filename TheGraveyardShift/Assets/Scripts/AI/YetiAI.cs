@@ -28,41 +28,27 @@ public class YetiAI : MonoBehaviour
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
+    private bool dead = false;
+
     private void Awake()
     {
-        player = GameObject.Find("Player").transform;
+        player = GameObject.FindWithTag("Player").transform;
         agent = GetComponent<NavMeshAgent>();
     }
 
     private void FixedUpdate()
     {
-        // Vector3 fwd = transform.TransformDirection(Vector3.forward);
+        if (dead)
+        {
+            agent.SetDestination(transform.position);
+            return;
+        }
 
-        //if (Physics.Raycast(transform.position, fwd, sightRange))
-        //{
-        //    playerInSightRange = true;
-        //}
-        //else
-        //{
-        //    playerInSightRange = false;
-        //}
-
-        //if (Physics.Raycast(transform.position, fwd, attackRange))
-        //{
-        //    playerInAttackRange = true;
-        //}
-        //else
-        //{
-        //    playerInAttackRange = false;
-        //}
-
-        //Check for sight and attack range
-        //playerInCloseSightRange = Physics.CheckSphere(transform.position, (sightRange - (sightRange * 0.8f)), whatIsPlayer);
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
+
         if (!playerInSightRange && !playerInAttackRange) Patroling();
-        //if ((playerInSightRange || playerInCloseSightRange) && !playerInAttackRange) ChasePlayer();
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
         if (playerInAttackRange && playerInSightRange) AttackPlayer();
     }
@@ -75,11 +61,6 @@ public class YetiAI : MonoBehaviour
     private void Patroling()
     {
         changeAnim("isChasing", false);
-        changeAnim("isAttacking", false);
-
-        
-        // Debug.Log(animator.IsInTransition(0)); check if animation is transitioning
-
 
         if (!walkPointSet) SearchWalkPoint();
 
@@ -107,54 +88,31 @@ public class YetiAI : MonoBehaviour
     private void ChasePlayer()
     {
         changeAnim("isChasing", true);
-        changeAnim("isAttacking", false);
         agent.SetDestination(player.position);
         
     }
 
-    bool AnimatorIsPlaying()
+    private bool AnimatorIsFinished()
     {
-        Debug.Log("Playing? " + (animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1));
-        return animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1;
-    }
-
-    bool AnimatorIsPlaying(string stateName)
-    {
-        return AnimatorIsPlaying() && animator.GetCurrentAnimatorStateInfo(0).IsName(stateName);
-    }
-
-    private void IdleForAnimation()
-    {
-        if (!AnimatorIsPlaying("Base Layer.YetiAttack"))
-        {
-            //changeAnim("isChasing", false);
-            //changeAnim("isAttacking", false);
-        }
+        return animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1;
     }
 
     private void AttackPlayer()
     {
         //Make sure enemy doesn't move
         agent.SetDestination(transform.position);
+        
 
         transform.LookAt(player);
 
+        changeAnim("isAttacking", false);
+        changeAnim("isChasing", false);
+
         if (!alreadyAttacked)
         {
-            ///Attack code here
-            //Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            //rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            //rb.AddForce(transform.up * 8f, ForceMode.Impulse);
-            ///End of attack code
-
             alreadyAttacked = true;
-            changeAnim("isChasing", false);
-            changeAnim("isAttacking", true);
+            animator.Play("Attack");
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
-        }
-        else
-        {
-            IdleForAnimation();
         }
     }
     private void ResetAttack()
@@ -162,11 +120,22 @@ public class YetiAI : MonoBehaviour
         alreadyAttacked = false;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
+        if (dead)
+        {
+            return;
+        }
+
         health -= damage;
 
-        if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
+        if (health <= 0)
+        {
+            dead = true;
+            animator.Play("Death");
+
+            Invoke(nameof(DestroyEnemy), 3f);
+        }
     }
     private void DestroyEnemy()
     {
