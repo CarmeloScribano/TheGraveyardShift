@@ -12,6 +12,8 @@ public class EnemyAI : MonoBehaviour
 
     public float health;
 
+    public Animator animator;
+
     //Patroling
     public Vector3 walkPoint;
     bool walkPointSet;
@@ -26,26 +28,40 @@ public class EnemyAI : MonoBehaviour
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
+    private bool dead = false;
+
     private void Awake()
     {
-        player = GameObject.Find("Player").transform;
+        player = GameObject.FindWithTag("Player").transform;
         agent = GetComponent<NavMeshAgent>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        //Check for sight and attack range
+        if (dead)
+        {
+            agent.SetDestination(transform.position);
+            return;
+        }
+
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
+
         if (!playerInSightRange && !playerInAttackRange) Patroling();
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
-        //if (playerInAttackRange && playerInSightRange) AttackPlayer();
+        if (playerInAttackRange && playerInSightRange) AttackPlayer();
+    }
+
+    private void changeAnim(string state, bool tOrF)
+    {
+        animator.SetBool(state, tOrF);
     }
 
     private void Patroling()
     {
-        Debug.Log("Patrolling");
+        changeAnim("isChasing", false);
+
         if (!walkPointSet) SearchWalkPoint();
 
         if (walkPointSet)
@@ -71,8 +87,14 @@ public class EnemyAI : MonoBehaviour
 
     private void ChasePlayer()
     {
-        Debug.Log("Chasing");
+        changeAnim("isChasing", true);
         agent.SetDestination(player.position);
+
+    }
+
+    private bool AnimatorIsFinished()
+    {
+        return animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1;
     }
 
     private void AttackPlayer()
@@ -80,17 +102,16 @@ public class EnemyAI : MonoBehaviour
         //Make sure enemy doesn't move
         agent.SetDestination(transform.position);
 
+
         transform.LookAt(player);
+
+        changeAnim("isAttacking", false);
+        changeAnim("isChasing", false);
 
         if (!alreadyAttacked)
         {
-            ///Attack code here
-            //Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            //rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            //rb.AddForce(transform.up * 8f, ForceMode.Impulse);
-            ///End of attack code
-
             alreadyAttacked = true;
+            animator.Play("Attack");
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
     }
@@ -99,11 +120,22 @@ public class EnemyAI : MonoBehaviour
         alreadyAttacked = false;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
+        if (dead)
+        {
+            return;
+        }
+
         health -= damage;
 
-        if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
+        if (health <= 0)
+        {
+            dead = true;
+            animator.Play("Death");
+
+            Invoke(nameof(DestroyEnemy), 3f);
+        }
     }
     private void DestroyEnemy()
     {

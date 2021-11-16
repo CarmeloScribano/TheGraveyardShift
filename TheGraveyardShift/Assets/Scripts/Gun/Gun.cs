@@ -501,7 +501,7 @@ public class Gun : MonoBehaviour
         {
 			if (hit.transform.tag == "Enemy")
             {
-				YetiAI ai = hit.transform.gameObject.GetComponent<YetiAI>();
+				EnemyAI ai = hit.transform.gameObject.GetComponent<EnemyAI>();
 				if (ai != null)
                 {
 					ai.TakeDamage(damage);
