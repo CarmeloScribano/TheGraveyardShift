@@ -947,7 +947,7 @@ MonoBehaviour:
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 0
   timeBetweenAttacks: 4
-  sightRange: 40
+  sightRange: 50
   attackRange: 2
   playerInSightRange: 0
   playerInAttackRange: 0
@@ -961,7 +961,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1
-  m_Speed: 3.5
+  m_Speed: 10
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 10000
