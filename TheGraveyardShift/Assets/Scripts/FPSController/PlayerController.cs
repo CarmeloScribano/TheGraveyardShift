@@ -297,26 +297,18 @@ public class PlayerController : MonoBehaviour
         {
             flashlightLife -= Time.deltaTime;
 
-            if(flashlightLife <= 0)
+            if (flashlightLife <= 0)
             {
                 flashlightDead = true;
                 flashlight.SetActive(false);
                 flashlightLife = 0;
             }
-            else if(flashlightLife <= 50)
-            {
-                StartCoroutine(FlashlightDrain());
-            }
+            else if (flashlightLife <= 30)
+                flashlightComponent.intensity = 1f;
+            else if (flashlightLife <= 15)
+                flashlightComponent.intensity = 0.5f;
             Debug.Log(flashlightLife);
         }            
-    }
-    private IEnumerator FlashlightDrain()
-    {
-        for (int i = 0; i < 5; i++)
-        {
-            flashlightComponent.intensity -= 0.002f;
-            yield return new WaitForSeconds(1f);
-        }
     }
 
 
