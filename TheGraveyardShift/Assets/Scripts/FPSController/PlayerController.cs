@@ -185,6 +185,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+    }
+
     private void RotateCameraAndCharacter()
     {
         var rotationX = _rotationX.Update(RotationXRaw, rotationSmoothness);

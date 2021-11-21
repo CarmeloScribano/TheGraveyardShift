@@ -1,4 +1,5 @@
 
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -13,6 +14,8 @@ public class EnemyAI : MonoBehaviour
     public float health;
 
     public Animator animator;
+
+    [SerializeField] private float damage;
 
     //Patroling
     public Vector3 walkPoint;
@@ -112,12 +115,20 @@ public class EnemyAI : MonoBehaviour
         {
             alreadyAttacked = true;
             animator.Play("Attack");
+            StartCoroutine(DealDamange());
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
     }
 
-    private void DealDamange()
+    private IEnumerator DealDamange()
     {
+        yield return new WaitForSeconds(1.2f);
+        float distance = Vector3.Distance(player.position, transform.position);
+        print(distance);
+        if (distance <= attackRange + 1)
+        {
+            player.gameObject.GetComponent<PlayerController>().TakeDamage(damage);
+        }
         /*
             when attack animation is done
             check distance between enemy and player 
