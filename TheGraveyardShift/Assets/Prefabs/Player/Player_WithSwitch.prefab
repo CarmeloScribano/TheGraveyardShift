@@ -894,6 +894,8 @@ MonoBehaviour:
   maxSparkEmission: 7
   bulletRange: 50
   damage: 30
+  knifeRange: 1.5
+  knifeDamage: 1000
 --- !u!114 &3112146306081806092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13576,6 +13578,8 @@ MonoBehaviour:
   maxSparkEmission: 7
   bulletRange: 0
   damage: 0
+  knifeRange: 0
+  knifeDamage: 0
 --- !u!114 &4771267007925141956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24160,7 +24164,7 @@ MonoBehaviour:
     strafe: Vertical
     run: Fire3
     jump: Jump
-  health: 10
+  health: 1000
   gameOverScreen: {fileID: 0}
   pauseScreen: {fileID: 0}
   hud: {fileID: 0}

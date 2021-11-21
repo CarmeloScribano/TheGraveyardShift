@@ -913,6 +913,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1611460342}
     - target: {fileID: 7075404065486697014, guid: eabe69c5b508d3b429414e861a2a703b, type: 3}
+      propertyPath: health
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7075404065486697014, guid: eabe69c5b508d3b429414e861a2a703b, type: 3}
       propertyPath: pauseScreen
       value: 
       objectReference: {fileID: 394874115462068313}

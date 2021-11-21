@@ -144,10 +144,12 @@ public class Gun : MonoBehaviour
 
 	[SerializeField] private float bulletRange;
 	[SerializeField] private float damage;
+	[SerializeField] private float knifeRange;
+	[SerializeField] private float knifeDamage;
 
-    #endregion
+	#endregion
 
-    public void OnAwake()
+	public void OnAwake()
 	{
 		//Set the animator component
 		anim = GetComponent<Animator>();
@@ -468,6 +470,36 @@ public class Gun : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.V) && !isInspecting)
 		{
 			anim.Play("Knife Attack 2", 0, 0f);
+			StartCoroutine(DealKnifeDamage());
+		}
+	}
+
+	private IEnumerator DealKnifeDamage()
+    {
+		yield return new WaitForSeconds(0.3f);
+		RaycastHit hit;
+
+		CapsuleCollider collider = GameObject.FindWithTag("Player").GetComponent<CapsuleCollider>();
+
+		Vector3 p1 = transform.position + collider.center;
+
+		// Cast a sphere wrapping character controller 10 meters forward
+		// to see if it is about to hit anything.
+		if (Physics.SphereCast(p1, collider.height / 2, transform.forward, out hit, 10))
+		{
+			if (hit.transform.tag == "Enemy")
+			{
+				if (hit.distance < knifeRange)
+				{
+					EnemyAI ai = hit.transform.gameObject.GetComponent<EnemyAI>();
+					if (ai != null)
+					{
+						ai.TakeDamage(knifeDamage);
+					}
+				}
+
+			}
+
 		}
 	}
 

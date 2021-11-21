@@ -124,17 +124,12 @@ public class EnemyAI : MonoBehaviour
     {
         yield return new WaitForSeconds(1.2f);
         float distance = Vector3.Distance(player.position, transform.position);
-        print(distance);
-        if (distance <= attackRange + 1)
+        if (distance <= attackRange + 1 && !dead)
         {
             player.gameObject.GetComponent<PlayerController>().TakeDamage(damage);
         }
-        /*
-            when attack animation is done
-            check distance between enemy and player 
-            if within distance then deal damage
-         */
     }
+
     private void ResetAttack()
     {
         alreadyAttacked = false;
