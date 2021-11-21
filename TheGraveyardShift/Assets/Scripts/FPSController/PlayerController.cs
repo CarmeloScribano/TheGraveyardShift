@@ -170,14 +170,14 @@ public class PlayerController : MonoBehaviour
         Jump();
         PlayFootstepSounds();
 
-        if (health == 0)
+        if (health <= 0)
         {
             Time.timeScale = 0;
             gameOverScreen.Setup();
             hud.SetActive(false);
         }
 
-        if (Input.GetKeyDown("m"))
+        if (Input.GetKeyDown(KeyCode.M))
         {
             Time.timeScale = 0;
             pauseScreen.Setup();
