@@ -148,8 +148,14 @@ public class EnemyAI : MonoBehaviour
         {
             dead = true;
             animator.Play("Death");
+            
+            if (transform.name.Contains("Yeti"))
+            {
+                GetComponent<NavMeshAgent>().baseOffset = -0.2f;
+            }
+            GetComponent<Rigidbody>().detectCollisions = false;
 
-            Invoke(nameof(DestroyEnemy), 3f);
+            //Invoke(nameof(DestroyEnemy), 3f);
         }
     }
     private void DestroyEnemy()

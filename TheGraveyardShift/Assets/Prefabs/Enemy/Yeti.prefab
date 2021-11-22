@@ -1632,6 +1632,7 @@ MonoBehaviour:
     m_Bits: 256
   health: 100
   animator: {fileID: 8010941400485013233}
+  damage: 0
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 0
   timeBetweenAttacks: 2
