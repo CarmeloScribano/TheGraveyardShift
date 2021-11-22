@@ -311,7 +311,6 @@ public class PlayerController : MonoBehaviour
             else if (flashlightLife <= 15)
                 flashlightComponent.intensity = 0.5f;
         }
-        Debug.Log(flashlightLife);
     }
 
     private void OnTriggerEnter(Collider other)
