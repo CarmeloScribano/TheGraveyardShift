@@ -894,7 +894,7 @@ MonoBehaviour:
   maxSparkEmission: 7
   bulletRange: 50
   damage: 30
-  knifeRange: 1.5
+  knifeRange: 3
   knifeDamage: 1000
 --- !u!114 &3112146306081806092
 MonoBehaviour:
