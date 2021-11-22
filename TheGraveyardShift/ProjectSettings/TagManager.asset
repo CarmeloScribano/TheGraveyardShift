@@ -12,6 +12,9 @@ TagManager:
   - WeaponAmmo
   - WeaponTotalAmmo
   - WeaponIcon
+  - Medkit
+  - Ammo
+  - Battery
   layers:
   - Default
   - TransparentFX

@@ -293,6 +293,9 @@ public class PlayerController : MonoBehaviour
 
     private void FlashlightLife()
     {
+        if (flashlightLife > 0)
+            flashlightDead = false;
+
         if (flashlightToggle)
         {
             flashlightLife -= Time.deltaTime;
@@ -300,17 +303,41 @@ public class PlayerController : MonoBehaviour
             if (flashlightLife <= 0)
             {
                 flashlightDead = true;
+                flashlightToggle = false;
                 flashlight.SetActive(false);
-                flashlightLife = 0;
             }
             else if (flashlightLife <= 30)
                 flashlightComponent.intensity = 1f;
             else if (flashlightLife <= 15)
                 flashlightComponent.intensity = 0.5f;
-            Debug.Log(flashlightLife);
-        }            
+        }
+        Debug.Log(flashlightLife);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Medkit")
+        {
+            Destroy(other.gameObject);
+            Debug.Log("medkit");
+        }
+        else if (other.gameObject.tag == "Ammo")
+        {
+            Destroy(other.gameObject);
+            Debug.Log("ammo");
+        }
+        else if (other.gameObject.tag == "Battery")
+        {
+            if (flashlightLife < 60f)
+            {
+                flashlightLife += 15f;
+                if (flashlightLife > 60f)
+                    flashlightLife = 60f;
+                Destroy(other.gameObject);
+            }
+            Debug.Log("battery");
+        }
+    }
 
     private void PlayFootstepSounds()
     {
