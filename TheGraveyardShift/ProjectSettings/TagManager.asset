@@ -15,6 +15,7 @@ TagManager:
   - Medkit
   - Ammo
   - Battery
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -23,8 +24,8 @@ TagManager:
   - Water
   - UI
   - Menus
-  - 
-  - 
+  - Ground
+  - Player
   - 
   - 
   - 

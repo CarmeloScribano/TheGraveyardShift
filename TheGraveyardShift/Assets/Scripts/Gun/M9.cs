@@ -7,24 +7,16 @@ public class M9 : Gun
 {
 	private void Update()
 	{
-		//Shoot(fireRate, 
-		//	bulletForce, 
-		//	mainAudioSource, 
-		//	shootAudioSource, 
-		//	soundClips, 
-		//	prefabs, 
-		//	spawnPoints, 
-		//	muzzleflashLight, 
-		//	lightDuration);
-
-		//UpdateMethods(soundClips, mainAudioSource, bulletInMagRenderer, showBulletInMagDelay);
-
-		Shoot();
-
 		UpdateMethods();
+		Shoot();
 	}
 
-	private void LateUpdate()
+    private void FixedUpdate()
+    {
+		
+	}
+
+    private void LateUpdate()
 	{
 		OnLateUpdate();
 	}
@@ -39,4 +31,3 @@ public class M9 : Gun
 		OnAwake();
 	}
 }
-// ----- Low Poly FPS Pack Free Version -----
