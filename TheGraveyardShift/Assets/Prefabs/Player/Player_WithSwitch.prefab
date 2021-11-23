@@ -894,8 +894,8 @@ MonoBehaviour:
   maxSparkEmission: 7
   bulletRange: 50
   damage: 30
-  knifeRange: 3
-  knifeDamage: 1000
+  knifeRange: 1
+  knifeDamage: 20
 --- !u!114 &3112146306081806092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13576,10 +13576,10 @@ MonoBehaviour:
   sparkParticles: {fileID: 1275505763091770342}
   minSparkEmission: 1
   maxSparkEmission: 7
-  bulletRange: 0
-  damage: 0
-  knifeRange: 0
-  knifeDamage: 0
+  bulletRange: 35
+  damage: 15
+  knifeRange: 1
+  knifeDamage: 20
 --- !u!114 &4771267007925141956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23894,7 +23894,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2189393070060545204
 Transform:
   m_ObjectHideFlags: 0
@@ -24167,7 +24167,7 @@ MonoBehaviour:
     run: Fire3
     jump: Jump
     flashlight: Flashlight
-  health: 1000
+  health: 150
   gameOverScreen: {fileID: 0}
   pauseScreen: {fileID: 0}
   hud: {fileID: 0}

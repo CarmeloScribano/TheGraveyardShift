@@ -144,8 +144,11 @@ public class Gun : MonoBehaviour
 
 	[SerializeField] private float bulletRange;
 	[SerializeField] private float damage;
-	[SerializeField] private float knifeRange;
-	[SerializeField] private float knifeDamage;
+	private float knifeRange = 1f;
+	private float knifeDamage = 50f;
+
+	private float knifeDelay = 0.5f;
+	private bool canKnife = true;
 
 	#endregion
 
@@ -468,8 +471,12 @@ public class Gun : MonoBehaviour
 		//Play knife attack 2 animation when F key is pressed
 		if (Input.GetKeyDown(KeyCode.V) && !isInspecting)
 		{
-			anim.Play("Knife Attack 2", 0, 0f);
-			StartCoroutine(DealKnifeDamage());
+			if (canKnife)
+            {
+				canKnife = false;
+				anim.Play("Knife Attack 2", 0, 0f);
+				StartCoroutine(DealKnifeDamage());
+			}
 		}
 	}
 
@@ -480,10 +487,11 @@ public class Gun : MonoBehaviour
 
 		CapsuleCollider collider = GameObject.FindWithTag("Player").GetComponent<CapsuleCollider>();
 
-		Vector3 p1 = transform.position + collider.center;
+		Vector3 p1 = transform.position;
 
 		// Cast a sphere wrapping character controller 10 meters forward
 		// to see if it is about to hit anything.
+		
 		if (Physics.SphereCast(p1, collider.height / 2, transform.forward, out hit, 10))
 		{
 			if (hit.transform.tag == "Enemy")
@@ -500,6 +508,10 @@ public class Gun : MonoBehaviour
 			}
 
 		}
+
+		yield return new WaitForSeconds(knifeDelay);
+
+		canKnife = true;
 	}
 
 	private void Grenade()
@@ -727,6 +739,12 @@ public class Gun : MonoBehaviour
 		{
 			isInspecting = false;
 		}
+	}
+
+	private void OnDrawGizmosSelected()
+	{
+		Gizmos.color = Color.yellow;
+		Gizmos.DrawWireSphere(transform.position, knifeRange);
 	}
 
 }

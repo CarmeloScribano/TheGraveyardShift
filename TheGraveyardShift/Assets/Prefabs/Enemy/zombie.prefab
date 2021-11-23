@@ -1474,7 +1474,7 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 256
-  health: 50
+  health: 200
   animator: {fileID: 2048886777772364183}
   damage: 30
   walkPoint: {x: 0, y: 0, z: 0}
