@@ -18,32 +18,32 @@ public class ScreenController : MonoBehaviour
 
     public void RestartTutorialButton()
     {
-        SceneManager.LoadScene("TutorialScene");
         Time.timeScale = 1;
+        SceneManager.LoadScene("TutorialScene");
     }
 
     public void MainMapButton()
     {
-        SceneManager.LoadScene("MainMap");
         Time.timeScale = 1;
+        SceneManager.LoadScene("MainMap");
     }
 
     public void MainMenuButton()
     {
-        SceneManager.LoadScene("MainMenu");
         Time.timeScale = 1;
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void StartButton()
     {
-        SceneManager.LoadScene("TutorialScene");
         Time.timeScale = 1;
+        SceneManager.LoadScene("TutorialScene");
     }
 
     public void AboutButton()
     {
-        SceneManager.LoadScene("About");
         Time.timeScale = 1;
+        SceneManager.LoadScene("About");
     }
 
     public void ResumeButton()

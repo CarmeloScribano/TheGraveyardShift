@@ -942,9 +942,9 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 256
-  health: 150
+  health: 300
   animator: {fileID: 7171221324439313445}
-  damage: 0
+  damage: 75
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 0
   timeBetweenAttacks: 4

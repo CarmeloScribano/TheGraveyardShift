@@ -894,8 +894,6 @@ MonoBehaviour:
   maxSparkEmission: 7
   bulletRange: 50
   damage: 30
-  knifeRange: 1
-  knifeDamage: 20
 --- !u!114 &3112146306081806092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13577,9 +13575,7 @@ MonoBehaviour:
   minSparkEmission: 1
   maxSparkEmission: 7
   bulletRange: 35
-  damage: 15
-  knifeRange: 1
-  knifeDamage: 20
+  damage: 20
 --- !u!114 &4771267007925141956
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -83,6 +83,7 @@ public class PlayerController : MonoBehaviour
     /// Initializes the FpsController on start.
     private void Start()
     {
+        Time.timeScale = 1;
         _rigidbody = GetComponent<Rigidbody>();
         _rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
         _collider = GetComponent<CapsuleCollider>();
@@ -179,6 +180,20 @@ public class PlayerController : MonoBehaviour
         PlayFootstepSounds();
         ToggleFlashlight();
         FlashlightLife();
+
+        if (health <= 0)
+        {
+            Time.timeScale = 0;
+            gameOverScreen.Setup();
+            hud.SetActive(false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            Time.timeScale = 0;
+            pauseScreen.Setup();
+            hud.SetActive(false);
+        }
     }
 
     private void RotateCameraAndCharacter()
