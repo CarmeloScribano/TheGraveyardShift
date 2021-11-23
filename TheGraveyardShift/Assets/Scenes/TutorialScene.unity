@@ -873,6 +873,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 9d123ff5b15c0bd4fbd33779e2acdbd9, type: 3}
+--- !u!1 &40136841 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3390418001393884100, guid: eabe69c5b508d3b429414e861a2a703b, type: 3}
+  m_PrefabInstance: {fileID: 1595265533}
+  m_PrefabAsset: {fileID: 0}
+--- !u!108 &40136843 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 8114292265981843007, guid: eabe69c5b508d3b429414e861a2a703b, type: 3}
+  m_PrefabInstance: {fileID: 1595265533}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &50310218
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1495,7 +1505,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 80934834}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!124 &80934836
 Behaviour:
   m_ObjectHideFlags: 0
@@ -44631,10 +44641,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 846736890, guid: eabe69c5b508d3b429414e861a2a703b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7075404065486697014, guid: eabe69c5b508d3b429414e861a2a703b, type: 3}
       propertyPath: hud
       value: 
       objectReference: {fileID: 756285034}
+    - target: {fileID: 7075404065486697014, guid: eabe69c5b508d3b429414e861a2a703b, type: 3}
+      propertyPath: flashlight
+      value: 
+      objectReference: {fileID: 40136841}
     - target: {fileID: 7075404065486697014, guid: eabe69c5b508d3b429414e861a2a703b, type: 3}
       propertyPath: pauseScreen
       value: 
@@ -44643,6 +44661,10 @@ PrefabInstance:
       propertyPath: gameOverScreen
       value: 
       objectReference: {fileID: 482680477}
+    - target: {fileID: 7075404065486697014, guid: eabe69c5b508d3b429414e861a2a703b, type: 3}
+      propertyPath: flashlightComponent
+      value: 
+      objectReference: {fileID: 40136843}
     - target: {fileID: 7180919365650414504, guid: eabe69c5b508d3b429414e861a2a703b, type: 3}
       propertyPath: m_RootOrder
       value: 1
