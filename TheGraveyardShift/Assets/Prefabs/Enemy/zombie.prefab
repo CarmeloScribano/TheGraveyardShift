@@ -1389,6 +1389,7 @@ GameObject:
   - component: {fileID: 7581798747807078075}
   - component: {fileID: 7387803615559913433}
   - component: {fileID: 4880787170814247197}
+  - component: {fileID: -4489143607244402773}
   m_Layer: 0
   m_Name: zombie
   m_TagString: Enemy
@@ -1484,6 +1485,7 @@ MonoBehaviour:
   attackRange: 2
   playerInSightRange: 0
   playerInAttackRange: 0
+  inducer: {fileID: -4489143607244402773}
 --- !u!136 &7387803615559913433
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1514,6 +1516,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-4489143607244402773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6150593060461474903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2850fc6d80c9e624d8dd3094f8039baf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Delay: 0
+  MaximumStress: 0.5
+  Range: 45
 --- !u!1 &6462035992060219586
 GameObject:
   m_ObjectHideFlags: 0

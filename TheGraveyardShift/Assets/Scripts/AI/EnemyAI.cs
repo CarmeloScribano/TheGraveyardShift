@@ -33,6 +33,8 @@ public class EnemyAI : MonoBehaviour
 
     private bool dead = false;
 
+    public TraumaInducer inducer;
+
     private void Awake()
     {
         player = GameObject.FindWithTag("Player").transform;
@@ -90,6 +92,12 @@ public class EnemyAI : MonoBehaviour
 
     private void ChasePlayer()
     {
+        if (alreadyAttacked)
+        {
+            return;
+        }
+
+
         changeAnim("isChasing", true);
         agent.SetDestination(player.position);
 
@@ -126,6 +134,10 @@ public class EnemyAI : MonoBehaviour
         float distance = Vector3.Distance(player.position, transform.position);
         if (distance <= attackRange + 1 && !dead)
         {
+            if (inducer != null)
+            {
+                StartCoroutine(inducer.Explode());
+            }
             player.gameObject.GetComponent<PlayerController>().TakeDamage(damage);
         }
     }
