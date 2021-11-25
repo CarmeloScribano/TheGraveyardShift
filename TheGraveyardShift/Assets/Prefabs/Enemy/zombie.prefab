@@ -1529,7 +1529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Delay: 0
-  MaximumStress: 0.5
+  MaximumStress: 0.2
   Range: 45
 --- !u!1 &6462035992060219586
 GameObject:

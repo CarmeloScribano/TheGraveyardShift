@@ -108,6 +108,15 @@ public class EnemyAI : MonoBehaviour
         return animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1;
     }
 
+    private void AttackDirectionChange()
+    {
+        Transform cam = GameObject.FindWithTag("MainCamera").transform;
+        Quaternion from = cam.rotation;
+        Quaternion to = new Quaternion(from.x + 2, from.y, from.z, from.w);
+        float speed = 0.1f;
+        cam.rotation = Quaternion.Lerp(from, to, Time.time * speed);
+    }
+
     private void AttackPlayer()
     {
         //Make sure enemy doesn't move
@@ -137,6 +146,7 @@ public class EnemyAI : MonoBehaviour
             if (inducer != null)
             {
                 StartCoroutine(inducer.Explode());
+                //AttackDirectionChange();
             }
             player.gameObject.GetComponent<PlayerController>().TakeDamage(damage);
         }
