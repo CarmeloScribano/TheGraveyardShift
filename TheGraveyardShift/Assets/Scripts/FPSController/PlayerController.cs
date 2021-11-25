@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -9,21 +10,26 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class PlayerController : MonoBehaviour
 {
-	[Header("Arms")]
+    [Header("Arms")]
     [Tooltip("The transform component that holds the gun camera.")]
     public Transform arms;
+
+    [Header("Flashlight")]
+    [Tooltip("Flashlight game object.")]
+    public GameObject flashlight;
+    public Light flashlightComponent;
 
     [Tooltip("The position of the arms and gun camera relative to the fps controller GameObject."), SerializeField]
     private Vector3 armPosition;
 
-	[Header("Audio Clips")]
+    [Header("Audio Clips")]
     [Tooltip("The audio clip that is played while walking."), SerializeField]
     private AudioClip walkingSound;
 
     [Tooltip("The audio clip that is played while running."), SerializeField]
     private AudioClip runningSound;
 
-	[Header("Movement Settings")]
+    [Header("Movement Settings")]
     [Tooltip("How fast the player moves while walking and strafing."), SerializeField]
     private float walkingSpeed = 5f;
 
@@ -36,7 +42,7 @@ public class PlayerController : MonoBehaviour
     [Tooltip("Amount of force applied to the player when jumping."), SerializeField]
     private float jumpForce = 35f;
 
-	[Header("Look Settings")]
+    [Header("Look Settings")]
     [Tooltip("Rotation speed of the fps controller."), SerializeField]
     private float mouseSensitivity = 7f;
 
@@ -61,6 +67,15 @@ public class PlayerController : MonoBehaviour
     private SmoothVelocity _velocityX;
     private SmoothVelocity _velocityZ;
     private bool _isGrounded;
+    private bool flashlightToggle;
+    private bool flashlightDead;
+    private float flashlightLife = 60f;
+
+    //Testing purposes
+    public float health = 10f;
+    public ScreenController gameOverScreen;
+    public ScreenController pauseScreen;
+    public GameObject hud;
 
     private readonly RaycastHit[] _groundCastResults = new RaycastHit[8];
     private readonly RaycastHit[] _wallCastResults = new RaycastHit[8];
@@ -68,11 +83,12 @@ public class PlayerController : MonoBehaviour
     /// Initializes the FpsController on start.
     private void Start()
     {
+        Time.timeScale = 1;
         _rigidbody = GetComponent<Rigidbody>();
         _rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
         _collider = GetComponent<CapsuleCollider>();
         _audioSource = GetComponent<AudioSource>();
-		arms = AssignCharactersCamera();
+        arms = AssignCharactersCamera();
         _audioSource.clip = walkingSound;
         _audioSource.loop = true;
         _rotationX = new SmoothRotation(RotationXRaw);
@@ -82,12 +98,12 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         ValidateRotationRestriction();
     }
-			
+
     private Transform AssignCharactersCamera()
     {
         var t = transform;
-		arms.SetPositionAndRotation(t.position, t.rotation);
-		return arms;
+        arms.SetPositionAndRotation(t.position, t.rotation);
+        return arms;
     }
 
     /// Clamps <see cref="minVerticalAngle"/> and <see cref="maxVerticalAngle"/> to valid values and
@@ -110,7 +126,7 @@ public class PlayerController : MonoBehaviour
         Debug.LogWarning(message);
         return Mathf.Clamp(rotationRestriction, min, max);
     }
-			
+
     /// Checks if the character is on the ground.
     private void OnCollisionStay()
     {
@@ -127,7 +143,7 @@ public class PlayerController : MonoBehaviour
 
         _isGrounded = true;
     }
-			
+
     /// Processes the character movement and the camera rotation every fixed framerate frame.
     private void FixedUpdate()
     {
@@ -159,9 +175,25 @@ public class PlayerController : MonoBehaviour
     /// Moves the camera to the character, processes jumping and plays sounds every frame.
     private void Update()
     {
-		arms.position = transform.position + transform.TransformVector(armPosition);
+        arms.position = transform.position + transform.TransformVector(armPosition);
         Jump();
         PlayFootstepSounds();
+        ToggleFlashlight();
+        FlashlightLife();
+
+        if (health <= 0)
+        {
+            Time.timeScale = 0;
+            gameOverScreen.Setup();
+            hud.SetActive(false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            Time.timeScale = 0;
+            pauseScreen.Setup();
+            hud.SetActive(false);
+        }
     }
 
     private void RotateCameraAndCharacter()
@@ -170,36 +202,36 @@ public class PlayerController : MonoBehaviour
         var rotationY = _rotationY.Update(RotationYRaw, rotationSmoothness);
         var clampedY = RestrictVerticalRotation(rotationY);
         _rotationY.Current = clampedY;
-		var worldUp = arms.InverseTransformDirection(Vector3.up);
-		var rotation = arms.rotation *
+        var worldUp = arms.InverseTransformDirection(Vector3.up);
+        var rotation = arms.rotation *
                         Quaternion.AngleAxis(rotationX, worldUp) *
                         Quaternion.AngleAxis(clampedY, Vector3.left);
         transform.eulerAngles = new Vector3(0f, rotation.eulerAngles.y, 0f);
-		arms.rotation = rotation;
+        arms.rotation = rotation;
     }
-			
+
     /// Returns the target rotation of the camera around the y axis with no smoothing.
     private float RotationXRaw
     {
         get { return input.RotateX * mouseSensitivity; }
     }
-			
+
     /// Returns the target rotation of the camera around the x axis with no smoothing.
     private float RotationYRaw
     {
         get { return input.RotateY * mouseSensitivity; }
     }
-			
+
     /// Clamps the rotation of the camera around the x axis
     /// between the <see cref="minVerticalAngle"/> and <see cref="maxVerticalAngle"/> values.
     private float RestrictVerticalRotation(float mouseY)
     {
-		var currentAngle = NormalizeAngle(arms.eulerAngles.x);
+        var currentAngle = NormalizeAngle(arms.eulerAngles.x);
         var minY = minVerticalAngle + currentAngle;
         var maxY = maxVerticalAngle + currentAngle;
         return Mathf.Clamp(mouseY, minY + 0.01f, maxY - 0.01f);
     }
-			
+
     /// Normalize an angle between -180 and 180 degrees.
     /// <param name="angleDegrees">angle to normalize</param>
     /// <returns>normalized angle</returns>
@@ -238,6 +270,11 @@ public class PlayerController : MonoBehaviour
         _rigidbody.AddForce(force, ForceMode.VelocityChange);
     }
 
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+    }
+
     private bool CheckCollisionsWithWalls(Vector3 velocity)
     {
         if (_isGrounded) return false;
@@ -267,6 +304,66 @@ public class PlayerController : MonoBehaviour
         _rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
     }
 
+    private void ToggleFlashlight()
+    {
+        if (input.Flashlight && !flashlightDead)
+        {
+            flashlightToggle = !flashlightToggle;
+
+            if (flashlightToggle)
+                flashlight.SetActive(true);
+            else if (!flashlightToggle)
+                flashlight.SetActive(false);
+        }
+    }
+
+    private void FlashlightLife()
+    {
+        if (flashlightLife > 0)
+            flashlightDead = false;
+
+        if (flashlightToggle)
+        {
+            flashlightLife -= Time.deltaTime;
+
+            if (flashlightLife <= 0)
+            {
+                flashlightDead = true;
+                flashlightToggle = false;
+                flashlight.SetActive(false);
+            }
+            else if (flashlightLife <= 30)
+                flashlightComponent.intensity = 1f;
+            else if (flashlightLife <= 15)
+                flashlightComponent.intensity = 0.5f;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Medkit")
+        {
+            Destroy(other.gameObject);
+            Debug.Log("medkit");
+        }
+        else if (other.gameObject.tag == "Ammo")
+        {
+            Destroy(other.gameObject);
+            Debug.Log("ammo");
+        }
+        else if (other.gameObject.tag == "Battery")
+        {
+            if (flashlightLife < 60f)
+            {
+                flashlightLife += 15f;
+                if (flashlightLife > 60f)
+                    flashlightLife = 60f;
+                Destroy(other.gameObject);
+            }
+            Debug.Log("battery");
+        }
+    }
+
     private void PlayFootstepSounds()
     {
         if (_isGrounded && _rigidbody.velocity.sqrMagnitude > 0.1f)
@@ -285,7 +382,7 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-			
+
     /// A helper for assistance with smoothing the camera rotation.
     private class SmoothRotation
     {
@@ -355,6 +452,10 @@ public class PlayerController : MonoBehaviour
             SerializeField]
         private string jump = "Jump";
 
+        [Tooltip("The name of the virtual button mapped to toggle the flashlight."),
+            SerializeField]
+        private string flashlight = "Flashlight";
+
         /// Returns the value of the virtual axis mapped to rotate the camera around the y axis.
         public float RotateX
         {
@@ -389,6 +490,12 @@ public class PlayerController : MonoBehaviour
         public bool Jump
         {
             get { return Input.GetButtonDown(jump); }
+        }
+
+        /// Returns true during the frame the user pressed down the virtual button mapped to toggle the flashlight.          
+        public bool Flashlight
+        {
+            get { return Input.GetButtonDown(flashlight); }
         }
     }
 }

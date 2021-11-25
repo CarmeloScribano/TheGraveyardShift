@@ -24,50 +24,51 @@ public class BulletScript : MonoBehaviour {
 	}
 
 	//If the bullet collides with anything
-	private void OnCollisionEnter (Collision collision) 
+	private void OnCollisionEnter(Collision collision)
 	{
 		//If destroy on impact is false, start 
 		//coroutine with random destroy timer
-		if (!destroyOnImpact) 
+		if (!destroyOnImpact)
 		{
-			StartCoroutine (DestroyTimer ());
+			StartCoroutine(DestroyTimer());
 		}
 		//Otherwise, destroy bullet on impact
-		else 
+		else
 		{
-			Destroy (gameObject);
-		}
-
-		//If bullet collides with "Metal" tag
-		if (collision.transform.tag == "Metal") 
-		{
-			//Instantiate random impact prefab from array
-			Instantiate (metalImpactPrefabs [Random.Range 
-				(0, metalImpactPrefabs.Length)], transform.position, 
-				Quaternion.LookRotation (collision.contacts [0].normal));
-			//Destroy bullet object
 			Destroy(gameObject);
 		}
 
-		//If bullet collides with "Target" tag
-		if (collision.transform.tag == "Target") 
-		{
-			//Toggle "isHit" on target object
-			collision.transform.gameObject.GetComponent
-				<TargetScript>().isHit = true;
-			//Destroy bullet object
-			Destroy(gameObject);
-		}
-			
-		//If bullet collides with "ExplosiveBarrel" tag
-		if (collision.transform.tag == "ExplosiveBarrel") 
-		{
-			//Toggle "explode" on explosive barrel object
-			collision.transform.gameObject.GetComponent
-				<ExplosiveBarrelScript>().explode = true;
-			//Destroy bullet object
-			Destroy(gameObject);
-		}
+		//	//If bullet collides with "Metal" tag
+		//	if (collision.transform.tag == "Metal") 
+		//	{
+		//		//Instantiate random impact prefab from array
+		//		Instantiate (metalImpactPrefabs [Random.Range 
+		//			(0, metalImpactPrefabs.Length)], transform.position, 
+		//			Quaternion.LookRotation (collision.contacts [0].normal));
+		//		//Destroy bullet object
+		//		Destroy(gameObject);
+		//	}
+
+		//	//If bullet collides with "Target" tag
+		//	if (collision.transform.tag == "Target") 
+		//	{
+		//		//Toggle "isHit" on target object
+		//		collision.transform.gameObject.GetComponent
+		//			<TargetScript>().isHit = true;
+		//		//Destroy bullet object
+		//		Destroy(gameObject);
+		//	}
+
+		//	//If bullet collides with "ExplosiveBarrel" tag
+		//	if (collision.transform.tag == "ExplosiveBarrel") 
+		//	{
+		//		//Toggle "explode" on explosive barrel object
+		//		collision.transform.gameObject.GetComponent
+		//			<ExplosiveBarrelScript>().explode = true;
+		//		//Destroy bullet object
+		//		Destroy(gameObject);
+		//	}
+		//}
 	}
 
 	private IEnumerator DestroyTimer () 

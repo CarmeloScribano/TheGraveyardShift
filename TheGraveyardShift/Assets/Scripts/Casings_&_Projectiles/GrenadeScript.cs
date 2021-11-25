@@ -87,21 +87,21 @@ public class GrenadeScript : MonoBehaviour {
 				rb.AddExplosionForce (power * 5, explosionPos, radius, 3.0F);
 			
 			//If the explosion hits "Target" tag and isHit is false
-			if (hit.GetComponent<Collider>().tag == "Target" 
-			    	&& hit.gameObject.GetComponent<TargetScript>().isHit == false) 
-			{
-				//Animate the target 
-				hit.gameObject.GetComponent<Animation> ().Play("target_down");
-				//Toggle "isHit" on target object
-				hit.gameObject.GetComponent<TargetScript>().isHit = true;
-			}
+			//if (hit.GetComponent<Collider>().tag == "Target" )
+			//    	//&& hit.gameObject.GetComponent<TargetScript>().isHit == false) 
+			//{
+			//	//Animate the target 
+			//	hit.gameObject.GetComponent<Animation> ().Play("target_down");
+			//	//Toggle "isHit" on target object
+			//	//hit.gameObject.GetComponent<TargetScript>().isHit = true;
+			//}
 
 			//If the explosion hits "ExplosiveBarrel" tag
-			if (hit.GetComponent<Collider>().tag == "ExplosiveBarrel") 
-			{
-				//Toggle "explode" on explosive barrel object
-				hit.gameObject.GetComponent<ExplosiveBarrelScript> ().explode = true;
-			}
+			//if (hit.GetComponent<Collider>().tag == "ExplosiveBarrel") 
+			//{
+			//	//Toggle "explode" on explosive barrel object
+			//	//hit.gameObject.GetComponent<ExplosiveBarrelScript> ().explode = true;
+			//}
 		}
 
 		//Destroy the grenade object on explosion

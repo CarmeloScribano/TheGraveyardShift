@@ -141,9 +141,18 @@ public class Gun : MonoBehaviour
 	public int maxSparkEmission = 7;
 
 	private int totalAmmo;
-    #endregion
 
-    public void OnAwake()
+	[SerializeField] private float bulletRange;
+	[SerializeField] private float damage;
+	private float knifeRange = 1f;
+	private float knifeDamage = 50f;
+
+	private float knifeDelay = 0.5f;
+	private bool canKnife = true;
+
+	#endregion
+
+	public void OnAwake()
 	{
 		//Set the animator component
 		anim = GetComponent<Animator>();
@@ -308,9 +317,9 @@ public class Gun : MonoBehaviour
     {
 		//AUtomatic fire
 		//Left click hold 
-		if (Input.GetMouseButton(0) && !outOfAmmo && !isReloading && !isInspecting && !isRunning)
+		if (fireType == FireWeaponSettings.Automatic)
 		{
-			if (fireType == FireWeaponSettings.Automatic)
+			if (Input.GetMouseButton(0) && !outOfAmmo && !isReloading && !isInspecting && !isRunning)
 			{
 				//Shoot automatic
 				if (Time.time - lastFired > 1 / fireRate)
@@ -385,66 +394,65 @@ public class Gun : MonoBehaviour
 							}
 						}
 					}
-				}				
+				}
 			}
-			else if (fireType == FireWeaponSettings.Semi)
+		}
+		if (fireType == FireWeaponSettings.Semi){
+			//Shooting 
+			if (Input.GetMouseButtonDown(0) && !outOfAmmo && !isReloading && !isInspecting && !isRunning)
 			{
-				//Shooting 
-				if (Input.GetMouseButtonDown(0) && !outOfAmmo && !isReloading && !isInspecting && !isRunning)
+				anim.Play("Fire", 0, 0f);
+
+				muzzleParticles.Emit(1);
+
+				//Remove 1 bullet from ammo
+				currentAmmo -= 1;
+
+				shootAudioSource.clip = soundClips.shootSound;
+				shootAudioSource.Play();
+
+				//Light flash start
+				StartCoroutine(MuzzleFlashLight());
+
+				if (!isAiming) //if not aiming
 				{
 					anim.Play("Fire", 0, 0f);
+					CreateBullet();
 
 					muzzleParticles.Emit(1);
 
-					//Remove 1 bullet from ammo
-					currentAmmo -= 1;
-
-					shootAudioSource.clip = soundClips.shootSound;
-					shootAudioSource.Play();
-
-					//Light flash start
-					StartCoroutine(MuzzleFlashLight());
-
-					if (!isAiming) //if not aiming
+					if (enableSparks == true)
 					{
-						anim.Play("Fire", 0, 0f);
-						CreateBullet();
-
-						muzzleParticles.Emit(1);
-
-						if (enableSparks == true)
-						{
-							//Emit random amount of spark particles
-							sparkParticles.Emit(Random.Range(1, 6));
-						}
+						//Emit random amount of spark particles
+						sparkParticles.Emit(Random.Range(1, 6));
 					}
-					else //if aiming
-					{
-						anim.Play("Aim Fire", 0, 0f);
-						CreateBullet();
+				}
+				else //if aiming
+				{
+					anim.Play("Aim Fire", 0, 0f);
+					CreateBullet();
 
-						//If random muzzle is false
-						if (!randomMuzzleflash)
+					//If random muzzle is false
+					if (!randomMuzzleflash)
+					{
+						muzzleParticles.Emit(1);
+						//If random muzzle is true
+					}
+					else if (randomMuzzleflash == true)
+					{
+						//Only emit if random value is 1
+						if (randomMuzzleflashValue == 1)
 						{
-							muzzleParticles.Emit(1);
-							//If random muzzle is true
-						}
-						else if (randomMuzzleflash == true)
-						{
-							//Only emit if random value is 1
-							if (randomMuzzleflashValue == 1)
+							if (enableSparks == true)
 							{
-								if (enableSparks == true)
-								{
-									//Emit random amount of spark particles
-									sparkParticles.Emit(Random.Range(1, 6));
-								}
-								if (enableMuzzleflash == true)
-								{
-									muzzleParticles.Emit(1);
-									//Light flash start
-									StartCoroutine(MuzzleFlashLight());
-								}
+								//Emit random amount of spark particles
+								sparkParticles.Emit(Random.Range(1, 6));
+							}
+							if (enableMuzzleflash == true)
+							{
+								muzzleParticles.Emit(1);
+								//Light flash start
+								StartCoroutine(MuzzleFlashLight());
 							}
 						}
 					}
@@ -456,15 +464,54 @@ public class Gun : MonoBehaviour
 	private void Knife()
     {
 		//Play knife attack 1 animation when Q key is pressed
-		if (Input.GetKeyDown(KeyCode.Q) && !isInspecting)
-		{
-			anim.Play("Knife Attack 1", 0, 0f);
-		}
+		//if (Input.GetKeyDown(KeyCode.Q) && !isInspecting)
+		//{
+		//	anim.Play("Knife Attack 1", 0, 0f);
+		//}
 		//Play knife attack 2 animation when F key is pressed
-		if (Input.GetKeyDown(KeyCode.F) && !isInspecting)
+		if (Input.GetKeyDown(KeyCode.V) && !isInspecting)
 		{
-			anim.Play("Knife Attack 2", 0, 0f);
+			if (canKnife)
+            {
+				canKnife = false;
+				anim.Play("Knife Attack 2", 0, 0f);
+				StartCoroutine(DealKnifeDamage());
+			}
 		}
+	}
+
+	private IEnumerator DealKnifeDamage()
+    {
+		yield return new WaitForSeconds(0.3f);
+		RaycastHit hit;
+
+		CapsuleCollider collider = GameObject.FindWithTag("Player").GetComponent<CapsuleCollider>();
+
+		Vector3 p1 = transform.position;
+
+		// Cast a sphere wrapping character controller 10 meters forward
+		// to see if it is about to hit anything.
+		
+		if (Physics.SphereCast(p1, collider.height / 2, transform.forward, out hit, 10))
+		{
+			if (hit.transform.tag == "Enemy")
+			{
+				if (hit.distance < knifeRange)
+				{
+					EnemyAI ai = hit.transform.gameObject.GetComponent<EnemyAI>();
+					if (ai != null)
+					{
+						ai.TakeDamage(knifeDamage);
+					}
+				}
+
+			}
+
+		}
+
+		yield return new WaitForSeconds(knifeDelay);
+
+		canKnife = true;
 	}
 
 	private void Grenade()
@@ -489,7 +536,26 @@ public class Gun : MonoBehaviour
 			spawnPoints.grenadeSpawnPoint.transform.rotation);
 	}
 
+	private void CastDamage()
+    {
+		RaycastHit hit;
+		Vector3 fwd = transform.TransformDirection(Vector3.forward);
+		if (Physics.Raycast(spawnPoints.bulletSpawnPoint.position, fwd, out hit, bulletRange))
+        {
+			if (hit.transform.tag == "Enemy")
+            {
+				EnemyAI ai = hit.transform.gameObject.GetComponent<EnemyAI>();
+				if (ai != null)
+                {
+					ai.TakeDamage(damage);
+                }
+            }
+        }
+    }
+
 	private void CreateBullet() {
+		CastDamage();
+
 		//Spawn bullet from bullet spawnpoint
 		var bullet = (Transform)Instantiate(
 			prefabs.bulletPrefab,
@@ -521,7 +587,6 @@ public class Gun : MonoBehaviour
 
 	private void Reload()
 	{
-
 		if (outOfAmmo == true)
 		{
 			//Play diff anim if out of ammo
@@ -674,6 +739,12 @@ public class Gun : MonoBehaviour
 		{
 			isInspecting = false;
 		}
+	}
+
+	private void OnDrawGizmosSelected()
+	{
+		Gizmos.color = Color.yellow;
+		Gizmos.DrawWireSphere(transform.position, knifeRange);
 	}
 
 }
