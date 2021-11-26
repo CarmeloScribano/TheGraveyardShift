@@ -6000,6 +6000,8 @@ MonoBehaviour:
   maxSparkEmission: 8
   bulletRange: 30
   damage: 18
+  bloodImpactPrefabs:
+  - {fileID: 4418440862474872, guid: a845e59c374ae0240812749e46f13033, type: 3}
 --- !u!82 &738154044804078978
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6466,7 +6468,7 @@ GameObject:
   - component: {fileID: 791642794312870122}
   m_Layer: 8
   m_Name: knife 1
-  m_TagString: Untagged
+  m_TagString: Knife
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23492,7 +23494,7 @@ GameObject:
   - component: {fileID: 1124388386122172264}
   m_Layer: 8
   m_Name: knife 1
-  m_TagString: Untagged
+  m_TagString: Knife
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24667,6 +24669,8 @@ MonoBehaviour:
   maxSparkEmission: 7
   bulletRange: 50
   damage: 30
+  bloodImpactPrefabs:
+  - {fileID: 4418440862474872, guid: a845e59c374ae0240812749e46f13033, type: 3}
 --- !u!114 &2641978919267051420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35999,7 +36003,7 @@ GameObject:
   - component: {fileID: 1508887881063430759}
   m_Layer: 8
   m_Name: knife 1
-  m_TagString: Untagged
+  m_TagString: Knife
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36589,6 +36593,8 @@ MonoBehaviour:
   maxSparkEmission: 7
   bulletRange: 35
   damage: 20
+  bloodImpactPrefabs:
+  - {fileID: 4418440862474872, guid: a845e59c374ae0240812749e46f13033, type: 3}
 --- !u!114 &5596940072761700692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38034,6 +38040,8 @@ MonoBehaviour:
   maxSparkEmission: 7
   bulletRange: 50
   damage: 30
+  bloodImpactPrefabs:
+  - {fileID: 4418440862474872, guid: a845e59c374ae0240812749e46f13033, type: 3}
 --- !u!82 &2764348882568028304
 AudioSource:
   m_ObjectHideFlags: 0
@@ -49581,7 +49589,7 @@ GameObject:
   - component: {fileID: 3414421900755718885}
   m_Layer: 8
   m_Name: knife 1
-  m_TagString: Untagged
+  m_TagString: Knife
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -150,6 +150,9 @@ public class Gun : MonoBehaviour
 	private float knifeDelay = 0.5f;
 	private bool canKnife = true;
 
+	[Header("Impact Effect Prefabs")]
+	public Transform[] bloodImpactPrefabs;
+
 	#endregion
 
 	public void OnAwake()
@@ -502,6 +505,13 @@ public class Gun : MonoBehaviour
 					if (ai != null)
 					{
 						ai.TakeDamage(knifeDamage);
+
+						Transform knife = GameObject.FindWithTag("Knife").transform;
+
+						//Instantiate random impact prefab from array
+						Instantiate(bloodImpactPrefabs[Random.Range
+							(0, bloodImpactPrefabs.Length)], knife.position,
+							Quaternion.LookRotation(hit.transform.position));
 					}
 				}
 
