@@ -593,14 +593,22 @@ public class Gun : MonoBehaviour
 
 	}
 
-	private void Reload()
+	private IEnumerator Reload()
 	{
+		string m_ClipName = "";
+		AnimatorClipInfo[] m_CurrentClipInfo;
+		float m_CurrentClipLength = 1.2f;
+
 		if (currentAmmo < totalAmmo)
         {
 			if (outOfAmmo == true)
 			{
 				//Play diff anim if out of ammo
 				anim.Play("Reload Out Of Ammo", 0, 0f);
+
+				m_CurrentClipInfo = anim.GetCurrentAnimatorClipInfo(0);
+				m_CurrentClipLength = m_CurrentClipInfo[0].clip.length;
+				m_ClipName = m_CurrentClipInfo[0].clip.name;
 
 				mainAudioSource.clip = soundClips.reloadSoundOutOfAmmo;
 				mainAudioSource.Play();
@@ -620,6 +628,10 @@ public class Gun : MonoBehaviour
 				//Play diff anim if ammo left
 				anim.Play("Reload Ammo Left", 0, 0f);
 
+				m_CurrentClipInfo = anim.GetCurrentAnimatorClipInfo(0);
+				m_CurrentClipLength = m_CurrentClipInfo[0].clip.length;
+				m_ClipName = m_CurrentClipInfo[0].clip.name;
+
 				mainAudioSource.clip = soundClips.reloadSoundAmmoLeft;
 				mainAudioSource.Play();
 
@@ -631,14 +643,47 @@ public class Gun : MonoBehaviour
 					<SkinnedMeshRenderer>().enabled = true;
 				}
 			}
-			//Restore ammo when reloading
-			int availableSpace = ammo - currentAmmo;
-			maxAmmo -= availableSpace;
-			currentAmmo += availableSpace;
 
-			totalAmmoText.text = maxAmmo.ToString();
+			print(m_ClipName);
+			print(m_CurrentClipLength);
 
-			currentAmmo = ammo;
+			yield return new WaitForSeconds(m_CurrentClipLength);
+
+			if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Draw"))
+			{
+				//Restore ammo when reloading
+				//if totalAmmo itself have enough bullets
+				if (maxAmmo >= totalAmmo)
+				{
+					//get the ammo required to fill the magazine
+					int neededAmmo = totalAmmo - currentAmmo;
+					//decrement the ammo required to fill the magazine from total 
+					maxAmmo -= neededAmmo;
+					//then increment the ammo required to fill the magazine  
+					currentAmmo += neededAmmo;
+				}
+				//if total ammo is less then the magazineCapacity
+				else if (maxAmmo > 0)
+				{
+					//get the ammo required to fill the magazine
+					int neededAmmo = ammo - currentAmmo;
+					//if totalAmmo has enough bullets required to fill the magazine
+					if (neededAmmo < maxAmmo)
+					{
+						maxAmmo -= neededAmmo;
+						currentAmmo += neededAmmo;
+					}
+					//if totalAmmo is less then the required neededAmmo then incerement all the bullets in the currentAmmo from totalAmmo
+					else
+					{
+						currentAmmo += maxAmmo;
+						maxAmmo = 0;
+					}
+				}
+
+				totalAmmoText.text = maxAmmo.ToString();
+			}
+
 			outOfAmmo = false;
 		}
 	}
@@ -649,7 +694,7 @@ public class Gun : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.R) && !isReloading && !isInspecting)
 		{
 			//Reload
-			Reload();
+			StartCoroutine(Reload());
 		}
 
 		//Walking when pressing down WASD keys
