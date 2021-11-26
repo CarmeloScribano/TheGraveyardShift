@@ -17,7 +17,11 @@ public class PlayerController : MonoBehaviour
     [Header("Flashlight")]
     [Tooltip("Flashlight game object.")]
     public GameObject flashlight;
-    public Light flashlightComponent;
+    public Light flashlightComponent; 
+    private bool flashlightToggle;
+    private bool flashlightDead;
+    public float maxFlashlightLife = 60f;
+    private float currentFlashlightLife;
 
     [Tooltip("The position of the arms and gun camera relative to the fps controller GameObject."), SerializeField]
     private Vector3 armPosition;
@@ -67,9 +71,6 @@ public class PlayerController : MonoBehaviour
     private SmoothVelocity _velocityX;
     private SmoothVelocity _velocityZ;
     private bool _isGrounded;
-    private bool flashlightToggle;
-    private bool flashlightDead;
-    private float flashlightLife = 60f;
 
     //Testing purposes
     public float health = 10f;
@@ -97,6 +98,7 @@ public class PlayerController : MonoBehaviour
         _velocityZ = new SmoothVelocity();
         Cursor.lockState = CursorLockMode.Locked;
         ValidateRotationRestriction();
+        currentFlashlightLife = maxFlashlightLife;
     }
 
     private Transform AssignCharactersCamera()
@@ -319,22 +321,22 @@ public class PlayerController : MonoBehaviour
 
     private void FlashlightLife()
     {
-        if (flashlightLife > 0)
+        if (currentFlashlightLife > 0)
             flashlightDead = false;
 
         if (flashlightToggle)
         {
-            flashlightLife -= Time.deltaTime;
+            currentFlashlightLife -= Time.deltaTime;
 
-            if (flashlightLife <= 0)
+            if (currentFlashlightLife <= 0)
             {
                 flashlightDead = true;
                 flashlightToggle = false;
                 flashlight.SetActive(false);
             }
-            else if (flashlightLife <= 30)
+            else if (currentFlashlightLife <= (maxFlashlightLife/2))
                 flashlightComponent.intensity = 1f;
-            else if (flashlightLife <= 15)
+            else if (currentFlashlightLife <= (maxFlashlightLife / 4))
                 flashlightComponent.intensity = 0.5f;
         }
     }
@@ -353,11 +355,11 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.gameObject.tag == "Battery")
         {
-            if (flashlightLife < 60f)
+            if (currentFlashlightLife < maxFlashlightLife)
             {
-                flashlightLife += 15f;
-                if (flashlightLife > 60f)
-                    flashlightLife = 60f;
+                currentFlashlightLife += (maxFlashlightLife / 4);
+                if (currentFlashlightLife > maxFlashlightLife)
+                    currentFlashlightLife = maxFlashlightLife;
                 Destroy(other.gameObject);
             }
             Debug.Log("battery");
