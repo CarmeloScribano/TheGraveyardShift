@@ -72,8 +72,11 @@ public class PlayerController : MonoBehaviour
     private SmoothVelocity _velocityZ;
     private bool _isGrounded;
 
-    //Testing purposes
-    public float health = 10f;
+    [Header("Player Health")]
+    public float maxHealth = 150f;
+    private float currentHealth;
+
+    [Header("HUD Options")]
     public ScreenController gameOverScreen;
     public ScreenController pauseScreen;
     public GameObject hud;
@@ -99,6 +102,7 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         ValidateRotationRestriction();
         currentFlashlightLife = maxFlashlightLife;
+        currentHealth = maxHealth;
     }
 
     private Transform AssignCharactersCamera()
@@ -153,6 +157,7 @@ public class PlayerController : MonoBehaviour
         RotateCameraAndCharacter();
         MoveCharacter();
         _isGrounded = false;
+        Debug.Log(currentHealth);
     }
 
     //void ChangeWeapon(int number)
@@ -183,7 +188,7 @@ public class PlayerController : MonoBehaviour
         ToggleFlashlight();
         FlashlightLife();
 
-        if (health <= 0)
+        if (currentHealth <= 0)
         {
             Time.timeScale = 0;
             gameOverScreen.Setup();
@@ -274,7 +279,7 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        health -= damage;
+        currentHealth -= damage;
     }
 
     private bool CheckCollisionsWithWalls(Vector3 velocity)
@@ -345,7 +350,13 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.tag == "Medkit")
         {
-            Destroy(other.gameObject);
+            if(currentHealth < maxHealth)
+            {
+                currentHealth += (maxHealth / 3);
+                if (currentHealth > maxHealth)
+                    currentHealth = maxHealth;
+                Destroy(other.gameObject);
+            }
             Debug.Log("medkit");
         }
         else if (other.gameObject.tag == "Ammo")
