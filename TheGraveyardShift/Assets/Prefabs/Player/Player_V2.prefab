@@ -5981,12 +5981,12 @@ MonoBehaviour:
   prefabs: {fileID: 800928672858476906}
   soundClips: {fileID: 800928672858476907}
   spawnPoints: {fileID: 800928672858476905}
-  weaponName: Handgun_04
+  weaponName: SIG
   weaponSway: 1
   swayAmount: 0.02
   maxSwayAmount: 0.06
   swaySmoothValue: 10
-  WeaponIcon: {fileID: 0}
+  WeaponIcon: {fileID: 21300014, guid: dccc05b8d01dde54f88f9910329187c2, type: 3}
   autoReload: 0
   autoReloadDelay: 0.25
   ammo: 9
@@ -6984,7 +6984,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 801178594484721274}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: -0.8981, z: 0.3618}
+  m_LocalPosition: {x: 0, y: -0.9127, z: 0.2709}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 795861005566094354}
@@ -36158,7 +36158,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1521615114371845817}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: -0.9, z: 0.632}
+  m_LocalPosition: {x: -0, y: -0.9667, z: 0.5272}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1519737821099147397}
@@ -36518,7 +36518,7 @@ GameObject:
   - component: {fileID: 8800116049694391547}
   - component: {fileID: 9116314919807404482}
   m_Layer: 8
-  m_Name: M9
+  m_Name: Glock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36558,7 +36558,7 @@ MonoBehaviour:
   defaultFov: 40
   aimFov: 16
   fireType: 1
-  fireRate: 0
+  fireRate: 2
   bulletForce: 400
   showBulletInMagDelay: 0.6
   bulletInMagRenderer: {fileID: 2090712339206366712}
@@ -38003,7 +38003,7 @@ MonoBehaviour:
   defaultFov: 40
   aimFov: 10
   fireType: 0
-  fireRate: 11.5
+  fireRate: 13
   bulletForce: 400
   showBulletInMagDelay: 0.6
   bulletInMagRenderer: {fileID: 1508737464847913449}
@@ -38020,7 +38020,7 @@ MonoBehaviour:
   swayAmount: 0.02
   maxSwayAmount: 0.06
   swaySmoothValue: 15
-  WeaponIcon: {fileID: 0}
+  WeaponIcon: {fileID: 21300002, guid: dccc05b8d01dde54f88f9910329187c2, type: 3}
   autoReload: 0
   autoReloadDelay: 0.25
   ammo: 30
@@ -38289,7 +38289,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2839993033930758570
 Transform:
   m_ObjectHideFlags: 0
