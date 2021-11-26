@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     [Header("Arms")]
     [Tooltip("The transform component that holds the gun camera.")]
     public Transform arms;
+    [Tooltip("The position of the arms and gun camera relative to the fps controller GameObject."), SerializeField]
+    private Vector3 armPosition;
 
     [Header("Flashlight")]
     [Tooltip("Flashlight game object.")]
@@ -21,10 +23,7 @@ public class PlayerController : MonoBehaviour
     private bool flashlightToggle;
     private bool flashlightDead;
     public float maxFlashlightLife = 60f;
-    private float currentFlashlightLife;
-
-    [Tooltip("The position of the arms and gun camera relative to the fps controller GameObject."), SerializeField]
-    private Vector3 armPosition;
+    private float currentFlashlightLife;    
 
     [Header("Audio Clips")]
     [Tooltip("The audio clip that is played while walking."), SerializeField]
