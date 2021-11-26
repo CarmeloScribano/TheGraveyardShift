@@ -5989,7 +5989,8 @@ MonoBehaviour:
   WeaponIcon: {fileID: 21300014, guid: dccc05b8d01dde54f88f9910329187c2, type: 3}
   autoReload: 0
   autoReloadDelay: 0.25
-  ammo: 9
+  ammo: 15
+  maxAmmo: 45
   randomMuzzleflash: 1
   maxRandomValue: 2
   enableMuzzleflash: 1
@@ -24659,6 +24660,7 @@ MonoBehaviour:
   autoReload: 0
   autoReloadDelay: 0.25
   ammo: 30
+  maxAmmo: 90
   randomMuzzleflash: 1
   maxRandomValue: 2
   enableMuzzleflash: 1
@@ -36583,6 +36585,7 @@ MonoBehaviour:
   autoReload: 0
   autoReloadDelay: 0.15
   ammo: 9
+  maxAmmo: 27
   randomMuzzleflash: 1
   maxRandomValue: 2
   enableMuzzleflash: 1
@@ -38030,6 +38033,7 @@ MonoBehaviour:
   autoReload: 0
   autoReloadDelay: 0.25
   ammo: 30
+  maxAmmo: 90
   randomMuzzleflash: 1
   maxRandomValue: 2
   enableMuzzleflash: 1

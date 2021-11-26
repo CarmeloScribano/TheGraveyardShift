@@ -120,6 +120,7 @@ public class Gun : MonoBehaviour
 	//Totalt amount of ammo
 	[Tooltip("How much ammo the weapon should have.")]
 	public int ammo;
+	public int maxAmmo;
 	//Check if out of ammo
 	private bool outOfAmmo;
 
@@ -180,7 +181,7 @@ public class Gun : MonoBehaviour
         //Get weapon name from string to text
         currentWeaponText.text = weaponName;
         //Set total ammo text from total ammo int
-        totalAmmoText.text = ammo.ToString();
+        totalAmmoText.text = maxAmmo.ToString();
 
 		//Weapon sway
 		initialSwayPosition = transform.localPosition;
@@ -214,9 +215,6 @@ public class Gun : MonoBehaviour
 		}
 	}
 
-	/// TODO: 
-	/// Fix Switching Guns 
-	///
 	public virtual void OnWeaponUse()
 	{
 		FindHUDElements();
@@ -226,7 +224,7 @@ public class Gun : MonoBehaviour
 		currentWeaponIcon.sprite = WeaponIcon;
 		 //}
 
-		totalAmmoText.text = ammo.ToString();
+		totalAmmoText.text = maxAmmo.ToString();
 
 		TakeOut();
 	}
@@ -597,43 +595,52 @@ public class Gun : MonoBehaviour
 
 	private void Reload()
 	{
-		if (outOfAmmo == true)
-		{
-			//Play diff anim if out of ammo
-			anim.Play("Reload Out Of Ammo", 0, 0f);
-
-			mainAudioSource.clip = soundClips.reloadSoundOutOfAmmo;
-			mainAudioSource.Play();
-
-			//If out of ammo, hide the bullet renderer in the mag
-			//Do not show if bullet renderer is not assigned in inspector
-			if (bulletInMagRenderer != null)
+		if (currentAmmo < totalAmmo)
+        {
+			if (outOfAmmo == true)
 			{
-				bulletInMagRenderer.GetComponent
-				<SkinnedMeshRenderer>().enabled = false;
-				//Start show bullet delay
-				StartCoroutine(ShowBulletInMag());
+				//Play diff anim if out of ammo
+				anim.Play("Reload Out Of Ammo", 0, 0f);
+
+				mainAudioSource.clip = soundClips.reloadSoundOutOfAmmo;
+				mainAudioSource.Play();
+
+				//If out of ammo, hide the bullet renderer in the mag
+				//Do not show if bullet renderer is not assigned in inspector
+				if (bulletInMagRenderer != null)
+				{
+					bulletInMagRenderer.GetComponent
+					<SkinnedMeshRenderer>().enabled = false;
+					//Start show bullet delay
+					StartCoroutine(ShowBulletInMag());
+				}
 			}
-		}
-		else
-		{
-			//Play diff anim if ammo left
-			anim.Play("Reload Ammo Left", 0, 0f);
-
-			mainAudioSource.clip = soundClips.reloadSoundAmmoLeft;
-			mainAudioSource.Play();
-
-			//If reloading when ammo left, show bullet in mag
-			//Do not show if bullet renderer is not assigned in inspector
-			if (bulletInMagRenderer != null)
+			else
 			{
-				bulletInMagRenderer.GetComponent
-				<SkinnedMeshRenderer>().enabled = true;
+				//Play diff anim if ammo left
+				anim.Play("Reload Ammo Left", 0, 0f);
+
+				mainAudioSource.clip = soundClips.reloadSoundAmmoLeft;
+				mainAudioSource.Play();
+
+				//If reloading when ammo left, show bullet in mag
+				//Do not show if bullet renderer is not assigned in inspector
+				if (bulletInMagRenderer != null)
+				{
+					bulletInMagRenderer.GetComponent
+					<SkinnedMeshRenderer>().enabled = true;
+				}
 			}
+			//Restore ammo when reloading
+			int availableSpace = ammo - currentAmmo;
+			maxAmmo -= availableSpace;
+			currentAmmo += availableSpace;
+
+			totalAmmoText.text = maxAmmo.ToString();
+
+			currentAmmo = ammo;
+			outOfAmmo = false;
 		}
-		//Restore ammo when reloading
-		currentAmmo = ammo;
-		outOfAmmo = false;
 	}
 
 	public void UpdateMethods()
