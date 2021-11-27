@@ -593,22 +593,34 @@ public class Gun : MonoBehaviour
 
 	}
 
+	private float GetAnimationTime(string clipName)
+    {
+		float cTime = 0f;
+
+		AnimationClip[] arrclip = GetComponent<Animator>().runtimeAnimatorController.animationClips;
+		foreach (AnimationClip clip in arrclip)
+		{
+			if (clip.name.Contains(clipName))
+            {
+				cTime = clip.length;
+            }
+		}
+
+		return cTime;
+    }
+
 	private IEnumerator Reload()
 	{
-		string m_ClipName = "";
-		AnimatorClipInfo[] m_CurrentClipInfo;
-		float m_CurrentClipLength = 1.2f;
 
 		if (currentAmmo < totalAmmo)
         {
+			float reloadTime = 0f;
+
 			if (outOfAmmo == true)
 			{
 				//Play diff anim if out of ammo
 				anim.Play("Reload Out Of Ammo", 0, 0f);
-
-				m_CurrentClipInfo = anim.GetCurrentAnimatorClipInfo(0);
-				m_CurrentClipLength = m_CurrentClipInfo[0].clip.length;
-				m_ClipName = m_CurrentClipInfo[0].clip.name;
+				reloadTime = GetAnimationTime("reload_out_of_ammo");
 
 				mainAudioSource.clip = soundClips.reloadSoundOutOfAmmo;
 				mainAudioSource.Play();
@@ -627,10 +639,7 @@ public class Gun : MonoBehaviour
 			{
 				//Play diff anim if ammo left
 				anim.Play("Reload Ammo Left", 0, 0f);
-
-				m_CurrentClipInfo = anim.GetCurrentAnimatorClipInfo(0);
-				m_CurrentClipLength = m_CurrentClipInfo[0].clip.length;
-				m_ClipName = m_CurrentClipInfo[0].clip.name;
+				reloadTime = GetAnimationTime("reload_ammo_left");
 
 				mainAudioSource.clip = soundClips.reloadSoundAmmoLeft;
 				mainAudioSource.Play();
@@ -644,10 +653,7 @@ public class Gun : MonoBehaviour
 				}
 			}
 
-			print(m_ClipName);
-			print(m_CurrentClipLength);
-
-			yield return new WaitForSeconds(m_CurrentClipLength);
+			yield return new WaitForSeconds(reloadTime);
 
 			if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Draw"))
 			{
