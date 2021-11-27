@@ -22,6 +22,12 @@ public class ScreenController : MonoBehaviour
         SceneManager.LoadScene("TutorialScene");
     }
 
+    public void RestartMainMapButton()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("MainMap");
+    }
+
     public void MainMapButton()
     {
         Time.timeScale = 1;
