@@ -143,9 +143,9 @@ public class Gun : MonoBehaviour
 
 	private int totalAmmo;
 
-	[SerializeField] private float bulletRange;
-	[SerializeField] private float damage;
-	private float knifeRange = 1f;
+	[SerializeField] private float bulletRange = 50f;
+	[SerializeField] private float damage = 30f;
+	private float knifeRange = 2f;
 	private float knifeDamage = 50f;
 
 	private float knifeDelay = 0.5f;
@@ -492,24 +492,24 @@ public class Gun : MonoBehaviour
 
 		// Cast a sphere wrapping character controller 10 meters forward
 		// to see if it is about to hit anything.
-		
-		if (Physics.SphereCast(p1, collider.height / 2, transform.forward, out hit, 10))
+
+		//transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity
+		//if (Physics.Raycast(p1, transform.forward, out hit))
+		if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
 		{
 			if (hit.transform.tag == "Enemy")
 			{
-				if (hit.distance < knifeRange)
-				{
-					EnemyAI ai = hit.transform.gameObject.GetComponent<EnemyAI>();
+                if (hit.distance < knifeRange)
+                {
+                    EnemyAI ai = hit.transform.gameObject.GetComponent<EnemyAI>();
 					if (ai != null)
 					{
 						ai.TakeDamage(knifeDamage);
 
-						Transform knife = GameObject.FindWithTag("Knife").transform;
-
 						//Instantiate random impact prefab from array
 						Instantiate(bloodImpactPrefabs[Random.Range
-							(0, bloodImpactPrefabs.Length)], knife.position,
-							Quaternion.LookRotation(hit.transform.position));
+							(0, bloodImpactPrefabs.Length)], hit.transform.position + new Vector3(0,0.9f,0),
+							Quaternion.LookRotation(p1));
 					}
 				}
 
@@ -807,12 +807,6 @@ public class Gun : MonoBehaviour
 		{
 			isInspecting = false;
 		}
-	}
-
-	private void OnDrawGizmosSelected()
-	{
-		Gizmos.color = Color.yellow;
-		Gizmos.DrawWireSphere(transform.position, knifeRange);
 	}
 
 }
