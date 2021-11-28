@@ -1532,6 +1532,7 @@ GameObject:
   - component: {fileID: 3577201403229489643}
   - component: {fileID: 6959360188092854517}
   - component: {fileID: 308724039981280850}
+  - component: {fileID: 8310890671341171399}
   m_Layer: 0
   m_Name: Yeti
   m_TagString: Enemy
@@ -1630,7 +1631,7 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 256
-  health: 100
+  health: 500
   animator: {fileID: 8010941400485013233}
   damage: 0
   walkPoint: {x: 0, y: 0, z: 0}
@@ -1640,6 +1641,7 @@ MonoBehaviour:
   attackRange: 3.5
   playerInSightRange: 0
   playerInAttackRange: 0
+  inducer: {fileID: 8310890671341171399}
 --- !u!54 &308724039981280850
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1656,6 +1658,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8310890671341171399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8010941400485013234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2850fc6d80c9e624d8dd3094f8039baf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Delay: 0
+  MaximumStress: 1
+  Range: 45
 --- !u!1 &8024252585936084857
 GameObject:
   m_ObjectHideFlags: 0

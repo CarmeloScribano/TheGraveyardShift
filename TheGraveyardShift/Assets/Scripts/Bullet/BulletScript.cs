@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// ----- Low Poly FPS Pack Free Version -----
-public class BulletScript : MonoBehaviour {
+public class BulletScript : MonoBehaviour
+{
 
 	[Range(5, 100)]
 	[Tooltip("After how long time should the bullet prefab be destroyed?")]
@@ -15,12 +15,15 @@ public class BulletScript : MonoBehaviour {
 	public float maxDestroyTime;
 
 	[Header("Impact Effect Prefabs")]
-	public Transform [] metalImpactPrefabs;
+	public Transform[] bloodImpactPrefabs;
+	public Transform[] metalImpactPrefabs;
+	public Transform[] dirtImpactPrefabs;
+	public Transform[] concreteImpactPrefabs;
 
-	private void Start () 
+	private void Start()
 	{
 		//Start destroy timer
-		StartCoroutine (DestroyAfter ());
+		StartCoroutine(DestroyAfter());
 	}
 
 	//If the bullet collides with anything
@@ -38,40 +41,64 @@ public class BulletScript : MonoBehaviour {
 			Destroy(gameObject);
 		}
 
-		//	//If bullet collides with "Metal" tag
-		//	if (collision.transform.tag == "Metal") 
-		//	{
-		//		//Instantiate random impact prefab from array
-		//		Instantiate (metalImpactPrefabs [Random.Range 
-		//			(0, metalImpactPrefabs.Length)], transform.position, 
-		//			Quaternion.LookRotation (collision.contacts [0].normal));
-		//		//Destroy bullet object
-		//		Destroy(gameObject);
-		//	}
+		//Ignore collision if bullet collides with "Player" tag
+		if (collision.gameObject.tag == "Player")
+		{
+			//Physics.IgnoreCollision (collision.collider);
+			Debug.LogWarning("Collides with player");
+			//Physics.IgnoreCollision(GetComponent<Collider>(), GetComponent<Collider>());
 
-		//	//If bullet collides with "Target" tag
-		//	if (collision.transform.tag == "Target") 
-		//	{
-		//		//Toggle "isHit" on target object
-		//		collision.transform.gameObject.GetComponent
-		//			<TargetScript>().isHit = true;
-		//		//Destroy bullet object
-		//		Destroy(gameObject);
-		//	}
 
-		//	//If bullet collides with "ExplosiveBarrel" tag
-		//	if (collision.transform.tag == "ExplosiveBarrel") 
-		//	{
-		//		//Toggle "explode" on explosive barrel object
-		//		collision.transform.gameObject.GetComponent
-		//			<ExplosiveBarrelScript>().explode = true;
-		//		//Destroy bullet object
-		//		Destroy(gameObject);
-		//	}
-		//}
+			Physics.IgnoreCollision(collision.collider, GetComponent<Collider>());
+
+		}
+
+		//If bullet collides with "Blood" tag
+		if (collision.transform.tag == "Blood" || collision.transform.tag == "Enemy")
+		{
+			//Instantiate random impact prefab from array
+			Instantiate(bloodImpactPrefabs[Random.Range
+				(0, bloodImpactPrefabs.Length)], transform.position,
+				Quaternion.LookRotation(collision.contacts[0].normal));
+			//Destroy bullet object
+			Destroy(gameObject);
+		}
+
+		//If bullet collides with "Metal" tag
+		if (collision.transform.tag == "Metal")
+		{
+			//Instantiate random impact prefab from array
+			Instantiate(metalImpactPrefabs[Random.Range
+				(0, bloodImpactPrefabs.Length)], transform.position,
+				Quaternion.LookRotation(collision.contacts[0].normal));
+			//Destroy bullet object
+			Destroy(gameObject);
+		}
+
+		//If bullet collides with "Dirt" tag
+		if (collision.transform.tag == "Dirt")
+		{
+			//Instantiate random impact prefab from array
+			Instantiate(dirtImpactPrefabs[Random.Range
+				(0, bloodImpactPrefabs.Length)], transform.position,
+				Quaternion.LookRotation(collision.contacts[0].normal));
+			//Destroy bullet object
+			Destroy(gameObject);
+		}
+
+		//If bullet collides with "Concrete" tag
+		if (collision.transform.tag == "Concrete")
+		{
+			//Instantiate random impact prefab from array
+			Instantiate(concreteImpactPrefabs[Random.Range
+				(0, bloodImpactPrefabs.Length)], transform.position,
+				Quaternion.LookRotation(collision.contacts[0].normal));
+			//Destroy bullet object
+			Destroy(gameObject);
+		}
 	}
 
-	private IEnumerator DestroyTimer () 
+	private IEnumerator DestroyTimer()
 	{
 		//Wait random time based on min and max values
 		yield return new WaitForSeconds
@@ -80,12 +107,11 @@ public class BulletScript : MonoBehaviour {
 		Destroy(gameObject);
 	}
 
-	private IEnumerator DestroyAfter () 
+	private IEnumerator DestroyAfter()
 	{
 		//Wait for set amount of time
-		yield return new WaitForSeconds (destroyAfter);
+		yield return new WaitForSeconds(destroyAfter);
 		//Destroy bullet object
-		Destroy (gameObject);
+		Destroy(gameObject);
 	}
 }
-// ----- Low Poly FPS Pack Free Version -----

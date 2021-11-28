@@ -16,6 +16,7 @@ TagManager:
   - Ammo
   - Battery
   - Enemy
+  - Knife
   layers:
   - Default
   - TransparentFX

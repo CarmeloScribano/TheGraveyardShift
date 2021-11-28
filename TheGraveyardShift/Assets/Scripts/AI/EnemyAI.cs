@@ -33,6 +33,8 @@ public class EnemyAI : MonoBehaviour
 
     private bool dead = false;
 
+    public TraumaInducer inducer;
+
     private void Awake()
     {
         player = GameObject.FindWithTag("Player").transform;
@@ -90,6 +92,12 @@ public class EnemyAI : MonoBehaviour
 
     private void ChasePlayer()
     {
+        if (alreadyAttacked)
+        {
+            return;
+        }
+
+
         changeAnim("isChasing", true);
         agent.SetDestination(player.position);
 
@@ -98,6 +106,15 @@ public class EnemyAI : MonoBehaviour
     private bool AnimatorIsFinished()
     {
         return animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1;
+    }
+
+    private void AttackDirectionChange()
+    {
+        Transform cam = GameObject.FindWithTag("MainCamera").transform;
+        Quaternion from = cam.rotation;
+        Quaternion to = new Quaternion(from.x + 2, from.y, from.z, from.w);
+        float speed = 0.1f;
+        cam.rotation = Quaternion.Lerp(from, to, Time.time * speed);
     }
 
     private void AttackPlayer()
@@ -126,6 +143,11 @@ public class EnemyAI : MonoBehaviour
         float distance = Vector3.Distance(player.position, transform.position);
         if (distance <= attackRange + 1 && !dead)
         {
+            if (inducer != null)
+            {
+                StartCoroutine(inducer.Explode());
+                //AttackDirectionChange();
+            }
             player.gameObject.GetComponent<PlayerController>().TakeDamage(damage);
         }
     }
