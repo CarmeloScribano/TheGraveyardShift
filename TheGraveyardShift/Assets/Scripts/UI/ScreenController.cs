@@ -43,7 +43,7 @@ public class ScreenController : MonoBehaviour
     public void StartButton()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("TutorialScene");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void AboutButton()
