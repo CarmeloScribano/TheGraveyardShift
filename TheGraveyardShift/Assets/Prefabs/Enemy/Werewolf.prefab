@@ -881,6 +881,7 @@ GameObject:
   - component: {fileID: 3872810204160409275}
   - component: {fileID: 7171221324439313445}
   - component: {fileID: 1095810184142721443}
+  - component: {fileID: -1413805905355329650}
   m_Layer: 0
   m_Name: Werewolf
   m_TagString: Enemy
@@ -952,6 +953,7 @@ MonoBehaviour:
   attackRange: 2
   playerInSightRange: 0
   playerInAttackRange: 0
+  inducer: {fileID: -1413805905355329650}
 --- !u!195 &3872810204160409275
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1007,6 +1009,21 @@ CapsuleCollider:
   m_Height: 4
   m_Direction: 1
   m_Center: {x: 0, y: 2, z: 0}
+--- !u!114 &-1413805905355329650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2762350800465961864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2850fc6d80c9e624d8dd3094f8039baf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Delay: 0
+  MaximumStress: 0.6
+  Range: 45
 --- !u!1 &2800004236256499826
 GameObject:
   m_ObjectHideFlags: 0

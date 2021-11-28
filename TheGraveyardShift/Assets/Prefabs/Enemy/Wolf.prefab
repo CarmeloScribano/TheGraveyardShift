@@ -265,6 +265,7 @@ GameObject:
   - component: {fileID: 2367245159168203887}
   - component: {fileID: 6830059085882060644}
   - component: {fileID: 932056402240536228}
+  - component: {fileID: 2118945484834855704}
   m_Layer: 0
   m_Name: Wolf
   m_TagString: Enemy
@@ -347,6 +348,7 @@ MonoBehaviour:
   attackRange: 1.2
   playerInSightRange: 0
   playerInAttackRange: 0
+  inducer: {fileID: 2118945484834855704}
 --- !u!195 &6830059085882060644
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -388,6 +390,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2118945484834855704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2713562652532766426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2850fc6d80c9e624d8dd3094f8039baf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Delay: 0
+  MaximumStress: 0.4
+  Range: 45
 --- !u!1 &2821292884913687918
 GameObject:
   m_ObjectHideFlags: 0

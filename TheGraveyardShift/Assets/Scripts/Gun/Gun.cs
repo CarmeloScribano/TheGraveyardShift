@@ -120,6 +120,7 @@ public class Gun : MonoBehaviour
 	//Totalt amount of ammo
 	[Tooltip("How much ammo the weapon should have.")]
 	public int ammo;
+	public int maxAmmo;
 	//Check if out of ammo
 	private bool outOfAmmo;
 
@@ -142,13 +143,16 @@ public class Gun : MonoBehaviour
 
 	private int totalAmmo;
 
-	[SerializeField] private float bulletRange;
-	[SerializeField] private float damage;
-	private float knifeRange = 1f;
+	[SerializeField] private float bulletRange = 50f;
+	[SerializeField] private float damage = 30f;
+	private float knifeRange = 2f;
 	private float knifeDamage = 50f;
 
 	private float knifeDelay = 0.5f;
 	private bool canKnife = true;
+
+	[Header("Impact Effect Prefabs")]
+	public Transform[] bloodImpactPrefabs;
 
 	#endregion
 
@@ -177,7 +181,7 @@ public class Gun : MonoBehaviour
         //Get weapon name from string to text
         currentWeaponText.text = weaponName;
         //Set total ammo text from total ammo int
-        totalAmmoText.text = ammo.ToString();
+        totalAmmoText.text = maxAmmo.ToString();
 
 		//Weapon sway
 		initialSwayPosition = transform.localPosition;
@@ -211,9 +215,6 @@ public class Gun : MonoBehaviour
 		}
 	}
 
-	/// TODO: 
-	/// Fix Switching Guns 
-	///
 	public virtual void OnWeaponUse()
 	{
 		FindHUDElements();
@@ -223,7 +224,7 @@ public class Gun : MonoBehaviour
 		currentWeaponIcon.sprite = WeaponIcon;
 		 //}
 
-		totalAmmoText.text = ammo.ToString();
+		totalAmmoText.text = maxAmmo.ToString();
 
 		TakeOut();
 	}
@@ -491,17 +492,24 @@ public class Gun : MonoBehaviour
 
 		// Cast a sphere wrapping character controller 10 meters forward
 		// to see if it is about to hit anything.
-		
-		if (Physics.SphereCast(p1, collider.height / 2, transform.forward, out hit, 10))
+
+		//transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity
+		//if (Physics.Raycast(p1, transform.forward, out hit))
+		if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
 		{
 			if (hit.transform.tag == "Enemy")
 			{
-				if (hit.distance < knifeRange)
-				{
-					EnemyAI ai = hit.transform.gameObject.GetComponent<EnemyAI>();
+                if (hit.distance < knifeRange)
+                {
+                    EnemyAI ai = hit.transform.gameObject.GetComponent<EnemyAI>();
 					if (ai != null)
 					{
 						ai.TakeDamage(knifeDamage);
+
+						//Instantiate random impact prefab from array
+						Instantiate(bloodImpactPrefabs[Random.Range
+							(0, bloodImpactPrefabs.Length)], hit.transform.position + new Vector3(0,0.9f,0),
+							Quaternion.LookRotation(p1));
 					}
 				}
 
@@ -585,45 +593,105 @@ public class Gun : MonoBehaviour
 
 	}
 
-	private void Reload()
+	private float GetAnimationTime(string clipName)
+    {
+		float cTime = 0f;
+
+		AnimationClip[] arrclip = GetComponent<Animator>().runtimeAnimatorController.animationClips;
+		foreach (AnimationClip clip in arrclip)
+		{
+			if (clip.name.Contains(clipName))
+            {
+				cTime = clip.length;
+            }
+		}
+
+		return cTime;
+    }
+
+	private IEnumerator Reload()
 	{
-		if (outOfAmmo == true)
-		{
-			//Play diff anim if out of ammo
-			anim.Play("Reload Out Of Ammo", 0, 0f);
 
-			mainAudioSource.clip = soundClips.reloadSoundOutOfAmmo;
-			mainAudioSource.Play();
+		if (currentAmmo < totalAmmo)
+        {
+			float reloadTime = 0f;
 
-			//If out of ammo, hide the bullet renderer in the mag
-			//Do not show if bullet renderer is not assigned in inspector
-			if (bulletInMagRenderer != null)
+			if (outOfAmmo == true)
 			{
-				bulletInMagRenderer.GetComponent
-				<SkinnedMeshRenderer>().enabled = false;
-				//Start show bullet delay
-				StartCoroutine(ShowBulletInMag());
+				//Play diff anim if out of ammo
+				anim.Play("Reload Out Of Ammo", 0, 0f);
+				reloadTime = GetAnimationTime("reload_out_of_ammo");
+
+				mainAudioSource.clip = soundClips.reloadSoundOutOfAmmo;
+				mainAudioSource.Play();
+
+				//If out of ammo, hide the bullet renderer in the mag
+				//Do not show if bullet renderer is not assigned in inspector
+				if (bulletInMagRenderer != null)
+				{
+					bulletInMagRenderer.GetComponent
+					<SkinnedMeshRenderer>().enabled = false;
+					//Start show bullet delay
+					StartCoroutine(ShowBulletInMag());
+				}
 			}
-		}
-		else
-		{
-			//Play diff anim if ammo left
-			anim.Play("Reload Ammo Left", 0, 0f);
-
-			mainAudioSource.clip = soundClips.reloadSoundAmmoLeft;
-			mainAudioSource.Play();
-
-			//If reloading when ammo left, show bullet in mag
-			//Do not show if bullet renderer is not assigned in inspector
-			if (bulletInMagRenderer != null)
+			else
 			{
-				bulletInMagRenderer.GetComponent
-				<SkinnedMeshRenderer>().enabled = true;
+				//Play diff anim if ammo left
+				anim.Play("Reload Ammo Left", 0, 0f);
+				reloadTime = GetAnimationTime("reload_ammo_left");
+
+				mainAudioSource.clip = soundClips.reloadSoundAmmoLeft;
+				mainAudioSource.Play();
+
+				//If reloading when ammo left, show bullet in mag
+				//Do not show if bullet renderer is not assigned in inspector
+				if (bulletInMagRenderer != null)
+				{
+					bulletInMagRenderer.GetComponent
+					<SkinnedMeshRenderer>().enabled = true;
+				}
 			}
+
+			yield return new WaitForSeconds(reloadTime);
+
+			if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Draw"))
+			{
+				//Restore ammo when reloading
+				//if totalAmmo itself have enough bullets
+				if (maxAmmo >= totalAmmo)
+				{
+					//get the ammo required to fill the magazine
+					int neededAmmo = totalAmmo - currentAmmo;
+					//decrement the ammo required to fill the magazine from total 
+					maxAmmo -= neededAmmo;
+					//then increment the ammo required to fill the magazine  
+					currentAmmo += neededAmmo;
+				}
+				//if total ammo is less then the magazineCapacity
+				else if (maxAmmo > 0)
+				{
+					//get the ammo required to fill the magazine
+					int neededAmmo = ammo - currentAmmo;
+					//if totalAmmo has enough bullets required to fill the magazine
+					if (neededAmmo < maxAmmo)
+					{
+						maxAmmo -= neededAmmo;
+						currentAmmo += neededAmmo;
+					}
+					//if totalAmmo is less then the required neededAmmo then incerement all the bullets in the currentAmmo from totalAmmo
+					else
+					{
+						currentAmmo += maxAmmo;
+						maxAmmo = 0;
+					}
+				}
+
+				totalAmmoText.text = maxAmmo.ToString();
+			}
+
+			outOfAmmo = false;
 		}
-		//Restore ammo when reloading
-		currentAmmo = ammo;
-		outOfAmmo = false;
 	}
 
 	public void UpdateMethods()
@@ -632,7 +700,7 @@ public class Gun : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.R) && !isReloading && !isInspecting)
 		{
 			//Reload
-			Reload();
+			StartCoroutine(Reload());
 		}
 
 		//Walking when pressing down WASD keys
@@ -739,12 +807,6 @@ public class Gun : MonoBehaviour
 		{
 			isInspecting = false;
 		}
-	}
-
-	private void OnDrawGizmosSelected()
-	{
-		Gizmos.color = Color.yellow;
-		Gizmos.DrawWireSphere(transform.position, knifeRange);
 	}
 
 }
