@@ -17,6 +17,8 @@ TagManager:
   - Battery
   - Enemy
   - Knife
+  - JumpLog
+  - FireTutorial
   layers:
   - Default
   - TransparentFX

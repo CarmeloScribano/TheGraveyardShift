@@ -86,6 +86,12 @@ public class PlayerController : MonoBehaviour
     public GameObject batteryNumber;
     public GameObject dialogueBox;
 
+    //Flow of the Game
+    private bool introTutorial = false;
+    private bool jumpTutorial = false;
+    private bool fireTutorial = false;
+    private bool keyInTheCity = false;
+
 
     private readonly RaycastHit[] _groundCastResults = new RaycastHit[8];
     private readonly RaycastHit[] _wallCastResults = new RaycastHit[8];
@@ -403,15 +409,24 @@ public class PlayerController : MonoBehaviour
                 Destroy(other.gameObject);
             }
             Debug.Log("battery");
-        } 
-        else if (other.gameObject.tag == "JumpLog")
+        }
+        else if (other.gameObject.tag == "JumpLog" && !jumpTutorial)
         {
             string[] newText = { "Common James, remember boot camp...", "You have to press the Space Key to jump!" };
 
             dialogueBox.GetComponent<Dialogue>().SetText(newText);
             dialogueBox.GetComponent<Dialogue>().Start();
 
-            Debug.Log("jump log");
+            jumpTutorial = true;
+        }
+        else if (other.gameObject.tag == "FireTutorial" && !fireTutorial)
+        {
+            string[] newText = { "Oh no, Enemies incoming!", "Remember, left mouse click is to shoot and right mouse click is to aim!" };
+
+            dialogueBox.GetComponent<Dialogue>().SetText(newText);
+            dialogueBox.GetComponent<Dialogue>().Start();
+
+            fireTutorial = true;
         }
     }
 

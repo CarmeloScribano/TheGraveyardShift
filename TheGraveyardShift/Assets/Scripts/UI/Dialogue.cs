@@ -18,7 +18,7 @@ public class Dialogue : MonoBehaviour
         StartDialogue();
     }
 
-    
+
     void Update()
     {
         if (Input.GetKeyDown("e"))
