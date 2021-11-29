@@ -374,7 +374,7 @@ public class PlayerController : MonoBehaviour
             
             rt.sizeDelta = new Vector2(batteryPercentage * 180, 55);
             Vector2 moveRight = new Vector2(1, 0);
-            rt.Translate(moveRight * Time.deltaTime * 1.57f, Camera.main.transform);
+            rt.Translate(moveRight * Time.deltaTime * 1.6f, Camera.main.transform);
         }
     }
 
