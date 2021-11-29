@@ -76,12 +76,15 @@ public class PlayerController : MonoBehaviour
     //Testing purposes
     public float maxHealth;
     public float health = 10f;
+    public int numberBatteries = 1;
     public ScreenController gameOverScreen;
     public ScreenController pauseScreen;
     public GameObject hud;
     public GameObject healthBar;
     public GameObject healthBarBackground;
     public GameObject batteryBar;
+    public GameObject batteryNumber;
+
 
     private readonly RaycastHit[] _groundCastResults = new RaycastHit[8];
     private readonly RaycastHit[] _wallCastResults = new RaycastHit[8];
@@ -335,6 +338,7 @@ public class PlayerController : MonoBehaviour
     private void FlashlightLife()
     {
         RectTransform rt = (RectTransform)batteryBar.transform;
+        batteryNumber.GetComponent<Text>().text = "" + numberBatteries;
 
         if (flashlightLife > 0)
             flashlightDead = false;
@@ -343,33 +347,34 @@ public class PlayerController : MonoBehaviour
         {
             if (flashlightLife == 60f)
             {
-                rt.SetPositionAndRotation(new Vector3(2, 0, 0), new Quaternion(0, 0, 0, 0));
+                batteryBar.GetComponent<RawImage>().color = Color.green;
+                //rt.SetPositionAndRotation(new Vector3(-115, 115, 0), new Quaternion(0, 0, 0, 0));
             }
 
             flashlightLife -= Time.deltaTime;
+            float batteryPercentage = flashlightLife / maxFlashlightLife;
 
             if (flashlightLife <= 0)
             {
                 flashlightDead = true;
                 flashlightToggle = false;
                 flashlight.SetActive(false);
-                batteryBar.GetComponent<RawImage>().color = new Color(0f, 142f, 6f, 100f);
             }
-            else if (flashlightLife <= 30)
-            {
-                flashlightComponent.intensity = 1f;
-                batteryBar.GetComponent<RawImage>().color = new Color(191f, 189f, 0f, 100f);
-            }
-            else if (flashlightLife <= 15)
+            else if (batteryPercentage <= 0.25)
             {
                 flashlightComponent.intensity = 0.5f;
-                batteryBar.GetComponent<RawImage>().color = new Color(190f, 4f, 0f, 100f);
+                batteryBar.GetComponent<RawImage>().color = Color.red;
+            }
+            else if (batteryPercentage <= 0.5)
+            {
+                flashlightComponent.intensity = 1f;
+                batteryBar.GetComponent<RawImage>().color = Color.yellow;
             }
                 
-            float batteryPercentage = flashlightLife / maxFlashlightLife;
+            
             rt.sizeDelta = new Vector2(batteryPercentage * 180, 55);
             Vector2 moveRight = new Vector2(1, 0);
-            rt.Translate(moveRight * Time.deltaTime * 1.55f, Camera.main.transform);
+            rt.Translate(moveRight * Time.deltaTime * 1.57f, Camera.main.transform);
         }
     }
 
