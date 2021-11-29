@@ -84,6 +84,7 @@ public class PlayerController : MonoBehaviour
     public GameObject healthBarBackground;
     public GameObject batteryBar;
     public GameObject batteryNumber;
+    public GameObject dialogueBox;
 
 
     private readonly RaycastHit[] _groundCastResults = new RaycastHit[8];
@@ -320,6 +321,7 @@ public class PlayerController : MonoBehaviour
         if (!_isGrounded || !input.Jump) return;
         _isGrounded = false;
         _rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        Debug.Log("jump log");
     }
 
     private void ToggleFlashlight()
@@ -400,6 +402,15 @@ public class PlayerController : MonoBehaviour
                 Destroy(other.gameObject);
             }
             Debug.Log("battery");
+        }
+        else if (other.gameObject.tag == "JumpLog")
+        {
+            string[] newText = { "Common James, remember boot camp...", "You have to press the Space Key to jump!" };
+
+            dialogueBox.GetComponent<Dialogue>().SetText(newText);
+            dialogueBox.GetComponent<Dialogue>().Start();
+
+            Debug.Log("jump log");
         }
     }
 

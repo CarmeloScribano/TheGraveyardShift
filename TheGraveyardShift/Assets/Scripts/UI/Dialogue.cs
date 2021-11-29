@@ -11,8 +11,9 @@ public class Dialogue : MonoBehaviour
 
     private int index;
 
-    void Start()
+    public void Start()
     {
+        gameObject.SetActive(true);
         textComponent.text = string.Empty;
         StartDialogue();
     }
@@ -34,7 +35,7 @@ public class Dialogue : MonoBehaviour
         }
     }
 
-    void StartDialogue()
+    public void StartDialogue()
     {
         index = 0;
         StartCoroutine(TypeLine());
@@ -61,5 +62,10 @@ public class Dialogue : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+    }
+
+    public void SetText(string[] dialogue)
+    {
+        lines = dialogue;
     }
 }
