@@ -321,7 +321,6 @@ public class PlayerController : MonoBehaviour
         if (!_isGrounded || !input.Jump) return;
         _isGrounded = false;
         _rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-        Debug.Log("jump log");
     }
 
     private void ToggleFlashlight()
@@ -382,6 +381,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
+        Debug.Log("jump log");
         if (other.gameObject.tag == "Medkit")
         {
             Destroy(other.gameObject);
@@ -402,7 +403,7 @@ public class PlayerController : MonoBehaviour
                 Destroy(other.gameObject);
             }
             Debug.Log("battery");
-        }
+        } 
         else if (other.gameObject.tag == "JumpLog")
         {
             string[] newText = { "Common James, remember boot camp...", "You have to press the Space Key to jump!" };
