@@ -72,11 +72,13 @@ public class PlayerController : MonoBehaviour
     private float flashlightLife = 60f;
 
     //Testing purposes
+    public float maxHealth;
     public float health = 10f;
     public ScreenController gameOverScreen;
     public ScreenController pauseScreen;
     public GameObject hud;
     public GameObject healthBar;
+    public GameObject healthBarBackground;
 
     private readonly RaycastHit[] _groundCastResults = new RaycastHit[8];
     private readonly RaycastHit[] _wallCastResults = new RaycastHit[8];
@@ -98,6 +100,7 @@ public class PlayerController : MonoBehaviour
         _velocityZ = new SmoothVelocity();
         Cursor.lockState = CursorLockMode.Locked;
         ValidateRotationRestriction();
+        maxHealth = health;
     }
 
     private Transform AssignCharactersCamera()
@@ -274,7 +277,13 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
+        float healthPercentage = health / maxHealth * 1000;
 
+        RectTransform rt = (RectTransform)healthBar.transform;
+        rt.sizeDelta = new Vector2(healthPercentage, 20);
+
+        RectTransform rt2 = (RectTransform)healthBarBackground.transform;
+        rt2.sizeDelta = new Vector2(healthPercentage + 2, 22);
     }
 
     private bool CheckCollisionsWithWalls(Vector3 velocity)
