@@ -249,6 +249,7 @@ GameObject:
   - component: {fileID: 1396789183}
   - component: {fileID: 1396789185}
   - component: {fileID: 1396789184}
+  - component: {fileID: 1396789186}
   m_Layer: 0
   m_Name: Script_Manager
   m_TagString: Untagged
@@ -335,6 +336,19 @@ MonoBehaviour:
   blinkingLight: {fileID: 802374318}
   blinkTimer: 0.03
   blinkDuration: 2.5
+--- !u!114 &1396789186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1396789180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 884ce5da8624c5b44b03c1ce444588c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transitionTime: 42
 --- !u!20 &1624229737 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 1226223144732704358, guid: dca414f2044351b4da1ceaa859283fb4, type: 3}
