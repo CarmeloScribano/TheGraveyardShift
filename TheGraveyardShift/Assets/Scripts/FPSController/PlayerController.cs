@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// Manages a first person character
 [RequireComponent(typeof(Rigidbody))]
@@ -69,6 +70,7 @@ public class PlayerController : MonoBehaviour
     private bool _isGrounded;
     private bool flashlightToggle;
     private bool flashlightDead;
+    private float maxFlashlightLife;
     private float flashlightLife = 60f;
 
     //Testing purposes
@@ -79,6 +81,7 @@ public class PlayerController : MonoBehaviour
     public GameObject hud;
     public GameObject healthBar;
     public GameObject healthBarBackground;
+    public GameObject batteryBar;
 
     private readonly RaycastHit[] _groundCastResults = new RaycastHit[8];
     private readonly RaycastHit[] _wallCastResults = new RaycastHit[8];
@@ -101,6 +104,7 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         ValidateRotationRestriction();
         maxHealth = health;
+        maxFlashlightLife = flashlightLife;
     }
 
     private Transform AssignCharactersCamera()
@@ -277,13 +281,13 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
-        float healthPercentage = health / maxHealth * 1000;
+        float healthPercentage = health / maxHealth;
 
         RectTransform rt = (RectTransform)healthBar.transform;
-        rt.sizeDelta = new Vector2(healthPercentage, 20);
+        rt.sizeDelta = new Vector2(healthPercentage * 1000, 20);
 
         RectTransform rt2 = (RectTransform)healthBarBackground.transform;
-        rt2.sizeDelta = new Vector2(healthPercentage + 2, 22);
+        rt2.sizeDelta = new Vector2(healthPercentage * 1000 + 2, 22);
     }
 
     private bool CheckCollisionsWithWalls(Vector3 velocity)
@@ -330,11 +334,18 @@ public class PlayerController : MonoBehaviour
 
     private void FlashlightLife()
     {
+        RectTransform rt = (RectTransform)batteryBar.transform;
+
         if (flashlightLife > 0)
             flashlightDead = false;
 
         if (flashlightToggle)
         {
+            if (flashlightLife == 60f)
+            {
+                rt.SetPositionAndRotation(new Vector3(2, 0, 0), new Quaternion(0, 0, 0, 0));
+            }
+
             flashlightLife -= Time.deltaTime;
 
             if (flashlightLife <= 0)
@@ -342,11 +353,23 @@ public class PlayerController : MonoBehaviour
                 flashlightDead = true;
                 flashlightToggle = false;
                 flashlight.SetActive(false);
+                batteryBar.GetComponent<RawImage>().color = new Color(0f, 142f, 6f, 100f);
             }
             else if (flashlightLife <= 30)
+            {
                 flashlightComponent.intensity = 1f;
+                batteryBar.GetComponent<RawImage>().color = new Color(191f, 189f, 0f, 100f);
+            }
             else if (flashlightLife <= 15)
+            {
                 flashlightComponent.intensity = 0.5f;
+                batteryBar.GetComponent<RawImage>().color = new Color(190f, 4f, 0f, 100f);
+            }
+                
+            float batteryPercentage = flashlightLife / maxFlashlightLife;
+            rt.sizeDelta = new Vector2(batteryPercentage * 180, 55);
+            Vector2 moveRight = new Vector2(1, 0);
+            rt.Translate(moveRight * Time.deltaTime * 1.55f, Camera.main.transform);
         }
     }
 
