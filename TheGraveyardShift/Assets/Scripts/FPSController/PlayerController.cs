@@ -76,6 +76,7 @@ public class PlayerController : MonoBehaviour
     public ScreenController gameOverScreen;
     public ScreenController pauseScreen;
     public GameObject hud;
+    public GameObject healthBar;
 
     private readonly RaycastHit[] _groundCastResults = new RaycastHit[8];
     private readonly RaycastHit[] _wallCastResults = new RaycastHit[8];
@@ -273,6 +274,7 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
+
     }
 
     private bool CheckCollisionsWithWalls(Vector3 velocity)
