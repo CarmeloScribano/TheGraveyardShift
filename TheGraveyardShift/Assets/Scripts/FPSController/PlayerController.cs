@@ -91,6 +91,7 @@ public class PlayerController : MonoBehaviour
     private bool jumpTutorial = false;
     private bool fireTutorial = false;
     private bool keyInTheCity = false;
+    private bool lookForKey = false;
 
 
     private readonly RaycastHit[] _groundCastResults = new RaycastHit[8];
@@ -377,18 +378,16 @@ public class PlayerController : MonoBehaviour
                 flashlightComponent.intensity = 1f;
                 batteryBar.GetComponent<RawImage>().color = Color.yellow;
             }
-                
-            
+
+
             rt.sizeDelta = new Vector2(batteryPercentage * 180, 55);
             Vector2 moveRight = new Vector2(1, 0);
-            rt.Translate(moveRight * Time.deltaTime * 1.6f, Camera.main.transform);
+            rt.Translate(moveRight * Time.deltaTime * 1.62f, Camera.main.transform);
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-
-        Debug.Log("jump log");
         if (other.gameObject.tag == "Medkit")
         {
             Destroy(other.gameObject);
@@ -428,6 +427,24 @@ public class PlayerController : MonoBehaviour
 
             fireTutorial = true;
         }
+        else if (other.gameObject.tag == "keyInTheCity" && !keyInTheCity)
+        {
+            string[] newText = { "Looks like there is a city over here... I might want to go check for survivors here..." };
+
+            dialogueBox.GetComponent<Dialogue>().SetText(newText);
+            dialogueBox.GetComponent<Dialogue>().Start();
+
+            keyInTheCity = true;
+        }
+        else if (other.gameObject.tag == "Gate" && !lookForKey)
+        {
+            string[] newText = { "This gate is locked! Maybe I could find the key for it in the city..." };
+
+            dialogueBox.GetComponent<Dialogue>().SetText(newText);
+            dialogueBox.GetComponent<Dialogue>().Start();
+
+            lookForKey = true;
+        }
     }
 
     private void PlayFootstepSounds()
@@ -459,7 +476,7 @@ public class PlayerController : MonoBehaviour
         {
             _current = startAngle;
         }
-				
+
         /// Returns the smoothed rotation.
         public float Update(float target, float smoothTime)
         {
@@ -471,7 +488,7 @@ public class PlayerController : MonoBehaviour
             set { _current = value; }
         }
     }
-			
+
     /// A helper for assistance with smoothing the movement.
     private class SmoothVelocity
     {
@@ -489,7 +506,7 @@ public class PlayerController : MonoBehaviour
             set { _current = value; }
         }
     }
-			
+
     /// Input mappings
     [Serializable]
     private class FpsInput
@@ -527,31 +544,31 @@ public class PlayerController : MonoBehaviour
         {
             get { return Input.GetAxisRaw(rotateX); }
         }
-				         
+
         /// Returns the value of the virtual axis mapped to rotate the camera around the x axis.        
         public float RotateY
         {
             get { return Input.GetAxisRaw(rotateY); }
         }
-				        
+
         /// Returns the value of the virtual axis mapped to move the character back and forth.        
         public float Move
         {
             get { return Input.GetAxisRaw(move); }
         }
-				       
+
         /// Returns the value of the virtual axis mapped to move the character left and right.         
         public float Strafe
         {
             get { return Input.GetAxisRaw(strafe); }
         }
-				    
+
         /// Returns true while the virtual button mapped to run is held down.          
         public bool Run
         {
             get { return Input.GetButton(run); }
         }
-				     
+
         /// Returns true during the frame the user pressed down the virtual button mapped to jump.          
         public bool Jump
         {

@@ -19,6 +19,8 @@ TagManager:
   - Knife
   - JumpLog
   - FireTutorial
+  - keyInTheCity
+  - Gate
   layers:
   - Default
   - TransparentFX

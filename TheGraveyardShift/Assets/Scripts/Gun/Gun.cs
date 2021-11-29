@@ -300,7 +300,7 @@ public class Gun : MonoBehaviour
 
             if (firstReload)
             {
-                string[] newText = { "I am out of ammo! That gun is not going to load itself. I must press 'r' to reload it." };
+                string[] newText = { "I am out of ammo! That gun is not going to reload itself. I must press 'r' to reload it." };
 
                 dialogueBox.GetComponent<Dialogue>().SetText(newText);
                 dialogueBox.GetComponent<Dialogue>().Start();
