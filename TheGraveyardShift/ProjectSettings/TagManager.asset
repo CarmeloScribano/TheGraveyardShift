@@ -26,6 +26,7 @@ TagManager:
   - KeyCity
   - Gate2
   - Gate3
+  - Secret
   layers:
   - Default
   - TransparentFX
