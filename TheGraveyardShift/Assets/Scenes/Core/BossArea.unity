@@ -27578,7 +27578,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1114464323547349172, guid: 9c133dce4fc409f41a710d932268912e, type: 3}
       propertyPath: timeBetweenAttacks
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1114464323547349172, guid: 9c133dce4fc409f41a710d932268912e, type: 3}
       propertyPath: whatIsGround.m_Bits
@@ -27591,6 +27591,18 @@ PrefabInstance:
     - target: {fileID: 1128075475090572808, guid: 9c133dce4fc409f41a710d932268912e, type: 3}
       propertyPath: m_Name
       value: Boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 2276284566122825468, guid: 9c133dce4fc409f41a710d932268912e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4715462225019614137, guid: 9c133dce4fc409f41a710d932268912e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7626936590964981765, guid: 9c133dce4fc409f41a710d932268912e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c133dce4fc409f41a710d932268912e, type: 3}
