@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class Collectible : MonoBehaviour
 {
+<<<<<<< Updated upstream
     [Header("Percent Spawn Chance")]
     [SerializeField]private int spawnChance;
+=======
+    Vector3 initialPos;
+>>>>>>> Stashed changes
 
     void Start()
     {
@@ -28,10 +32,20 @@ public class Collectible : MonoBehaviour
             if (rand < spawnChance)
                 this.gameObject.SetActive(true);
         }
+        else if(this.gameObject.tag == "Secret")
+        {
+            initialPos = transform.position;
+        }
     }
 
     void Update()
     {
+        if(this.gameObject.tag == "Secret")
+        {
+            float y = Mathf.PingPong(Time.time * 0.25f, 0.25f);
+            transform.position = new Vector3(0, y, 0) + initialPos;
+            transform.Rotate(0 ,45 * Time.deltaTime, 0);
+        }
         
     }
 }
