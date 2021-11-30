@@ -23,6 +23,9 @@ TagManager:
   - Gate
   - FadeImage
   - TransitionManager
+  - KeyCity
+  - Gate2
+  - Gate3
   layers:
   - Default
   - TransparentFX

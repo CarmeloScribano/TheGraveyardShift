@@ -93,6 +93,9 @@ public class PlayerController : MonoBehaviour
     private bool fireTutorial = false;
     private bool keyInTheCity = false;
     private bool lookForKey = false;
+    private bool enemiesAreDead = false;
+    private bool bossIsDead = false;
+    private bool sawEnemies = false;
 
     private bool gaveReloadTip = false;
 
@@ -446,7 +449,16 @@ public class PlayerController : MonoBehaviour
 
             keyInTheCity = true;
         }
-        else if (other.gameObject.tag == "Gate" && !lookForKey)
+        else if (other.gameObject.tag == "Gate" && !enemiesAreDead)
+        {
+            string[] newText = { "I need to clear this area before leaving... there might be inocent civilians around here..." };
+
+            dialogueBox.GetComponent<Dialogue>().SetText(newText);
+            dialogueBox.GetComponent<Dialogue>().Start();
+
+            enemiesAreDead = true;
+        }
+        else if (other.gameObject.tag == "Gate2" && !lookForKey)
         {
             string[] newText = { "This gate is locked! Maybe I could find the key for it in the city..." };
 
@@ -454,6 +466,24 @@ public class PlayerController : MonoBehaviour
             dialogueBox.GetComponent<Dialogue>().Start();
 
             lookForKey = true;
+        }
+        else if (other.gameObject.tag == "Gate3" && !bossIsDead)
+        {
+            string[] newText = { "I need to kill those monsters first before leaving!" };
+
+            dialogueBox.GetComponent<Dialogue>().SetText(newText);
+            dialogueBox.GetComponent<Dialogue>().Start();
+
+            bossIsDead = true;
+        }
+        else if (other.gameObject.tag == "KeyCity" && !sawEnemies)
+        {
+            string[] newText = { "Maybe those enemies have the key for the gate!" };
+
+            dialogueBox.GetComponent<Dialogue>().SetText(newText);
+            dialogueBox.GetComponent<Dialogue>().Start();
+
+            sawEnemies = true;
         }
     }
 
