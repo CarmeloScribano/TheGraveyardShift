@@ -20,11 +20,11 @@ public class PlayerController : MonoBehaviour
     [Header("Flashlight")]
     [Tooltip("Flashlight game object.")]
     public GameObject flashlight;
-    public Light flashlightComponent; 
+    public Light flashlightComponent;
     private bool flashlightToggle;
     private bool flashlightDead;
     private float maxFlashlightLife = 60f;
-    private float flashlightLife;  
+    private float flashlightLife;
 
     [Header("Audio Clips")]
     [Tooltip("The audio clip that is played while walking."), SerializeField]
@@ -93,6 +93,8 @@ public class PlayerController : MonoBehaviour
     private bool fireTutorial = false;
     private bool keyInTheCity = false;
     private bool lookForKey = false;
+
+    private bool gaveReloadTip = false;
 
 
     private readonly RaycastHit[] _groundCastResults = new RaycastHit[8];
@@ -392,7 +394,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.tag == "Medkit")
         {
-            if(health < maxHealth)
+            if (health < maxHealth)
             {
                 health += (maxHealth / 3);
                 if (health > maxHealth)
@@ -453,6 +455,19 @@ public class PlayerController : MonoBehaviour
 
             lookForKey = true;
         }
+    }
+
+    public void ReloadTip()
+    {
+        if (!gaveReloadTip)
+        {
+            gaveReloadTip = true;
+            string[] newText = { "I am out of ammo! That gun is not going to reload itself. I must press 'r' to reload it." };
+
+            dialogueBox.GetComponent<Dialogue>().SetText(newText);
+            dialogueBox.GetComponent<Dialogue>().Start();
+        }
+        
     }
 
     private void PlayFootstepSounds()

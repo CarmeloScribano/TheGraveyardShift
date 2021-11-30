@@ -84,8 +84,6 @@ public class Gun : MonoBehaviour
     private Text totalAmmoText;
     private Image currentWeaponIcon;
     public Sprite WeaponIcon;
-    public GameObject dialogueBox;
-    public bool firstReload = true;
 
     private Vector3 initialSwayPosition;
 
@@ -298,15 +296,7 @@ public class Gun : MonoBehaviour
             //	StartCoroutine(AutoReload());
             //}
 
-            if (firstReload)
-            {
-                string[] newText = { "I am out of ammo! That gun is not going to reload itself. I must press 'r' to reload it." };
-
-                dialogueBox.GetComponent<Dialogue>().SetText(newText);
-                dialogueBox.GetComponent<Dialogue>().Start();
-
-                firstReload = false;
-            }
+            GameObject.FindWithTag("Player").GetComponent<PlayerController>().ReloadTip();
 
         }
         else
