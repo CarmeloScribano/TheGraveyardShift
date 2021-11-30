@@ -393,7 +393,7 @@ public class PlayerController : MonoBehaviour
         {
             if(health < maxHealth)
             {
-                health += (maxHealth / 3);
+                TakeDamage(-(maxHealth / 3));
                 if (health > maxHealth)
                     health = maxHealth;
                 Destroy(other.gameObject);
