@@ -6,6 +6,7 @@ using TMPro;
 public class Dialogue : MonoBehaviour
 {
     public TextMeshProUGUI textComponent;
+    public TextMeshProUGUI speaker;
     public string[] lines;
     public float textSpeed;
 
@@ -52,11 +53,18 @@ public class Dialogue : MonoBehaviour
 
     void NextLine()
     {
-        if (index < lines.Length - 1)
+        if (index < lines.Length - 1 && index < 3)
         {
             index++;
             textComponent.text = string.Empty;
             StartCoroutine(TypeLine());
+        } 
+        else if (index < lines.Length - 1)
+        {
+            index++;
+            textComponent.text = string.Empty;
+            StartCoroutine(TypeLine());
+            speaker.text = "James";
         }
         else
         {

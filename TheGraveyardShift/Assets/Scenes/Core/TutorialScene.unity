@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.08253699, g: 0.10367275, b: 0.10919491, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -30467,6 +30467,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5953500244520611799, guid: a5fb4755f6de599429f4822977a5005c, type: 3}
   m_PrefabInstance: {fileID: 1017083968}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1019043481 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 38911141, guid: 54b66db3131c1564d907c0a8a8f6f0f3, type: 3}
+  m_PrefabInstance: {fileID: 8209764486348985849}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1029994251
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -62301,6 +62312,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 926763463, guid: 54b66db3131c1564d907c0a8a8f6f0f3, type: 3}
+      propertyPath: speaker
+      value: 
+      objectReference: {fileID: 1019043481}
+    - target: {fileID: 926763463, guid: 54b66db3131c1564d907c0a8a8f6f0f3, type: 3}
+      propertyPath: textSpeed
+      value: 0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 926763463, guid: 54b66db3131c1564d907c0a8a8f6f0f3, type: 3}
+      propertyPath: lines.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 926763463, guid: 54b66db3131c1564d907c0a8a8f6f0f3, type: 3}
+      propertyPath: lines.Array.data[4]
+      value: I have to go save the Sergeant!
+      objectReference: {fileID: 0}
+    - target: {fileID: 926763463, guid: 54b66db3131c1564d907c0a8a8f6f0f3, type: 3}
+      propertyPath: lines.Array.data[5]
+      value: I need to use 'w', 'a', 's', and 'd' to move around... I am a bit shacken
+        up but I can still run with the shift key
+      objectReference: {fileID: 0}
+    - target: {fileID: 926763463, guid: 54b66db3131c1564d907c0a8a8f6f0f3, type: 3}
+      propertyPath: lines.Array.data[6]
+      value: It is so dark here.. I should use my flashlight with the 'f' key
+      objectReference: {fileID: 0}
+    - target: {fileID: 926763463, guid: 54b66db3131c1564d907c0a8a8f6f0f3, type: 3}
+      propertyPath: lines.Array.data[7]
+      value: That battery only lasts 60 seconds though... I should be on the lookout
+        for more of them...
+      objectReference: {fileID: 0}
     - target: {fileID: 8209764486692016368, guid: 54b66db3131c1564d907c0a8a8f6f0f3, type: 3}
       propertyPath: m_Name
       value: Screens
