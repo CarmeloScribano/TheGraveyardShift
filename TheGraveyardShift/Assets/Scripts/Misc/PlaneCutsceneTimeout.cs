@@ -16,6 +16,6 @@ public class PlaneCutsceneTimeout : MonoBehaviour
     private IEnumerator SwitchScene()
     {
         yield return new WaitForSeconds(transitionTime);
-        SceneManager.LoadScene("TutorialScene");
+        TransitionManagerClass.Transition("TutorialScene");
     }
 }

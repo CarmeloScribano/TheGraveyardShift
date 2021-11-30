@@ -21,6 +21,8 @@ TagManager:
   - FireTutorial
   - keyInTheCity
   - Gate
+  - FadeImage
+  - TransitionManager
   layers:
   - Default
   - TransparentFX
