@@ -2318,46 +2318,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 523919833559916183, guid: e273e3515e3cd484e893fe7907c5cbf1, type: 3}
-      propertyPath: dialogueBox
-      value: 
-      objectReference: {fileID: 926763461}
-    - target: {fileID: 523919833559916183, guid: e273e3515e3cd484e893fe7907c5cbf1, type: 3}
-      propertyPath: firstReload
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 760701432974314466, guid: e273e3515e3cd484e893fe7907c5cbf1, type: 3}
-      propertyPath: dialogueBox
-      value: 
-      objectReference: {fileID: 926763461}
-    - target: {fileID: 760701432974314466, guid: e273e3515e3cd484e893fe7907c5cbf1, type: 3}
-      propertyPath: firstReload
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1719300692223318425, guid: e273e3515e3cd484e893fe7907c5cbf1, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1719997169305463275, guid: e273e3515e3cd484e893fe7907c5cbf1, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2805434452059415996, guid: e273e3515e3cd484e893fe7907c5cbf1, type: 3}
-      propertyPath: dialogueBox
-      value: 
-      objectReference: {fileID: 926763461}
-    - target: {fileID: 2805434452059415996, guid: e273e3515e3cd484e893fe7907c5cbf1, type: 3}
-      propertyPath: firstReload
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4966713689432906627, guid: e273e3515e3cd484e893fe7907c5cbf1, type: 3}
-      propertyPath: dialogueBox
-      value: 
-      objectReference: {fileID: 926763461}
-    - target: {fileID: 4966713689432906627, guid: e273e3515e3cd484e893fe7907c5cbf1, type: 3}
-      propertyPath: firstReload
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7797016585789511520, guid: e273e3515e3cd484e893fe7907c5cbf1, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2426,10 +2386,6 @@ PrefabInstance:
       propertyPath: pauseScreen
       value: 
       objectReference: {fileID: 1797667163}
-    - target: {fileID: 7902203011446276774, guid: e273e3515e3cd484e893fe7907c5cbf1, type: 3}
-      propertyPath: batteryNumber
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 7902203011446276774, guid: e273e3515e3cd484e893fe7907c5cbf1, type: 3}
       propertyPath: batterySlider
       value: 
