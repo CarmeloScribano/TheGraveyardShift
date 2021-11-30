@@ -626,8 +626,7 @@ public class Gun : MonoBehaviour
 
     private IEnumerator Reload()
     {
-
-        if (currentAmmo < totalAmmo)
+        if (currentAmmo < totalAmmo && maxAmmo > 0)
         {
             float reloadTime = 0f;
 

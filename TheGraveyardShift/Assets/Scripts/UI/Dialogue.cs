@@ -66,6 +66,7 @@ public class Dialogue : MonoBehaviour
 
     public void SetText(string[] dialogue)
     {
+        StopAllCoroutines();
         lines = dialogue;
     }
 }
