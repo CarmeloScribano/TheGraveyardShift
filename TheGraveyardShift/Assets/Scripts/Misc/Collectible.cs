@@ -31,6 +31,9 @@ public class Collectible : MonoBehaviour
         }
         else if(this.gameObject.tag == "Secret")
         {
+            int rand = Random.Range(0, 100);
+            if (rand < spawnChance)
+                this.gameObject.SetActive(true);
             initialPos = transform.position;
         }
     }
