@@ -193,7 +193,8 @@ MonoBehaviour:
   - {fileID: 4418440862474872, guid: a845e59c374ae0240812749e46f13033, type: 3}
   metalImpactPrefabs:
   - {fileID: 4458509032938956, guid: 79927c6543a058b4383885fac101fe2e, type: 3}
-  dirtImpactPrefabs: []
+  dirtImpactPrefabs:
+  - {fileID: 4522298916909980, guid: 7178009a59b47d44385e833bda688e76, type: 3}
   concreteImpactPrefabs: []
 --- !u!1 &1231345400216816
 GameObject:

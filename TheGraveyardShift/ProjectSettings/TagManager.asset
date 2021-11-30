@@ -23,6 +23,7 @@ TagManager:
   - Gate
   - FadeImage
   - TransitionManager
+  - Snow
   layers:
   - Default
   - TransparentFX
