@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class Collectible : MonoBehaviour
 {
-<<<<<<< Updated upstream
     [Header("Percent Spawn Chance")]
     [SerializeField]private int spawnChance;
-=======
     Vector3 initialPos;
->>>>>>> Stashed changes
 
     void Start()
     {
