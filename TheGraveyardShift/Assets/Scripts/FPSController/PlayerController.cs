@@ -14,14 +14,17 @@ public class PlayerController : MonoBehaviour
     [Header("Arms")]
     [Tooltip("The transform component that holds the gun camera.")]
     public Transform arms;
+    [Tooltip("The position of the arms and gun camera relative to the fps controller GameObject."), SerializeField]
+    private Vector3 armPosition;
 
     [Header("Flashlight")]
     [Tooltip("Flashlight game object.")]
     public GameObject flashlight;
-    public Light flashlightComponent;
-
-    [Tooltip("The position of the arms and gun camera relative to the fps controller GameObject."), SerializeField]
-    private Vector3 armPosition;
+    public Light flashlightComponent; 
+    private bool flashlightToggle;
+    private bool flashlightDead;
+    private float maxFlashlightLife = 60f;
+    private float flashlightLife;  
 
     [Header("Audio Clips")]
     [Tooltip("The audio clip that is played while walking."), SerializeField]
@@ -68,15 +71,13 @@ public class PlayerController : MonoBehaviour
     private SmoothVelocity _velocityX;
     private SmoothVelocity _velocityZ;
     private bool _isGrounded;
-    private bool flashlightToggle;
-    private bool flashlightDead;
-    private float maxFlashlightLife;
-    private float flashlightLife = 60f;
 
-    //Testing purposes
-    public float maxHealth;
-    public float health = 10f;
+    [Header("Player Health")]
+    public float maxHealth = 150f;
+    private float health;
     public int numberBatteries = 1;
+
+    [Header("HUD Options")]
     public ScreenController gameOverScreen;
     public ScreenController pauseScreen;
     public GameObject hud;
@@ -114,8 +115,8 @@ public class PlayerController : MonoBehaviour
         _velocityZ = new SmoothVelocity();
         Cursor.lockState = CursorLockMode.Locked;
         ValidateRotationRestriction();
-        maxHealth = health;
-        maxFlashlightLife = flashlightLife;
+        health = maxHealth;
+        flashlightLife = maxFlashlightLife;
     }
 
     private Transform AssignCharactersCamera()
@@ -390,7 +391,13 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.tag == "Medkit")
         {
-            Destroy(other.gameObject);
+            if(health < maxHealth)
+            {
+                health += (maxHealth / 3);
+                if (health > maxHealth)
+                    health = maxHealth;
+                Destroy(other.gameObject);
+            }
             Debug.Log("medkit");
         }
         else if (other.gameObject.tag == "Ammo")
@@ -400,11 +407,11 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.gameObject.tag == "Battery")
         {
-            if (flashlightLife < 60f)
+            if (flashlightLife < maxFlashlightLife)
             {
-                flashlightLife += 15f;
-                if (flashlightLife > 60f)
-                    flashlightLife = 60f;
+                flashlightLife += (maxFlashlightLife / 4);
+                if (flashlightLife > maxFlashlightLife)
+                    flashlightLife = maxFlashlightLife;
                 Destroy(other.gameObject);
             }
             Debug.Log("battery");

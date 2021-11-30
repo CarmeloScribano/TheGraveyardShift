@@ -1410,8 +1410,8 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 62b07e1ee1abe6746b8730bb3abdc4e6, type: 2}
-  - {fileID: 2100000, guid: 62b07e1ee1abe6746b8730bb3abdc4e6, type: 2}
+  - {fileID: 2100000, guid: 55003d8793f84ef45899029379d6f732, type: 2}
+  - {fileID: 2100000, guid: 55003d8793f84ef45899029379d6f732, type: 2}
   - {fileID: 2100000, guid: 1c5225c36c15c35418ac47c9b336bfe9, type: 2}
   - {fileID: -876546973899608171, guid: 36bcc18ebdef13a4db38003c8ec1f90f, type: 3}
   - {fileID: 2100000, guid: 1c5225c36c15c35418ac47c9b336bfe9, type: 2}
@@ -1607,10 +1607,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1.5
-  m_Height: 1
+  m_Radius: 0.669815
+  m_Height: 2.1286714
   m_Direction: 1
-  m_Center: {x: 0, y: 1.5, z: 0.8}
+  m_Center: {x: 0.02528734, y: 1.0643332, z: 0.6453717}
 --- !u!114 &6959360188092854517
 MonoBehaviour:
   m_ObjectHideFlags: 0
