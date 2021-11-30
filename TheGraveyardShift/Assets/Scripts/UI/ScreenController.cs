@@ -37,19 +37,19 @@ public class ScreenController : MonoBehaviour
     public void MainMenuButton()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("MainMenu");
+        TransitionManagerClass.Transition("MainMenu");
     }
 
     public void StartButton()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("TutorialScene");
+        TransitionManagerClass.Transition("PlaneScene");
     }
 
     public void AboutButton()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("About");
+        TransitionManagerClass.Transition("About");
     }
 
     public void ResumeButton()

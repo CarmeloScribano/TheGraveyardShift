@@ -17,6 +17,12 @@ TagManager:
   - Battery
   - Enemy
   - Knife
+  - JumpLog
+  - FireTutorial
+  - keyInTheCity
+  - Gate
+  - FadeImage
+  - TransitionManager
   layers:
   - Default
   - TransparentFX

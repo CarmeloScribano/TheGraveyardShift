@@ -2,7 +2,8 @@
 using System.Collections;
 
 // ----- Low Poly FPS Pack Free Version -----
-public class GrenadeScript : MonoBehaviour {
+public class GrenadeScript : MonoBehaviour
+{
 
 	[Header("Timer")]
 	//Time before the grenade explodes
@@ -31,7 +32,7 @@ public class GrenadeScript : MonoBehaviour {
 	[Header("Audio")]
 	public AudioSource impactSound;
 
-	private void Awake () 
+	private void Awake()
 	{
 		//Generate random throw force
 		//based on min and max values
@@ -39,29 +40,29 @@ public class GrenadeScript : MonoBehaviour {
 			(minimumForce, maximumForce);
 
 		//Random rotation of the grenade
-		GetComponent<Rigidbody>().AddRelativeTorque 
+		GetComponent<Rigidbody>().AddRelativeTorque
 		   (Random.Range(500, 1500), //X Axis
-			Random.Range(0,0), 		 //Y Axis
-			Random.Range(0,0)  		 //Z Axis
+			Random.Range(0, 0),          //Y Axis
+			Random.Range(0, 0)           //Z Axis
 			* Time.deltaTime * 5000);
 	}
 
-	private void Start () 
+	private void Start()
 	{
 		//Launch the projectile forward by adding force to it at start
 		GetComponent<Rigidbody>().AddForce(gameObject.transform.forward * throwForce);
 
 		//Start the explosion timer
-		StartCoroutine (ExplosionTimer ());
+		StartCoroutine(ExplosionTimer());
 	}
 
-	private void OnCollisionEnter (Collision collision) 
+	private void OnCollisionEnter(Collision collision)
 	{
 		//Play the impact sound on every collision
-		impactSound.Play ();
+		impactSound.Play();
 	}
 
-	private IEnumerator ExplosionTimer () 
+	private IEnumerator ExplosionTimer()
 	{
 		//Wait set amount of time
 		yield return new WaitForSeconds(grenadeTimer);
@@ -71,21 +72,22 @@ public class GrenadeScript : MonoBehaviour {
 		if (Physics.Raycast(transform.position, Vector3.down, out checkGround, 50))
 		{
 			//Instantiate metal explosion prefab on ground
-			Instantiate (explosionPrefab, checkGround.point, 
-				Quaternion.FromToRotation (Vector3.forward, checkGround.normal)); 
+			Instantiate(explosionPrefab, checkGround.point,
+				Quaternion.FromToRotation(Vector3.forward, checkGround.normal));
 		}
 
 		//Explosion force
 		Vector3 explosionPos = transform.position;
 		//Use overlapshere to check for nearby colliders
 		Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
-		foreach (Collider hit in colliders) {
-			Rigidbody rb = hit.GetComponent<Rigidbody> ();
+		foreach (Collider hit in colliders)
+		{
+			Rigidbody rb = hit.GetComponent<Rigidbody>();
 
 			//Add force to nearby rigidbodies
 			if (rb != null)
-				rb.AddExplosionForce (power * 5, explosionPos, radius, 3.0F);
-			
+				rb.AddExplosionForce(power * 5, explosionPos, radius, 3.0F);
+
 			//If the explosion hits "Target" tag and isHit is false
 			//if (hit.GetComponent<Collider>().tag == "Target" )
 			//    	//&& hit.gameObject.GetComponent<TargetScript>().isHit == false) 
@@ -105,7 +107,7 @@ public class GrenadeScript : MonoBehaviour {
 		}
 
 		//Destroy the grenade object on explosion
-		Destroy (gameObject);
+		Destroy(gameObject);
 	}
 }
 // ----- Low Poly FPS Pack Free Version -----

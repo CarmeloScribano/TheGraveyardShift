@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// Manages a first person character
 [RequireComponent(typeof(Rigidbody))]
@@ -13,14 +14,17 @@ public class PlayerController : MonoBehaviour
     [Header("Arms")]
     [Tooltip("The transform component that holds the gun camera.")]
     public Transform arms;
+    [Tooltip("The position of the arms and gun camera relative to the fps controller GameObject."), SerializeField]
+    private Vector3 armPosition;
 
     [Header("Flashlight")]
     [Tooltip("Flashlight game object.")]
     public GameObject flashlight;
     public Light flashlightComponent;
-
-    [Tooltip("The position of the arms and gun camera relative to the fps controller GameObject."), SerializeField]
-    private Vector3 armPosition;
+    private bool flashlightToggle;
+    private bool flashlightDead;
+    private float maxFlashlightLife = 60f;
+    private float flashlightLife;
 
     [Header("Audio Clips")]
     [Tooltip("The audio clip that is played while walking."), SerializeField]
@@ -67,18 +71,31 @@ public class PlayerController : MonoBehaviour
     private SmoothVelocity _velocityX;
     private SmoothVelocity _velocityZ;
     private bool _isGrounded;
-    private bool flashlightToggle;
-    private bool flashlightDead;
-    private float flashlightLife = 60f;
 
-    //Testing purposes
-    public float maxHealth;
-    public float health = 10f;
+    [Header("Player Health")]
+    public float maxHealth = 150f;
+    private float health;
+    public int numberBatteries = 1;
+
+    [Header("HUD Options")]
     public ScreenController gameOverScreen;
     public ScreenController pauseScreen;
     public GameObject hud;
     public GameObject healthBar;
     public GameObject healthBarBackground;
+    public Slider batterySlider;
+    public GameObject batteryBar;
+    public GameObject dialogueBox;
+
+    //Flow of the Game
+    private bool introTutorial = false;
+    private bool jumpTutorial = false;
+    private bool fireTutorial = false;
+    private bool keyInTheCity = false;
+    private bool lookForKey = false;
+
+    private bool gaveReloadTip = false;
+
 
     private readonly RaycastHit[] _groundCastResults = new RaycastHit[8];
     private readonly RaycastHit[] _wallCastResults = new RaycastHit[8];
@@ -100,7 +117,8 @@ public class PlayerController : MonoBehaviour
         _velocityZ = new SmoothVelocity();
         Cursor.lockState = CursorLockMode.Locked;
         ValidateRotationRestriction();
-        maxHealth = health;
+        health = maxHealth;
+        flashlightLife = maxFlashlightLife;
     }
 
     private Transform AssignCharactersCamera()
@@ -277,13 +295,13 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
-        float healthPercentage = health / maxHealth * 1000;
+        float healthPercentage = health / maxHealth;
 
         RectTransform rt = (RectTransform)healthBar.transform;
-        rt.sizeDelta = new Vector2(healthPercentage, 20);
+        rt.sizeDelta = new Vector2(healthPercentage * 1000, 20);
 
         RectTransform rt2 = (RectTransform)healthBarBackground.transform;
-        rt2.sizeDelta = new Vector2(healthPercentage + 2, 22);
+        rt2.sizeDelta = new Vector2(healthPercentage * 1000 + 2, 22);
     }
 
     private bool CheckCollisionsWithWalls(Vector3 velocity)
@@ -330,12 +348,21 @@ public class PlayerController : MonoBehaviour
 
     private void FlashlightLife()
     {
+        //RectTransform rt = (RectTransform)batteryBar.transform;
+
         if (flashlightLife > 0)
             flashlightDead = false;
 
         if (flashlightToggle)
         {
+            if (flashlightLife == 60f)
+            {
+                batteryBar.GetComponent<Image>().color = Color.green;
+                //rt.SetPositionAndRotation(new Vector3(-115, 115, 0), new Quaternion(0, 0, 0, 0));
+            }
+
             flashlightLife -= Time.deltaTime;
+            float batteryPercentage = flashlightLife / maxFlashlightLife;
 
             if (flashlightLife <= 0)
             {
@@ -343,10 +370,23 @@ public class PlayerController : MonoBehaviour
                 flashlightToggle = false;
                 flashlight.SetActive(false);
             }
-            else if (flashlightLife <= 30)
-                flashlightComponent.intensity = 1f;
-            else if (flashlightLife <= 15)
+            else if (batteryPercentage <= 0.25)
+            {
                 flashlightComponent.intensity = 0.5f;
+                batteryBar.GetComponent<Image>().color = Color.red;
+            }
+            else if (batteryPercentage <= 0.5)
+            {
+                flashlightComponent.intensity = 1f;
+                batteryBar.GetComponent<Image>().color = Color.yellow;
+            }
+
+            batterySlider.value = batteryPercentage;
+
+
+            //rt.sizeDelta = new Vector2(batteryPercentage * 180, 55);
+            //Vector2 moveRight = new Vector2(1, 0);
+            //rt.Translate(moveRight * Time.deltaTime * 1.62f, Camera.main.transform);
         }
     }
 
@@ -354,7 +394,13 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.tag == "Medkit")
         {
-            Destroy(other.gameObject);
+            if (health < maxHealth)
+            {
+                health += (maxHealth / 3);
+                if (health > maxHealth)
+                    health = maxHealth;
+                Destroy(other.gameObject);
+            }
             Debug.Log("medkit");
         }
         else if (other.gameObject.tag == "Ammo")
@@ -364,15 +410,64 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.gameObject.tag == "Battery")
         {
-            if (flashlightLife < 60f)
+            if (flashlightLife < maxFlashlightLife)
             {
-                flashlightLife += 15f;
-                if (flashlightLife > 60f)
-                    flashlightLife = 60f;
+                flashlightLife += (maxFlashlightLife / 4);
+                if (flashlightLife > maxFlashlightLife)
+                    flashlightLife = maxFlashlightLife;
                 Destroy(other.gameObject);
             }
             Debug.Log("battery");
         }
+        else if (other.gameObject.tag == "JumpLog" && !jumpTutorial)
+        {
+            string[] newText = { "Common James, remember boot camp...", "You have to press the Space Key to jump!" };
+
+            dialogueBox.GetComponent<Dialogue>().SetText(newText);
+            dialogueBox.GetComponent<Dialogue>().Start();
+
+            jumpTutorial = true;
+        }
+        else if (other.gameObject.tag == "FireTutorial" && !fireTutorial)
+        {
+            string[] newText = { "Oh no, Enemies incoming!", "Remember, left mouse click is to shoot and right mouse click is to aim!" };
+
+            dialogueBox.GetComponent<Dialogue>().SetText(newText);
+            dialogueBox.GetComponent<Dialogue>().Start();
+
+            fireTutorial = true;
+        }
+        else if (other.gameObject.tag == "keyInTheCity" && !keyInTheCity)
+        {
+            string[] newText = { "Looks like there is a city over here... I might want to go check for survivors here..." };
+
+            dialogueBox.GetComponent<Dialogue>().SetText(newText);
+            dialogueBox.GetComponent<Dialogue>().Start();
+
+            keyInTheCity = true;
+        }
+        else if (other.gameObject.tag == "Gate" && !lookForKey)
+        {
+            string[] newText = { "This gate is locked! Maybe I could find the key for it in the city..." };
+
+            dialogueBox.GetComponent<Dialogue>().SetText(newText);
+            dialogueBox.GetComponent<Dialogue>().Start();
+
+            lookForKey = true;
+        }
+    }
+
+    public void ReloadTip()
+    {
+        if (!gaveReloadTip)
+        {
+            gaveReloadTip = true;
+            string[] newText = { "I am out of ammo! That gun is not going to reload itself. I must press 'r' to reload it." };
+
+            dialogueBox.GetComponent<Dialogue>().SetText(newText);
+            dialogueBox.GetComponent<Dialogue>().Start();
+        }
+        
     }
 
     private void PlayFootstepSounds()
@@ -404,7 +499,7 @@ public class PlayerController : MonoBehaviour
         {
             _current = startAngle;
         }
-				
+
         /// Returns the smoothed rotation.
         public float Update(float target, float smoothTime)
         {
@@ -416,7 +511,7 @@ public class PlayerController : MonoBehaviour
             set { _current = value; }
         }
     }
-			
+
     /// A helper for assistance with smoothing the movement.
     private class SmoothVelocity
     {
@@ -434,7 +529,7 @@ public class PlayerController : MonoBehaviour
             set { _current = value; }
         }
     }
-			
+
     /// Input mappings
     [Serializable]
     private class FpsInput
@@ -472,31 +567,31 @@ public class PlayerController : MonoBehaviour
         {
             get { return Input.GetAxisRaw(rotateX); }
         }
-				         
+
         /// Returns the value of the virtual axis mapped to rotate the camera around the x axis.        
         public float RotateY
         {
             get { return Input.GetAxisRaw(rotateY); }
         }
-				        
+
         /// Returns the value of the virtual axis mapped to move the character back and forth.        
         public float Move
         {
             get { return Input.GetAxisRaw(move); }
         }
-				       
+
         /// Returns the value of the virtual axis mapped to move the character left and right.         
         public float Strafe
         {
             get { return Input.GetAxisRaw(strafe); }
         }
-				    
+
         /// Returns true while the virtual button mapped to run is held down.          
         public bool Run
         {
             get { return Input.GetButton(run); }
         }
-				     
+
         /// Returns true during the frame the user pressed down the virtual button mapped to jump.          
         public bool Jump
         {

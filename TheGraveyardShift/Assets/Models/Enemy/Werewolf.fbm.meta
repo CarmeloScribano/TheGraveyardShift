@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: df1420adde519d34aa56da97deb7b084
+<<<<<<< HEAD
+guid: 7aa7a3a171a811d4dbe478798642867d
+=======
+guid: 7ba3f1c5cfeb998498821dc23e71d34c
+>>>>>>> origin/Collectibles
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

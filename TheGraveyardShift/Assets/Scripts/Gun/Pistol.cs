@@ -5,6 +5,7 @@ using System;
 
 public class Pistol : Gun
 {
+
 	private void Update()
 	{
 		UpdateMethods();
