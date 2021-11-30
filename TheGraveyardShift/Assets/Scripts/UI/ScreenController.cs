@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class ScreenController : MonoBehaviour
 {
     public ScreenController settingsScreen;
+    public ScreenController escapeScreen;
     public GameObject hud;
 
     public void Setup()
@@ -70,6 +71,6 @@ public class ScreenController : MonoBehaviour
     public void PauseButton()
     {
         gameObject.SetActive(false);
-        settingsScreen.Setup();
+        escapeScreen.Setup();
     }
 }
