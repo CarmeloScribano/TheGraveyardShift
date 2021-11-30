@@ -108,6 +108,23 @@ public class EnemyAI : MonoBehaviour
         return animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1;
     }
 
+
+    private float GetAnimationTime(string clipName)
+    {
+        float cTime = 0f;
+
+        AnimationClip[] arrclip = GetComponent<Animator>().runtimeAnimatorController.animationClips;
+        foreach (AnimationClip clip in arrclip)
+        {
+            if (clip.name.Contains(clipName))
+            {
+                cTime = clip.length;
+            }
+        }
+
+        return cTime;
+    }
+
     private void AttackDirectionChange()
     {
         Transform cam = GameObject.FindWithTag("MainCamera").transform;
@@ -139,7 +156,28 @@ public class EnemyAI : MonoBehaviour
 
     private IEnumerator DealDamange()
     {
-        yield return new WaitForSeconds(1.2f);
+        float attackDelay = GetAnimationTime("Attack");
+        if (transform.name.Contains("Zombie"))
+        {
+            attackDelay = attackDelay * 0.5f;
+        }
+        else
+        {
+            attackDelay = attackDelay * 0.65f;
+        }
+        //else if (transform.name.Contains("Wolf"))
+        //{
+        //    attackDelay = attackDelay * 0.65f;
+        //}
+        //else if (transform.name.Contains("Werewolf"))
+        //{
+        //    attackDelay = attackDelay * 0.65f;
+        //}
+        //else if (transform.name.Contains("Yeti"))
+        //{
+        //    attackDelay = attackDelay * 0.65f;
+        //}
+        yield return new WaitForSeconds(attackDelay);
         float distance = Vector3.Distance(player.position, transform.position);
         if (distance <= attackRange + 1 && !dead)
         {
