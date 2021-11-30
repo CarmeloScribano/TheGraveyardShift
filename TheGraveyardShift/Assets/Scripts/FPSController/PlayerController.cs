@@ -421,7 +421,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.gameObject.tag == "JumpLog" && !jumpTutorial)
         {
-            string[] newText = { "Common James, remember boot camp...", "You have to press the Space Key to jump!" };
+            string[] newText = { "Come on James, remember boot camp...", "You have to press the Space Key to jump!" };
 
             dialogueBox.GetComponent<Dialogue>().SetText(newText);
             dialogueBox.GetComponent<Dialogue>().Start();
@@ -430,7 +430,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.gameObject.tag == "FireTutorial" && !fireTutorial)
         {
-            string[] newText = { "Oh no, Enemies incoming!", "Remember, left mouse click is to shoot and right mouse click is to aim!" };
+            string[] newText = { "Oh no, Enemies incoming!", "Remember, left mouse click to shoot and right mouse click to aim!" };
 
             dialogueBox.GetComponent<Dialogue>().SetText(newText);
             dialogueBox.GetComponent<Dialogue>().Start();

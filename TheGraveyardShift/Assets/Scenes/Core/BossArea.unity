@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.574817, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -207,6 +207,10 @@ PrefabInstance:
     - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (58)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
@@ -437,6 +441,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4407027191474422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
   m_PrefabInstance: {fileID: 15596761}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &25642605 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1550163670}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &25642608
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 25642605}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &32641207
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -447,6 +470,10 @@ PrefabInstance:
     - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (64)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
@@ -572,6 +599,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4407027191474422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
   m_PrefabInstance: {fileID: 35454956}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &37918597 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1524032849}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &37918600
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37918597}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &47716644
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -720,6 +766,44 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4407027191474422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
   m_PrefabInstance: {fileID: 60908515}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &64617879 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1962547926}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &64617882
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 64617879}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
+--- !u!1 &65356801 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1872672360}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &65356804
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65356801}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1 &73041389
 GameObject:
   m_ObjectHideFlags: 0
@@ -917,6 +1001,44 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5fb4755f6de599429f4822977a5005c, type: 3}
+--- !u!1 &93851435 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 2123530962}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &93851438
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93851435}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
+--- !u!1 &94306559 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1458881376}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &94306562
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94306559}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &94537189
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1001,6 +1123,10 @@ PrefabInstance:
     - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
@@ -1151,6 +1277,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4681188380609874, guid: be0a80f4a4e6e2548920653bce9ad844, type: 3}
   m_PrefabInstance: {fileID: 119396043}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &124164147 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 560637167}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &124164150
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124164147}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1 &131813300 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
@@ -1199,6 +1344,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4557757265253404, guid: 5c9211eb71cff4f4996a21d92317f601, type: 3}
   m_PrefabInstance: {fileID: 1376484369}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &135410736 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 35454956}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &135410739
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135410736}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1 &140820641
 GameObject:
   m_ObjectHideFlags: 0
@@ -1295,6 +1459,25 @@ Transform:
   m_Father: {fileID: 1754967494}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!1 &141754831 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 418959510}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &141754834
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141754831}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1 &142474920 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
@@ -1473,6 +1656,25 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 264414c28ea0fbb41b924fd17d9228b3, type: 3}
+--- !u!1 &157679976 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1186118137}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &157679979
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157679976}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1 &159079425
 GameObject:
   m_ObjectHideFlags: 0
@@ -1873,6 +2075,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (67)
       objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
       value: 67
@@ -1957,6 +2163,10 @@ PrefabInstance:
     - target: {fileID: 1076262714343606, guid: 68cbfa1438162b243ac02fb9e3e30581, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_02 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1076262714343606, guid: 68cbfa1438162b243ac02fb9e3e30581, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4802134562677756, guid: 68cbfa1438162b243ac02fb9e3e30581, type: 3}
       propertyPath: m_RootOrder
@@ -2087,6 +2297,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7060349753014666888, guid: 82f781fdcd7b18743b233b9de1bfbd70, type: 3}
   m_PrefabInstance: {fileID: 12029949}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &186137039 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1384075659}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &186137042
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186137039}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &194921931
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2445,6 +2674,44 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 264414c28ea0fbb41b924fd17d9228b3, type: 3}
+--- !u!1 &223473585 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1813177838}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &223473588
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223473585}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
+--- !u!1 &224384534 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 2011767206}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &224384537
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224384534}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1 &224433887
 GameObject:
   m_ObjectHideFlags: 0
@@ -2583,6 +2850,25 @@ Transform:
   m_Father: {fileID: 1147856747}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &243201284 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1260855307}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &243201287
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243201284}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &246018405
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2676,6 +2962,25 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 01e62327c0e72c94f9c1e8a1fc6d68b3, type: 3}
+--- !u!1 &254855693 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 655666646}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &254855696
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254855693}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1 &259589051 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1388639599019164, guid: 42a171cf451b4d64399d37a24140f30c, type: 3}
@@ -2695,6 +3000,25 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: cda8dee6f03b0014a940ca76b70a4ae8, type: 3}
+--- !u!1 &261133248 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1541891739}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &261133251
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 261133248}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &262528895
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2769,6 +3093,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4407027191474422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
   m_PrefabInstance: {fileID: 262528895}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &269747180 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1566493024}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &269747183
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269747180}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &272961977
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2838,6 +3181,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5fb4755f6de599429f4822977a5005c, type: 3}
+--- !u!1 &275952735 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1224406942}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &275952738
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275952735}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &279321614
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2922,6 +3284,10 @@ PrefabInstance:
     - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (41)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
@@ -3047,6 +3413,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4407027191474422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
   m_PrefabInstance: {fileID: 285838439}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &290706183 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 912420498}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &290706186
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290706183}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1 &297526670 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1076262714343606, guid: 68cbfa1438162b243ac02fb9e3e30581, type: 3}
@@ -3081,6 +3466,10 @@ PrefabInstance:
     - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (61)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
@@ -3148,6 +3537,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -3198,6 +3591,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+--- !u!1 &314394287 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1029032766}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &314394290
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314394287}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1 &314949088 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
@@ -3429,6 +3841,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (49)
       objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
       value: 49
@@ -3479,6 +3895,82 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+--- !u!1001 &336656613
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7797016585789511520, guid: e273e3515e3cd484e893fe7907c5cbf1, type: 3}
+      propertyPath: m_Name
+      value: Player_V2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7799497169717136184, guid: e273e3515e3cd484e893fe7907c5cbf1, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7799497169717136184, guid: e273e3515e3cd484e893fe7907c5cbf1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 331.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 7799497169717136184, guid: e273e3515e3cd484e893fe7907c5cbf1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 23.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 7799497169717136184, guid: e273e3515e3cd484e893fe7907c5cbf1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 729.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 7799497169717136184, guid: e273e3515e3cd484e893fe7907c5cbf1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7799497169717136184, guid: e273e3515e3cd484e893fe7907c5cbf1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7799497169717136184, guid: e273e3515e3cd484e893fe7907c5cbf1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7799497169717136184, guid: e273e3515e3cd484e893fe7907c5cbf1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7799497169717136184, guid: e273e3515e3cd484e893fe7907c5cbf1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7799497169717136184, guid: e273e3515e3cd484e893fe7907c5cbf1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7799497169717136184, guid: e273e3515e3cd484e893fe7907c5cbf1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e273e3515e3cd484e893fe7907c5cbf1, type: 3}
+--- !u!1 &346449047 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 15596761}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &346449050
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 346449047}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &347980966
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3553,6 +4045,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4407027191474422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
   m_PrefabInstance: {fileID: 347980966}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &348309957 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1978040017}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &348309960
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348309957}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &349976273
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3785,6 +4296,10 @@ PrefabInstance:
     - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (46)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
@@ -4088,6 +4603,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4407027191474422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
   m_PrefabInstance: {fileID: 371468186}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &371476663 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1107948228}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &371476666
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371476663}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &372885195
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4098,6 +4632,10 @@ PrefabInstance:
     - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (36)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
@@ -4227,6 +4765,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4407027191474422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
   m_PrefabInstance: {fileID: 374792623}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &382338583 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1810450786}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &382338586
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382338583}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &383797985
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4437,6 +4994,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82f781fdcd7b18743b233b9de1bfbd70, type: 3}
+--- !u!1 &395764351 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1027863585}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &395764354
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395764351}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &399509437
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4545,6 +5121,10 @@ PrefabInstance:
     - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
@@ -4883,6 +5463,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (78)
       objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
       value: 78
@@ -5031,6 +5615,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4407027191474422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
   m_PrefabInstance: {fileID: 429274275}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &431371627 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1488748499}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &431371630
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431371627}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1 &435338998 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
@@ -5065,6 +5668,10 @@ PrefabInstance:
     - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (37)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
@@ -5221,6 +5828,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82f781fdcd7b18743b233b9de1bfbd70, type: 3}
+--- !u!1 &448467540 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1797290356}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &448467543
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448467540}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!4 &454450113 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5953500244520611799, guid: a5fb4755f6de599429f4822977a5005c, type: 3}
@@ -5350,6 +5976,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (42)
       objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
       value: 42
@@ -5400,6 +6030,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+--- !u!1 &498661359 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1889058298}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &498661362
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498661359}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!4 &504271795 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5953500244520611799, guid: a5fb4755f6de599429f4822977a5005c, type: 3}
@@ -5415,6 +6064,10 @@ PrefabInstance:
     - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
@@ -5490,6 +6143,25 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 264414c28ea0fbb41b924fd17d9228b3, type: 3}
+--- !u!1 &511185388 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 76151214}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &511185391
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 511185388}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1 &513638736 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
@@ -5612,6 +6284,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4407027191474422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
   m_PrefabInstance: {fileID: 515940028}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &535033591 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1118823676}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &535033594
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 535033591}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1 &559766594 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
@@ -5784,6 +6475,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5953500244520611799, guid: a5fb4755f6de599429f4822977a5005c, type: 3}
   m_PrefabInstance: {fileID: 1940261290}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &586154762 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1349840330}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &586154765
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586154762}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &586955164
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5893,6 +6603,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (62)
       objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
       value: 62
@@ -5953,6 +6667,10 @@ PrefabInstance:
     - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
@@ -6015,6 +6733,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (50)
       objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
       value: 50
@@ -6075,6 +6797,10 @@ PrefabInstance:
     - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (44)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
@@ -6284,6 +7010,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
       value: 16
@@ -6338,6 +7068,44 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: eff9bd1fc3971e7499e63b512110dfef, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+--- !u!1 &635772242 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 940626442}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &635772245
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635772242}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
+--- !u!1 &637425791 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1754946515}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &637425794
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 637425791}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1 &641736515
 GameObject:
   m_ObjectHideFlags: 0
@@ -6556,6 +7324,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -6690,6 +7462,10 @@ PrefabInstance:
     - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (74)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
@@ -6847,6 +7623,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4779712294627076, guid: b07873fad96387146b4236aa8505b45f, type: 3}
   m_PrefabInstance: {fileID: 656874167}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &658157646 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 816683245}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &658157649
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658157646}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &660554315
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6937,6 +7732,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -7002,6 +7801,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (38)
       objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
       value: 38
@@ -7063,6 +7866,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
       value: 20
@@ -7117,6 +7924,44 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: eff9bd1fc3971e7499e63b512110dfef, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+--- !u!1 &681608977 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 94537189}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &681608980
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 681608977}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
+--- !u!1 &683812193 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 3571350}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &683812196
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 683812193}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1 &684596209 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
@@ -7151,6 +7996,10 @@ PrefabInstance:
     - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (39)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
@@ -7202,6 +8051,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+--- !u!1 &694849834 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1273277020}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &694849837
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694849834}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!4 &696445171 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5953500244520611799, guid: a5fb4755f6de599429f4822977a5005c, type: 3}
@@ -7386,6 +8254,44 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c74d097345d816d459989fc24ad7a48e, type: 3}
+--- !u!1 &730597365 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 60908515}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &730597368
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730597365}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
+--- !u!1 &738622133 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1738808899}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &738622136
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 738622133}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &744295913
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7396,6 +8302,10 @@ PrefabInstance:
     - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
@@ -7481,6 +8391,10 @@ PrefabInstance:
     - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (69)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
@@ -7861,6 +8775,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (59)
       objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
       value: 59
@@ -8059,6 +8977,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4407027191474422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
   m_PrefabInstance: {fileID: 802379319}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &805658601 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 335255524}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &805658604
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805658601}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &809701752
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8069,6 +9006,10 @@ PrefabInstance:
     - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (32)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
@@ -8357,6 +9298,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (35)
       objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
       value: 35
@@ -8407,6 +9352,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+--- !u!1 &849258971 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 356345830}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &849258974
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849258971}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1 &857786129 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1388639599019164, guid: 42a171cf451b4d64399d37a24140f30c, type: 3}
@@ -8426,6 +9390,25 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: cda8dee6f03b0014a940ca76b70a4ae8, type: 3}
+--- !u!1 &861903058 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 2069598620}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &861903061
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861903058}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &862108988
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8436,6 +9419,10 @@ PrefabInstance:
     - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (68)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
@@ -8532,6 +9519,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (40)
       objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
       value: 40
@@ -8617,6 +9608,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (77)
       objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
       value: 77
@@ -8695,6 +9690,25 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 264414c28ea0fbb41b924fd17d9228b3, type: 3}
+--- !u!1 &883147720 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1241836839}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &883147723
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883147720}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1 &884572030 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
@@ -8754,6 +9768,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
       value: 25
@@ -8804,6 +9822,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+--- !u!1 &895143456 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1307238453}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &895143459
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895143456}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &901702061
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8814,6 +9851,10 @@ PrefabInstance:
     - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (60)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
@@ -8963,6 +10004,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4407027191474422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
   m_PrefabInstance: {fileID: 912420498}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &913132138 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1646687096}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &913132141
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 913132138}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &923390799
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9187,6 +10247,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4407027191474422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
   m_PrefabInstance: {fileID: 940626442}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &943688535 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1673102435}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &943688538
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943688535}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1 &948833611 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
@@ -9433,6 +10512,25 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: cda8dee6f03b0014a940ca76b70a4ae8, type: 3}
+--- !u!1 &975319013 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 2010529699}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &975319016
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975319013}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &985056018
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9443,6 +10541,10 @@ PrefabInstance:
     - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
@@ -9509,6 +10611,10 @@ PrefabInstance:
     - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
@@ -9646,6 +10752,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (48)
       objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
       value: 48
@@ -9780,6 +10890,10 @@ PrefabInstance:
     - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (51)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
@@ -9979,6 +11093,10 @@ PrefabInstance:
     - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (66)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
@@ -10294,6 +11412,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (71)
       objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
       value: 71
@@ -10472,6 +11594,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
       value: 23
@@ -10532,6 +11658,10 @@ PrefabInstance:
     - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (70)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
@@ -10607,6 +11737,55 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 264414c28ea0fbb41b924fd17d9228b3, type: 3}
+--- !u!1 &1064651966 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1128075475090572808, guid: 9c133dce4fc409f41a710d932268912e, type: 3}
+  m_PrefabInstance: {fileID: 8174635040764247967}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1064651967 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1128075475090572807, guid: 9c133dce4fc409f41a710d932268912e, type: 3}
+  m_PrefabInstance: {fileID: 8174635040764247967}
+  m_PrefabAsset: {fileID: 0}
+--- !u!195 &1064651970 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 2816854628219970472, guid: 9c133dce4fc409f41a710d932268912e, type: 3}
+  m_PrefabInstance: {fileID: 8174635040764247967}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1064651971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064651966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2850fc6d80c9e624d8dd3094f8039baf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Delay: 1
+  MaximumStress: 0.6
+  Range: 45
+--- !u!1 &1074400130 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1799230955}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1074400133
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074400130}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1 &1078737770 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
@@ -10641,6 +11820,10 @@ PrefabInstance:
     - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (47)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
@@ -10692,6 +11875,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+--- !u!1 &1083439711 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 349976273}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1083439714
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083439711}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1 &1083469380
 GameObject:
   m_ObjectHideFlags: 0
@@ -10804,6 +12006,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (54)
       objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
       value: 54
@@ -10854,6 +12060,44 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+--- !u!1 &1096858457 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 761598176}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1096858460
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096858457}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
+--- !u!1 &1100456983 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 660554315}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1100456986
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100456983}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!4 &1103194263 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7060349753014666888, guid: 82f781fdcd7b18743b233b9de1bfbd70, type: 3}
@@ -10933,6 +12177,44 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4407027191474422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
   m_PrefabInstance: {fileID: 1107948228}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1108623623 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1773242281}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1108623626
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108623623}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
+--- !u!1 &1112712456 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 184387547}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1112712459
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112712456}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &1118823676
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11190,7 +12472,7 @@ Transform:
   - {fileID: 166466230}
   - {fileID: 1867563604}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1149944949
 PrefabInstance:
@@ -11417,6 +12699,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (73)
       objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
       value: 73
@@ -11491,6 +12777,44 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 264414c28ea0fbb41b924fd17d9228b3, type: 3}
+--- !u!1 &1180229653 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 347980966}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1180229656
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180229653}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
+--- !u!1 &1180254230 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 495496780}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1180254233
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180254230}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &1183660890
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11501,6 +12825,10 @@ PrefabInstance:
     - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
@@ -11701,6 +13029,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4143605848347396, guid: 42a171cf451b4d64399d37a24140f30c, type: 3}
   m_PrefabInstance: {fileID: 1188289231}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1189697382 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1673910292}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1189697385
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189697382}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &1192453153
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11711,6 +13058,10 @@ PrefabInstance:
     - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
@@ -11762,6 +13113,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+--- !u!1 &1203342487 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 999914212}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1203342490
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203342487}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
+--- !u!1 &1205932741 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 371468186}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1205932744
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205932741}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
+--- !u!1 &1223214016 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 2061206513}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1223214019
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1223214016}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &1224406942
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11847,6 +13255,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (65)
       objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
       value: 65
@@ -11907,6 +13319,10 @@ PrefabInstance:
     - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (72)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
@@ -12121,6 +13537,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (55)
       objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
       value: 55
@@ -12171,6 +13591,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+--- !u!1 &1240808296 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1521678596}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1240808299
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1240808296}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &1241836839
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12330,6 +13769,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (45)
       objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
       value: 45
@@ -12390,6 +13833,10 @@ PrefabInstance:
     - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (53)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
@@ -12534,6 +13981,25 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f7ca56181e589ab449900c5436b8c226, type: 3}
+--- !u!1 &1272331587 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 2043779441}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1272331590
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272331587}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1 &1272528740 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1076262714343606, guid: 68cbfa1438162b243ac02fb9e3e30581, type: 3}
@@ -13041,6 +14507,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5fb4755f6de599429f4822977a5005c, type: 3}
+--- !u!1 &1336947162 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1868756100}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1336947165
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336947162}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &1338055965
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13051,6 +14536,10 @@ PrefabInstance:
     - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (31)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
@@ -13176,6 +14665,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4407027191474422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
   m_PrefabInstance: {fileID: 1349840330}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1352413591 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1318533540}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1352413594
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1352413591}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &1362257685
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13186,6 +14694,10 @@ PrefabInstance:
     - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
@@ -13350,6 +14862,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (57)
       objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
       value: 57
@@ -13400,6 +14916,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+--- !u!1001 &1373207332
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2762350800465961864, guid: 6647ff933bb0da748ac3e900f669bc76, type: 3}
+      propertyPath: m_Name
+      value: Werewolf
+      objectReference: {fileID: 0}
+    - target: {fileID: 3251044529141872946, guid: 6647ff933bb0da748ac3e900f669bc76, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3251044529141872946, guid: 6647ff933bb0da748ac3e900f669bc76, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 323.97733
+      objectReference: {fileID: 0}
+    - target: {fileID: 3251044529141872946, guid: 6647ff933bb0da748ac3e900f669bc76, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 22.110733
+      objectReference: {fileID: 0}
+    - target: {fileID: 3251044529141872946, guid: 6647ff933bb0da748ac3e900f669bc76, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 651.7344
+      objectReference: {fileID: 0}
+    - target: {fileID: 3251044529141872946, guid: 6647ff933bb0da748ac3e900f669bc76, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3251044529141872946, guid: 6647ff933bb0da748ac3e900f669bc76, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3251044529141872946, guid: 6647ff933bb0da748ac3e900f669bc76, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3251044529141872946, guid: 6647ff933bb0da748ac3e900f669bc76, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3251044529141872946, guid: 6647ff933bb0da748ac3e900f669bc76, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3251044529141872946, guid: 6647ff933bb0da748ac3e900f669bc76, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 3251044529141872946, guid: 6647ff933bb0da748ac3e900f669bc76, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6647ff933bb0da748ac3e900f669bc76, type: 3}
 --- !u!1001 &1376484369
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13453,6 +15026,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c9211eb71cff4f4996a21d92317f601, type: 3}
+--- !u!1 &1378061723 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 2026357588}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1378061726
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1378061723}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &1378867199
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13623,6 +15215,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (28)
       objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
       value: 28
@@ -13677,6 +15273,44 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: eff9bd1fc3971e7499e63b512110dfef, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+--- !u!1 &1400026957 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1552719001}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1400026960
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400026957}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
+--- !u!1 &1403232457 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1561041950}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1403232460
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1403232457}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &1406851100
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13687,6 +15321,10 @@ PrefabInstance:
     - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
@@ -13773,6 +15411,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (33)
       objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
       value: 33
@@ -13847,6 +15489,25 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 264414c28ea0fbb41b924fd17d9228b3, type: 3}
+--- !u!1 &1421491218 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 334162531}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1421491221
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421491218}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &1434394722
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13932,6 +15593,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_02 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1076262714343606, guid: 68cbfa1438162b243ac02fb9e3e30581, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4802134562677756, guid: 68cbfa1438162b243ac02fb9e3e30581, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -14006,6 +15671,25 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 264414c28ea0fbb41b924fd17d9228b3, type: 3}
+--- !u!1 &1444230980 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 2143962105}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1444230983
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444230980}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &1444530819
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14160,6 +15844,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4681188380609874, guid: be0a80f4a4e6e2548920653bce9ad844, type: 3}
   m_PrefabInstance: {fileID: 1450378200}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1450572456 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1771834850}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1450572459
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450572456}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1 &1456211999 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
@@ -14258,6 +15961,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4407027191474422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
   m_PrefabInstance: {fileID: 1458881376}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1474454330 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1695826816}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1474454333
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474454330}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &1477600061
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14542,6 +16264,25 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: cda8dee6f03b0014a940ca76b70a4ae8, type: 3}
+--- !u!1 &1493279322 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 246018405}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1493279325
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1493279322}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &1502164502
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14628,7 +16369,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1912967433525819237, guid: c2cd175d5a58b1141b921728bd10717f, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1912967433525819237, guid: c2cd175d5a58b1141b921728bd10717f, type: 3}
       propertyPath: m_AnchorMax.x
@@ -14887,6 +16628,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82f781fdcd7b18743b233b9de1bfbd70, type: 3}
+--- !u!1 &1521546380 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 630942616}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1521546383
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1521546380}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &1521678596
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14961,6 +16721,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4407027191474422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
   m_PrefabInstance: {fileID: 1521678596}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1522229924 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 47716644}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1522229927
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522229924}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &1524032849
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15286,6 +17065,10 @@ PrefabInstance:
     - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
@@ -15651,6 +17434,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4407027191474422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
   m_PrefabInstance: {fileID: 1561041950}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1562063960
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2713562652532766426, guid: d252e129749f4d74b942466f99bc1494, type: 3}
+      propertyPath: m_Name
+      value: Wolf
+      objectReference: {fileID: 0}
+    - target: {fileID: 3378634813849939040, guid: d252e129749f4d74b942466f99bc1494, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3378634813849939040, guid: d252e129749f4d74b942466f99bc1494, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 327.6877
+      objectReference: {fileID: 0}
+    - target: {fileID: 3378634813849939040, guid: d252e129749f4d74b942466f99bc1494, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 22.101559
+      objectReference: {fileID: 0}
+    - target: {fileID: 3378634813849939040, guid: d252e129749f4d74b942466f99bc1494, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 655.62103
+      objectReference: {fileID: 0}
+    - target: {fileID: 3378634813849939040, guid: d252e129749f4d74b942466f99bc1494, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3378634813849939040, guid: d252e129749f4d74b942466f99bc1494, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3378634813849939040, guid: d252e129749f4d74b942466f99bc1494, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3378634813849939040, guid: d252e129749f4d74b942466f99bc1494, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3378634813849939040, guid: d252e129749f4d74b942466f99bc1494, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3378634813849939040, guid: d252e129749f4d74b942466f99bc1494, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 3378634813849939040, guid: d252e129749f4d74b942466f99bc1494, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d252e129749f4d74b942466f99bc1494, type: 3}
 --- !u!1001 &1563483073
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15799,6 +17639,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4407027191474422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
   m_PrefabInstance: {fileID: 1566493024}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1570706978 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1807926429}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1570706981
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570706978}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &1582040209
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15999,6 +17858,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -16058,63 +17921,82 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7060349753014666888, guid: 82f781fdcd7b18743b233b9de1bfbd70, type: 3}
   m_PrefabInstance: {fileID: 1966611258}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1619500603
+--- !u!1 &1587391680 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1478658993}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1587391683
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587391680}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
+--- !u!1001 &1615678920
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7180919365650414504, guid: eabe69c5b508d3b429414e861a2a703b, type: 3}
+    - target: {fileID: 2762350800465961864, guid: 6647ff933bb0da748ac3e900f669bc76, type: 3}
+      propertyPath: m_Name
+      value: Werewolf (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3251044529141872946, guid: 6647ff933bb0da748ac3e900f669bc76, type: 3}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 7180919365650414504, guid: eabe69c5b508d3b429414e861a2a703b, type: 3}
+    - target: {fileID: 3251044529141872946, guid: 6647ff933bb0da748ac3e900f669bc76, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 330.1
+      value: 314.29532
       objectReference: {fileID: 0}
-    - target: {fileID: 7180919365650414504, guid: eabe69c5b508d3b429414e861a2a703b, type: 3}
+    - target: {fileID: 3251044529141872946, guid: 6647ff933bb0da748ac3e900f669bc76, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 26.05
+      value: 21.87355
       objectReference: {fileID: 0}
-    - target: {fileID: 7180919365650414504, guid: eabe69c5b508d3b429414e861a2a703b, type: 3}
+    - target: {fileID: 3251044529141872946, guid: 6647ff933bb0da748ac3e900f669bc76, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 684.69
+      value: 646.8465
       objectReference: {fileID: 0}
-    - target: {fileID: 7180919365650414504, guid: eabe69c5b508d3b429414e861a2a703b, type: 3}
+    - target: {fileID: 3251044529141872946, guid: 6647ff933bb0da748ac3e900f669bc76, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.99985063
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7180919365650414504, guid: eabe69c5b508d3b429414e861a2a703b, type: 3}
+    - target: {fileID: 3251044529141872946, guid: 6647ff933bb0da748ac3e900f669bc76, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7180919365650414504, guid: eabe69c5b508d3b429414e861a2a703b, type: 3}
+    - target: {fileID: 3251044529141872946, guid: 6647ff933bb0da748ac3e900f669bc76, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.01728403
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7180919365650414504, guid: eabe69c5b508d3b429414e861a2a703b, type: 3}
+    - target: {fileID: 3251044529141872946, guid: 6647ff933bb0da748ac3e900f669bc76, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7180919365650414504, guid: eabe69c5b508d3b429414e861a2a703b, type: 3}
+    - target: {fileID: 3251044529141872946, guid: 6647ff933bb0da748ac3e900f669bc76, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7180919365650414504, guid: eabe69c5b508d3b429414e861a2a703b, type: 3}
+    - target: {fileID: 3251044529141872946, guid: 6647ff933bb0da748ac3e900f669bc76, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -361.981
+      value: 180
       objectReference: {fileID: 0}
-    - target: {fileID: 7180919365650414504, guid: eabe69c5b508d3b429414e861a2a703b, type: 3}
+    - target: {fileID: 3251044529141872946, guid: 6647ff933bb0da748ac3e900f669bc76, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7182731240349853680, guid: eabe69c5b508d3b429414e861a2a703b, type: 3}
-      propertyPath: m_Name
-      value: Player_WithSwitch
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: eabe69c5b508d3b429414e861a2a703b, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 6647ff933bb0da748ac3e900f669bc76, type: 3}
 --- !u!1001 &1620450692
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16242,6 +18124,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c9211eb71cff4f4996a21d92317f601, type: 3}
+--- !u!1 &1623472865 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1620450692}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1623472868
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623472865}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!4 &1623615453 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5953500244520611799, guid: a5fb4755f6de599429f4822977a5005c, type: 3}
@@ -16271,6 +18172,25 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 264414c28ea0fbb41b924fd17d9228b3, type: 3}
+--- !u!1 &1627817267 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 802379319}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1627817270
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627817267}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &1646687096
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16356,6 +18276,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
       value: 22
@@ -16417,6 +18341,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (27)
       objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
       value: 27
@@ -16467,6 +18395,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+--- !u!1 &1669387297 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 786364122}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1669387300
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1669387297}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &1673102435
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16668,6 +18615,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5953500244520611799, guid: a5fb4755f6de599429f4822977a5005c, type: 3}
   m_PrefabInstance: {fileID: 272961977}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1688211929 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1874022893}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1688211932
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688211929}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &1691525066
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16877,6 +18843,25 @@ Transform:
   m_Father: {fileID: 2083346501}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1705292941 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 832417885}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1705292944
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705292941}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &1709972348
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16980,6 +18965,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7060349753014666888, guid: 82f781fdcd7b18743b233b9de1bfbd70, type: 3}
   m_PrefabInstance: {fileID: 1521299911}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1736422673 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 354015932}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1736422676
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1736422673}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1 &1737056765 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
@@ -17181,6 +19185,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4407027191474422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
   m_PrefabInstance: {fileID: 1750804366}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1752464008 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 429274275}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1752464011
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752464008}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &1754946515
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17295,11 +19318,49 @@ Transform:
   m_Father: {fileID: 817363978839062266}
   m_RootOrder: 45
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1759498854 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 374792623}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1759498857
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759498854}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!4 &1764409886 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7060349753014666888, guid: 82f781fdcd7b18743b233b9de1bfbd70, type: 3}
   m_PrefabInstance: {fileID: 2125689413}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1768953438 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 411380112}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1768953441
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768953438}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &1771834850
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17448,6 +19509,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4407027191474422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
   m_PrefabInstance: {fileID: 1773242281}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1781547365 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1563483073}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1781547368
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781547365}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &1790536848
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17592,6 +19672,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5fb4755f6de599429f4822977a5005c, type: 3}
+--- !u!1 &1796911682 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1709972348}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1796911685
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796911682}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &1796977354
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18138,6 +20237,63 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 264414c28ea0fbb41b924fd17d9228b3, type: 3}
+--- !u!1 &1815363891 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1162316661}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1815363894
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815363891}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
+--- !u!1 &1815412441 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1367988678}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1815412444
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815412441}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
+--- !u!1 &1818006942 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1750804366}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1818006945
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818006942}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &1829391888
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18219,6 +20375,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4557757265253404, guid: 5c9211eb71cff4f4996a21d92317f601, type: 3}
   m_PrefabInstance: {fileID: 1829391888}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1833038471 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1582040209}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1833038474
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833038471}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1 &1844873014
 GameObject:
   m_ObjectHideFlags: 0
@@ -18407,6 +20582,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.33814636, y: 0.4199868, z: 0.79220265}
   m_Center: {x: -0.010951272, y: -0.052296035, z: 0.39610133}
+--- !u!1 &1854319246 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 515940028}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1854319249
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854319246}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &1858276777
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18417,6 +20611,10 @@ PrefabInstance:
     - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (34)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
@@ -18476,6 +20674,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+--- !u!1 &1864423245 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 262528895}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1864423248
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864423245}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &1866179113
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18486,6 +20703,10 @@ PrefabInstance:
     - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (75)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
@@ -18903,6 +21124,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -19062,6 +21287,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (43)
       objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
       value: 43
@@ -19197,6 +21426,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (56)
       objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
       value: 56
@@ -19247,6 +21480,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+--- !u!1 &1917799183 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 778282725}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1917799186
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917799183}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!4 &1918226586 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5953500244520611799, guid: a5fb4755f6de599429f4822977a5005c, type: 3}
@@ -19267,6 +21519,10 @@ PrefabInstance:
     - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
@@ -19332,6 +21588,10 @@ PrefabInstance:
     - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
@@ -19942,6 +22202,44 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82f781fdcd7b18743b233b9de1bfbd70, type: 3}
+--- !u!1 &1973811038 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1507845071}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1973811041
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973811038}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
+--- !u!1 &1977155565 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1986304805}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1977155568
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977155565}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &1978040017
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20281,6 +22579,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5953500244520611799, guid: a5fb4755f6de599429f4822977a5005c, type: 3}
   m_PrefabInstance: {fileID: 1998373798}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2009721299 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 279321614}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &2009721302
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2009721299}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &2010529699
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20355,6 +22672,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4407027191474422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
   m_PrefabInstance: {fileID: 2010529699}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2010674098 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 399509437}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &2010674101
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010674098}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &2011767206
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20429,6 +22765,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4407027191474422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
   m_PrefabInstance: {fileID: 2011767206}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2014007462 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1031381299}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &2014007465
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014007462}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &2025131923
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20439,6 +22794,10 @@ PrefabInstance:
     - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (63)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
@@ -20564,6 +22923,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4407027191474422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
   m_PrefabInstance: {fileID: 2026357588}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2033619163 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1434394722}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &2033619166
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033619163}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1 &2035694168 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
@@ -20761,6 +23139,44 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4407027191474422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
   m_PrefabInstance: {fileID: 2043779441}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2044196712 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 800040665}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &2044196715
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044196712}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
+--- !u!1 &2044922964 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 2065895246}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &2044922967
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044922964}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1 &2048316061
 GameObject:
   m_ObjectHideFlags: 0
@@ -20868,6 +23284,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: MegaSkelton
       objectReference: {fileID: 0}
+    - target: {fileID: 1063910318025548, guid: 39f905046dc03414f8baad7aa032a723, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1063910318025548, guid: 39f905046dc03414f8baad7aa032a723, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4201335467154764, guid: 39f905046dc03414f8baad7aa032a723, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -20942,6 +23366,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (52)
       objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
       value: 52
@@ -21003,6 +23431,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -21053,6 +23485,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+--- !u!4 &2057104339 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7799497169717136184, guid: e273e3515e3cd484e893fe7907c5cbf1, type: 3}
+  m_PrefabInstance: {fileID: 336656613}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2058456250 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1918621503188698, guid: be0a80f4a4e6e2548920653bce9ad844, type: 3}
@@ -21231,6 +23668,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (29)
       objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
       value: 29
@@ -21281,6 +23722,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+--- !u!1 &2068040403 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 166619060}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &2068040406
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068040403}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &2069598620
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21387,8 +23847,46 @@ Transform:
   - {fileID: 463505484}
   - {fileID: 2049145300}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2092141864 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1553484245}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &2092141867
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2092141864}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
+--- !u!1 &2101511616 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 966495367}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &2101511619
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101511616}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &2117162139
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21399,6 +23897,10 @@ PrefabInstance:
     - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (30)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
@@ -21546,6 +24048,44 @@ Transform:
   m_Father: {fileID: 1754967494}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!1 &2120012811 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 159092243}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &2120012814
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2120012811}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
+--- !u!1 &2121765910 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1444530819}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &2121765913
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121765910}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &2123530962
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21725,6 +24265,44 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82f781fdcd7b18743b233b9de1bfbd70, type: 3}
+--- !u!1 &2128294506 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 285838439}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &2128294509
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128294506}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
+--- !u!1 &2130410313 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
+  m_PrefabInstance: {fileID: 1949201698}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &2130410316
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130410313}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
 --- !u!1001 &2130790249
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21735,6 +24313,10 @@ PrefabInstance:
     - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_terrain_grass_01 (76)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_RootOrder
@@ -22208,7 +24790,7 @@ Transform:
   - {fileID: 1754967494}
   - {fileID: 1138400225}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &852489482798937431
 GameObject:
@@ -24908,35 +27490,35 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 354775046506077362, guid: 9c133dce4fc409f41a710d932268912e, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 354775046506077362, guid: 9c133dce4fc409f41a710d932268912e, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.59
+      value: 0.54275864
       objectReference: {fileID: 0}
     - target: {fileID: 354775046506077362, guid: 9c133dce4fc409f41a710d932268912e, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.59
+      value: 0.54275864
       objectReference: {fileID: 0}
     - target: {fileID: 354775046506077362, guid: 9c133dce4fc409f41a710d932268912e, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.59
+      value: 0.54275864
       objectReference: {fileID: 0}
     - target: {fileID: 354775046506077362, guid: 9c133dce4fc409f41a710d932268912e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 331.65
+      value: 324.26
       objectReference: {fileID: 0}
     - target: {fileID: 354775046506077362, guid: 9c133dce4fc409f41a710d932268912e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 22.03
+      value: 23.614
       objectReference: {fileID: 0}
     - target: {fileID: 354775046506077362, guid: 9c133dce4fc409f41a710d932268912e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 659.4
+      value: 771.08
       objectReference: {fileID: 0}
     - target: {fileID: 354775046506077362, guid: 9c133dce4fc409f41a710d932268912e, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 354775046506077362, guid: 9c133dce4fc409f41a710d932268912e, type: 3}
       propertyPath: m_LocalRotation.x
@@ -24944,7 +27526,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 354775046506077362, guid: 9c133dce4fc409f41a710d932268912e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 354775046506077362, guid: 9c133dce4fc409f41a710d932268912e, type: 3}
       propertyPath: m_LocalRotation.z
@@ -24956,11 +27538,55 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 354775046506077362, guid: 9c133dce4fc409f41a710d932268912e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 354775046506077362, guid: 9c133dce4fc409f41a710d932268912e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114464323547349172, guid: 9c133dce4fc409f41a710d932268912e, type: 3}
+      propertyPath: agent
+      value: 
+      objectReference: {fileID: 1064651970}
+    - target: {fileID: 1114464323547349172, guid: 9c133dce4fc409f41a710d932268912e, type: 3}
+      propertyPath: damage
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114464323547349172, guid: 9c133dce4fc409f41a710d932268912e, type: 3}
+      propertyPath: health
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114464323547349172, guid: 9c133dce4fc409f41a710d932268912e, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2057104339}
+    - target: {fileID: 1114464323547349172, guid: 9c133dce4fc409f41a710d932268912e, type: 3}
+      propertyPath: inducer
+      value: 
+      objectReference: {fileID: 1064651971}
+    - target: {fileID: 1114464323547349172, guid: 9c133dce4fc409f41a710d932268912e, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1064651967}
+    - target: {fileID: 1114464323547349172, guid: 9c133dce4fc409f41a710d932268912e, type: 3}
+      propertyPath: sightRange
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114464323547349172, guid: 9c133dce4fc409f41a710d932268912e, type: 3}
+      propertyPath: attackRange
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114464323547349172, guid: 9c133dce4fc409f41a710d932268912e, type: 3}
+      propertyPath: timeBetweenAttacks
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114464323547349172, guid: 9c133dce4fc409f41a710d932268912e, type: 3}
+      propertyPath: whatIsGround.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114464323547349172, guid: 9c133dce4fc409f41a710d932268912e, type: 3}
+      propertyPath: whatIsPlayer.m_Bits
+      value: 256
       objectReference: {fileID: 0}
     - target: {fileID: 1128075475090572808, guid: 9c133dce4fc409f41a710d932268912e, type: 3}
       propertyPath: m_Name

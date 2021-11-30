@@ -23,6 +23,7 @@ TagManager:
   - Gate
   - FadeImage
   - TransitionManager
+  - Boss
   layers:
   - Default
   - TransparentFX

@@ -62325,17 +62325,30 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 926763463, guid: 54b66db3131c1564d907c0a8a8f6f0f3, type: 3}
+      propertyPath: lines.Array.data[0]
+      value: James, are you here! Are you okay!
+      objectReference: {fileID: 0}
+    - target: {fileID: 926763463, guid: 54b66db3131c1564d907c0a8a8f6f0f3, type: 3}
+      propertyPath: lines.Array.data[2]
+      value: Wait, I hear something...
+      objectReference: {fileID: 0}
+    - target: {fileID: 926763463, guid: 54b66db3131c1564d907c0a8a8f6f0f3, type: 3}
+      propertyPath: lines.Array.data[3]
+      value: Oh my god, what is that! James run away from here... NO NOOOOOO HELP!
+        AAAAAAAAAARGH
+      objectReference: {fileID: 0}
+    - target: {fileID: 926763463, guid: 54b66db3131c1564d907c0a8a8f6f0f3, type: 3}
       propertyPath: lines.Array.data[4]
       value: I have to go save the Sergeant!
       objectReference: {fileID: 0}
     - target: {fileID: 926763463, guid: 54b66db3131c1564d907c0a8a8f6f0f3, type: 3}
       propertyPath: lines.Array.data[5]
-      value: I need to use 'w', 'a', 's', and 'd' to move around... I am a bit shacken
-        up but I can still run with the shift key
+      value: I need to use 'w', 'a', 's', and 'd' to move around... I am a bit shaken
+        up but I can still run with the shift key.
       objectReference: {fileID: 0}
     - target: {fileID: 926763463, guid: 54b66db3131c1564d907c0a8a8f6f0f3, type: 3}
       propertyPath: lines.Array.data[6]
-      value: It is so dark here.. I should use my flashlight with the 'f' key
+      value: It's so dark here.. I should use my flashlight with the 'f' key
       objectReference: {fileID: 0}
     - target: {fileID: 926763463, guid: 54b66db3131c1564d907c0a8a8f6f0f3, type: 3}
       propertyPath: lines.Array.data[7]
