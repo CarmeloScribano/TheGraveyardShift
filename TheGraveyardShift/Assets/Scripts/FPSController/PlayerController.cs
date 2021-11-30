@@ -20,11 +20,11 @@ public class PlayerController : MonoBehaviour
     [Header("Flashlight")]
     [Tooltip("Flashlight game object.")]
     public GameObject flashlight;
-    public Light flashlightComponent; 
+    public Light flashlightComponent;
     private bool flashlightToggle;
     private bool flashlightDead;
     private float maxFlashlightLife = 60f;
-    private float flashlightLife;  
+    private float flashlightLife;
 
     [Header("Audio Clips")]
     [Tooltip("The audio clip that is played while walking."), SerializeField]
@@ -83,8 +83,8 @@ public class PlayerController : MonoBehaviour
     public GameObject hud;
     public GameObject healthBar;
     public GameObject healthBarBackground;
+    public Slider batterySlider;
     public GameObject batteryBar;
-    public GameObject batteryNumber;
     public GameObject dialogueBox;
 
     //Flow of the Game
@@ -93,6 +93,8 @@ public class PlayerController : MonoBehaviour
     private bool fireTutorial = false;
     private bool keyInTheCity = false;
     private bool lookForKey = false;
+
+    private bool gaveReloadTip = false;
 
 
     private readonly RaycastHit[] _groundCastResults = new RaycastHit[8];
@@ -346,8 +348,7 @@ public class PlayerController : MonoBehaviour
 
     private void FlashlightLife()
     {
-        RectTransform rt = (RectTransform)batteryBar.transform;
-        batteryNumber.GetComponent<Text>().text = "" + numberBatteries;
+        //RectTransform rt = (RectTransform)batteryBar.transform;
 
         if (flashlightLife > 0)
             flashlightDead = false;
@@ -356,7 +357,7 @@ public class PlayerController : MonoBehaviour
         {
             if (flashlightLife == 60f)
             {
-                batteryBar.GetComponent<RawImage>().color = Color.green;
+                batteryBar.GetComponent<Image>().color = Color.green;
                 //rt.SetPositionAndRotation(new Vector3(-115, 115, 0), new Quaternion(0, 0, 0, 0));
             }
 
@@ -372,18 +373,20 @@ public class PlayerController : MonoBehaviour
             else if (batteryPercentage <= 0.25)
             {
                 flashlightComponent.intensity = 0.5f;
-                batteryBar.GetComponent<RawImage>().color = Color.red;
+                batteryBar.GetComponent<Image>().color = Color.red;
             }
             else if (batteryPercentage <= 0.5)
             {
                 flashlightComponent.intensity = 1f;
-                batteryBar.GetComponent<RawImage>().color = Color.yellow;
+                batteryBar.GetComponent<Image>().color = Color.yellow;
             }
 
+            batterySlider.value = batteryPercentage;
 
-            rt.sizeDelta = new Vector2(batteryPercentage * 180, 55);
-            Vector2 moveRight = new Vector2(1, 0);
-            rt.Translate(moveRight * Time.deltaTime * 1.62f, Camera.main.transform);
+
+            //rt.sizeDelta = new Vector2(batteryPercentage * 180, 55);
+            //Vector2 moveRight = new Vector2(1, 0);
+            //rt.Translate(moveRight * Time.deltaTime * 1.62f, Camera.main.transform);
         }
     }
 
@@ -391,7 +394,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.tag == "Medkit")
         {
-            if(health < maxHealth)
+            if (health < maxHealth)
             {
                 TakeDamage(-(maxHealth / 3));
                 if (health > maxHealth)
@@ -452,6 +455,19 @@ public class PlayerController : MonoBehaviour
 
             lookForKey = true;
         }
+    }
+
+    public void ReloadTip()
+    {
+        if (!gaveReloadTip)
+        {
+            gaveReloadTip = true;
+            string[] newText = { "I am out of ammo! That gun is not going to reload itself. I must press 'r' to reload it." };
+
+            dialogueBox.GetComponent<Dialogue>().SetText(newText);
+            dialogueBox.GetComponent<Dialogue>().Start();
+        }
+        
     }
 
     private void PlayFootstepSounds()
