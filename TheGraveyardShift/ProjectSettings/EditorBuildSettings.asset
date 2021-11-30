@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Core/TutorialScene.unity
     guid: 1092d9ffa8d506a479988e1c6ff42d87
   - enabled: 1
-    path: Assets/Scenes/Core/MainMap.unity
+    path: Assets/Scenes/Core/TutorialScene/MainMap.unity
     guid: bfc5fce90f711d74ca9b2633934006e6
   - enabled: 1
     path: Assets/Scenes/Core/BossArea.unity
