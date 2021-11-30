@@ -154,6 +154,12 @@ public class Gun : MonoBehaviour
     [Header("Impact Effect Prefabs")]
     public Transform[] bloodImpactPrefabs;
 
+    private float recoil = 0.0f;
+    private float maxRecoil_x = -3f;
+
+    private float maxRecoil_y = 0f;
+    private float recoilSpeed = 10f;
+
     #endregion
 
     public void OnAwake()
@@ -228,6 +234,39 @@ public class Gun : MonoBehaviour
 
         TakeOut();
     }
+
+    public void StartRecoil(float recoilParam, float maxRecoil_xParam, float recoilSpeedParam)
+    {
+        // in seconds
+        recoil = recoilParam;
+        maxRecoil_x = maxRecoil_xParam;
+        recoilSpeed = recoilSpeedParam;
+        maxRecoil_y = Random.Range(-maxRecoil_xParam, maxRecoil_xParam);
+    }
+
+    void Recoil()
+    {
+        maxRecoil_y = Random.Range(-5.0f, 5.0f);
+        if (recoil > 0f)
+        {
+            Quaternion maxRecoil = Quaternion.Euler(maxRecoil_x, maxRecoil_y, 0f);
+            // Dampen towards the target rotation
+            transform.localRotation = Quaternion.Slerp(transform.localRotation, maxRecoil, Time.deltaTime * recoilSpeed);
+            recoil -= Time.deltaTime;
+        }
+        else
+        {
+            recoil = 0f;
+            // Dampen towards the target rotation
+            transform.localRotation = Quaternion.Slerp(transform.localRotation, Quaternion.identity, Time.deltaTime * recoilSpeed / 2);
+        }
+    }
+
+    // Update is called once per frame
+    //void Update()
+    //{
+        
+    //}
 
     public void Shoot()
     {
@@ -325,6 +364,7 @@ public class Gun : MonoBehaviour
         {
             if (Input.GetMouseButton(0) && !outOfAmmo && !isReloading && !isInspecting && !isRunning)
             {
+                recoil += 0.001f;
                 //Shoot automatic
                 if (Time.time - lastFired > 1 / fireRate)
                 {
@@ -406,6 +446,7 @@ public class Gun : MonoBehaviour
             //Shooting 
             if (Input.GetMouseButtonDown(0) && !outOfAmmo && !isReloading && !isInspecting && !isRunning)
             {
+                recoil += 0.001f;
                 anim.Play("Fire", 0, 0f);
 
                 muzzleParticles.Emit(1);
@@ -700,6 +741,8 @@ public class Gun : MonoBehaviour
 
     public void UpdateMethods()
     {
+        Recoil();
+
         //Reload 
         if (Input.GetKeyDown(KeyCode.R) && !isReloading && !isInspecting)
         {
