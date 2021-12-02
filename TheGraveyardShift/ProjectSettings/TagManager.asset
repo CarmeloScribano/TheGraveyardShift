@@ -23,7 +23,13 @@ TagManager:
   - Gate
   - FadeImage
   - TransitionManager
-  - Boss
+  - Snow
+  - Objectives
+  - EnemyManager
+  - FindKey
+  - EnterForest
+  - EnterCemetery
+  - Key
   layers:
   - Default
   - TransparentFX

@@ -75,8 +75,8 @@ public class BulletScript : MonoBehaviour
 			Destroy(gameObject);
 		}
 
-		//If bullet collides with "Dirt" tag
-		if (collision.transform.tag == "Dirt")
+		//If bullet collides with "Snow" tag
+		if (collision.transform.tag == "Snow" || collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
 		{
 			//Instantiate random impact prefab from array
 			Instantiate(dirtImpactPrefabs[Random.Range

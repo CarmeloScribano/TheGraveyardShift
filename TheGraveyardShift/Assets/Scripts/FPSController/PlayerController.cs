@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 /// Manages a first person character
@@ -93,8 +94,16 @@ public class PlayerController : MonoBehaviour
     private bool fireTutorial = false;
     private bool keyInTheCity = false;
     private bool lookForKey = false;
+    private bool findKey = false;
+    private bool forestNotEntered = false;
+    private bool cemeteryNotEntered = false;
+
+    private bool hasKey = false;
 
     private bool gaveReloadTip = false;
+
+    private Objectives objectives;
+    private EnemyHandler enemyHandler;
 
 
     private readonly RaycastHit[] _groundCastResults = new RaycastHit[8];
@@ -104,6 +113,8 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1;
+        objectives = GameObject.FindWithTag("Objectives").GetComponent<Objectives>();
+        enemyHandler = GameObject.FindWithTag("EnemyManager").GetComponent<EnemyHandler>();
         _rigidbody = GetComponent<Rigidbody>();
         _rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
         _collider = GetComponent<CapsuleCollider>();
@@ -421,7 +432,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.gameObject.tag == "JumpLog" && !jumpTutorial)
         {
-            string[] newText = { "Come on James, remember boot camp...", "You have to press the Space Key to jump!" };
+            string[] newText = { "Common James, remember boot camp...", "You have to press the Space Key to jump!" };
 
             dialogueBox.GetComponent<Dialogue>().SetText(newText);
             dialogueBox.GetComponent<Dialogue>().Start();
@@ -430,7 +441,8 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.gameObject.tag == "FireTutorial" && !fireTutorial)
         {
-            string[] newText = { "Oh no, Enemies incoming!", "Remember, left mouse click to shoot and right mouse click to aim!" };
+            objectives.CompleteObjective();
+            string[] newText = { "Oh no, Enemies incoming!", "Remember, left mouse click is to shoot and right mouse click is to aim!" };
 
             dialogueBox.GetComponent<Dialogue>().SetText(newText);
             dialogueBox.GetComponent<Dialogue>().Start();
@@ -439,6 +451,10 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.gameObject.tag == "keyInTheCity" && !keyInTheCity)
         {
+            if (enemyHandler.CheckIfDead(3))
+            {
+                objectives.CompleteObjective();
+            }
             string[] newText = { "Looks like there is a city over here... I might want to go check for survivors here..." };
 
             dialogueBox.GetComponent<Dialogue>().SetText(newText);
@@ -446,20 +462,78 @@ public class PlayerController : MonoBehaviour
 
             keyInTheCity = true;
         }
-        else if (other.gameObject.tag == "Gate" && !lookForKey)
+        else if (other.gameObject.tag == "keyInTheCity" && !keyInTheCity)
         {
-            string[] newText = { "This gate is locked! Maybe I could find the key for it in the city..." };
+            if (enemyHandler.CheckIfDead(3))
+            {
+                objectives.CompleteObjective();
+            }
+            string[] newText = { "Looks like there is a city over here... I might want to go check for survivors here..." };
 
             dialogueBox.GetComponent<Dialogue>().SetText(newText);
             dialogueBox.GetComponent<Dialogue>().Start();
 
-            lookForKey = true;
+            keyInTheCity = true;
         }
+        else if (other.gameObject.tag == "Key")
+        {
+            hasKey = true;
+            Destroy(other.gameObject);
+            objectives.CompleteObjective();
+        }
+        else if (other.gameObject.tag == "FindKey")
+        {
+            if (hasKey)
+            {
+                objectives.CompleteObjective();
+                TransitionManagerClass.Transition("BossArea");
+            }
+            if (!findKey)
+            {
+                string[] newText = { "The gate is locked... There may be a key in a near by cemetery..." };
+
+                dialogueBox.GetComponent<Dialogue>().SetText(newText);
+                dialogueBox.GetComponent<Dialogue>().Start();
+
+                findKey = true;
+            }
+        }
+        else if (other.gameObject.tag == "EnterForest" && !forestNotEntered)
+        {
+            forestNotEntered = true;
+            objectives.CompleteObjective();
+        }
+        else if (other.gameObject.tag == "EnterCemetery" && !cemeteryNotEntered)
+        {
+            cemeteryNotEntered = true;
+            objectives.CompleteObjective();
+        }
+        else if (other.gameObject.tag == "Gate")
+        {
+            //if (!lookForKey) 
+            //{
+            //    string[] newText = { "This gate is locked! Maybe I could find the key for it in the city..." };
+
+            //    dialogueBox.GetComponent<Dialogue>().SetText(newText);
+            //    dialogueBox.GetComponent<Dialogue>().Start();
+
+            //    lookForKey = true;
+            //}
+            //else
+            //{
+            if (enemyHandler.CheckIfDead(enemyHandler.initialCount))
+            {
+                objectives.CompleteObjective();
+                TransitionManagerClass.Transition("MainMap");
+            }
+            
+        }
+       
     }
 
     public void ReloadTip()
     {
-        if (!gaveReloadTip)
+        if (!gaveReloadTip && SceneManager.GetActiveScene().name == "TutorialScene")
         {
             gaveReloadTip = true;
             string[] newText = { "I am out of ammo! That gun is not going to reload itself. I must press 'r' to reload it." };

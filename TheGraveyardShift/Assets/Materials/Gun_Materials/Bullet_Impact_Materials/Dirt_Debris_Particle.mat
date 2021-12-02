@@ -4,8 +4,9 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Dirt_Debris_Particle
   m_Shader: {fileID: 208, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
@@ -39,7 +40,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 36865affba18a334798e4b94f558b6b4, type: 3}
+        m_Texture: {fileID: 2800000, guid: 53582402b7be0ed458aae9bd186d5e5e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -74,6 +75,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmisColor: {r: 0.7352941, g: 0.7352941, b: 0.7352941, a: 0}
+    - _EmisColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _TintColor: {r: 0.75, g: 0.75, b: 0.75, a: 0.5}
+  m_BuildTextureStacks: []

@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PlaneCutsceneTimeout : MonoBehaviour
 {
-    public float transitionTime = 60f;
+    public GameObject[] explosions;
+    public TraumaInducer inducer;
 
     private bool pressed = false;
 
@@ -26,7 +27,14 @@ public class PlaneCutsceneTimeout : MonoBehaviour
 
     private IEnumerator SwitchScene()
     {
-        yield return new WaitForSeconds(transitionTime);
-        TransitionManagerClass.Transition("TutorialScene");
+        yield return new WaitForSeconds(41f);
+        for (int i = 0; i < explosions.Length; i++)
+        {
+            yield return new WaitForSeconds(0.5f);
+            explosions[i].SetActive(true);
+            StartCoroutine(inducer.Explode());
+        }
+        yield return new WaitForSeconds(1f);
+        TransitionManagerClass.Transition("TutorialScene");        
     }
 }

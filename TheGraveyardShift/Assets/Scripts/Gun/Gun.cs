@@ -117,8 +117,9 @@ public class Gun : MonoBehaviour
 
     //How much ammo is currently left
     private int currentAmmo;
+    private int reservedAmmo;
     //Totalt amount of ammo
-    [Tooltip("How much ammo the weapon should have.")]
+
     public int ammo;
     public int maxAmmo;
     //Check if out of ammo
@@ -154,6 +155,12 @@ public class Gun : MonoBehaviour
     [Header("Impact Effect Prefabs")]
     public Transform[] bloodImpactPrefabs;
 
+    private float recoil = 0.0f;
+    private float maxRecoil_x = -3f;
+
+    private float maxRecoil_y = 0f;
+    private float recoilSpeed = 10f;
+
     #endregion
 
     public void OnAwake()
@@ -173,6 +180,7 @@ public class Gun : MonoBehaviour
         TakeOut();
 
         totalAmmo = ammo;
+        reservedAmmo = maxAmmo;
 
         //GameObject canvas = GameObject.FindGameObjectWithTag("HUD");
 
@@ -181,7 +189,7 @@ public class Gun : MonoBehaviour
         //Get weapon name from string to text
         currentWeaponText.text = weaponName;
         //Set total ammo text from total ammo int
-        totalAmmoText.text = maxAmmo.ToString();
+        totalAmmoText.text = reservedAmmo.ToString();
 
         //Weapon sway
         initialSwayPosition = transform.localPosition;
@@ -224,9 +232,53 @@ public class Gun : MonoBehaviour
         currentWeaponIcon.sprite = WeaponIcon;
         //}
 
-        totalAmmoText.text = maxAmmo.ToString();
+        totalAmmoText.text = reservedAmmo.ToString();
 
         TakeOut();
+    }
+
+    public void StartRecoil(float recoilParam, float maxRecoil_xParam, float recoilSpeedParam)
+    {
+        // in seconds
+        recoil = recoilParam;
+        maxRecoil_x = maxRecoil_xParam;
+        recoilSpeed = recoilSpeedParam;
+        maxRecoil_y = Random.Range(-maxRecoil_xParam, maxRecoil_xParam);
+    }
+
+    void Recoil()
+    {
+        maxRecoil_y = Random.Range(-5.0f, 5.0f);
+        if (!isAiming)
+        {
+            maxRecoil_x = -7f;
+            maxRecoil_y = Random.Range(-8f, 8f);
+        }
+
+        if (recoil > 0f)
+        {
+            Quaternion maxRecoil = Quaternion.Euler(maxRecoil_x, maxRecoil_y, 0f);
+            // Dampen towards the target rotation
+            transform.localRotation = Quaternion.Slerp(transform.localRotation, maxRecoil, Time.deltaTime * recoilSpeed);
+            recoil -= Time.deltaTime;
+        }
+        else
+        {
+            recoil = 0f;
+            // Dampen towards the target rotation
+            transform.localRotation = Quaternion.Slerp(transform.localRotation, Quaternion.identity, Time.deltaTime * recoilSpeed / 2);
+        }
+    }
+
+    // Update is called once per frame
+    //void Update()
+    //{
+        
+    //}
+
+    public void AddAmmo()
+    {
+        reservedAmmo += ammo;        
     }
 
     public void Shoot()
@@ -325,6 +377,7 @@ public class Gun : MonoBehaviour
         {
             if (Input.GetMouseButton(0) && !outOfAmmo && !isReloading && !isInspecting && !isRunning)
             {
+                recoil += 0.001f;
                 //Shoot automatic
                 if (Time.time - lastFired > 1 / fireRate)
                 {
@@ -406,6 +459,7 @@ public class Gun : MonoBehaviour
             //Shooting 
             if (Input.GetMouseButtonDown(0) && !outOfAmmo && !isReloading && !isInspecting && !isRunning)
             {
+                recoil += 0.001f;
                 anim.Play("Fire", 0, 0f);
 
                 muzzleParticles.Emit(1);
@@ -616,7 +670,7 @@ public class Gun : MonoBehaviour
 
     private IEnumerator Reload()
     {
-        if (currentAmmo < totalAmmo && maxAmmo > 0)
+        if (currentAmmo < totalAmmo && reservedAmmo > 0)
         {
             float reloadTime = 0f;
 
@@ -663,35 +717,35 @@ public class Gun : MonoBehaviour
             {
                 //Restore ammo when reloading
                 //if totalAmmo itself have enough bullets
-                if (maxAmmo >= totalAmmo)
+                if (reservedAmmo >= totalAmmo)
                 {
                     //get the ammo required to fill the magazine
                     int neededAmmo = totalAmmo - currentAmmo;
                     //decrement the ammo required to fill the magazine from total 
-                    maxAmmo -= neededAmmo;
+                    reservedAmmo -= neededAmmo;
                     //then increment the ammo required to fill the magazine  
                     currentAmmo += neededAmmo;
                 }
                 //if total ammo is less then the magazineCapacity
-                else if (maxAmmo > 0)
+                else if (reservedAmmo > 0)
                 {
                     //get the ammo required to fill the magazine
                     int neededAmmo = ammo - currentAmmo;
                     //if totalAmmo has enough bullets required to fill the magazine
-                    if (neededAmmo < maxAmmo)
+                    if (neededAmmo < reservedAmmo)
                     {
-                        maxAmmo -= neededAmmo;
+                        reservedAmmo -= neededAmmo;
                         currentAmmo += neededAmmo;
                     }
                     //if totalAmmo is less then the required neededAmmo then incerement all the bullets in the currentAmmo from totalAmmo
                     else
                     {
-                        currentAmmo += maxAmmo;
-                        maxAmmo = 0;
+                        currentAmmo += reservedAmmo;
+                        reservedAmmo = 0;
                     }
                 }
 
-                totalAmmoText.text = maxAmmo.ToString();
+                totalAmmoText.text = reservedAmmo.ToString();
             }
 
             outOfAmmo = false;
@@ -700,6 +754,8 @@ public class Gun : MonoBehaviour
 
     public void UpdateMethods()
     {
+        Recoil();
+
         //Reload 
         if (Input.GetKeyDown(KeyCode.R) && !isReloading && !isInspecting)
         {

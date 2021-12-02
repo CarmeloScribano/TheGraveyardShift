@@ -30169,7 +30169,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 294f8fd558aa0d1488d4997453398cf0, type: 2}
-  - {fileID: 2100000, guid: 294f8fd558aa0d1488d4997453398cf0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -35213,7 +35212,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: b0ea9aa64da8c76498ef3b008d0cca1b, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -50614,9 +50612,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arms: {fileID: 1124388385702837793}
+  armPosition: {x: 0, y: 0, z: 0}
   flashlight: {fileID: 2348502352465193812}
   flashlightComponent: {fileID: 9151702109928515247}
-  armPosition: {x: 0, y: 0, z: 0}
   walkingSound: {fileID: 8300000, guid: 6597a368cd74a924eaedb0171d5b28d3, type: 3}
   runningSound: {fileID: 8300000, guid: 0c58744c3b6fdd844b8348066c3f703e, type: 3}
   walkingSpeed: 5
@@ -50635,10 +50633,16 @@ MonoBehaviour:
     run: Fire3
     jump: Jump
     flashlight: Flashlight
-  health: 150
+  maxHealth: 150
+  numberBatteries: 1
   gameOverScreen: {fileID: 0}
   pauseScreen: {fileID: 0}
   hud: {fileID: 0}
+  healthBar: {fileID: 0}
+  healthBarBackground: {fileID: 0}
+  batterySlider: {fileID: 0}
+  batteryBar: {fileID: 0}
+  dialogueBox: {fileID: 0}
 --- !u!114 &7190028288367869788
 MonoBehaviour:
   m_ObjectHideFlags: 0

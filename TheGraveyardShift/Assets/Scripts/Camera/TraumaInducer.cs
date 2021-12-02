@@ -14,7 +14,6 @@ public class TraumaInducer : MonoBehaviour
 
     public IEnumerator Explode()
     {
-
         /* Wait for the specified delay */
         yield return new WaitForSeconds(Delay);
         /* Play all the particle system this object has */
