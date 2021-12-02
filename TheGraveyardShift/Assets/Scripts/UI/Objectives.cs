@@ -17,6 +17,10 @@ public class Objectives : MonoBehaviour
     public void Start()
     {
         textComponent.text = string.Empty;
+        if (lines.Length <= 0)
+        {
+            return;
+        }
         StartCoroutine(TypeLine(lines[0]));
         index = 0;
         //StartCoroutine(MarkCompleted());
