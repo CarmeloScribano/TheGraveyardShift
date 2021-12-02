@@ -6,7 +6,7 @@ public class BossBar : MonoBehaviour
 {
     [SerializeField]
     private GameObject slider;
-    private bool visible;
+    public bool invisible;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,8 +23,8 @@ public class BossBar : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            visible = !visible;
-            if(visible)
+     
+            if(invisible)
             {
                 slider.SetActive(true);
             }
