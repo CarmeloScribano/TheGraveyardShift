@@ -26,6 +26,10 @@ TagManager:
   - Snow
   - Objectives
   - EnemyManager
+  - FindKey
+  - EnterForest
+  - EnterCemetery
+  - Key
   layers:
   - Default
   - TransparentFX

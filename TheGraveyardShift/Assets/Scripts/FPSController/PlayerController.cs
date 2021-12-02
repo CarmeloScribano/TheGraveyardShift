@@ -94,6 +94,11 @@ public class PlayerController : MonoBehaviour
     private bool fireTutorial = false;
     private bool keyInTheCity = false;
     private bool lookForKey = false;
+    private bool findKey = false;
+    private bool forestNotEntered = false;
+    private bool cemeteryNotEntered = false;
+
+    private bool hasKey = false;
 
     private bool gaveReloadTip = false;
 
@@ -457,6 +462,52 @@ public class PlayerController : MonoBehaviour
 
             keyInTheCity = true;
         }
+        else if (other.gameObject.tag == "keyInTheCity" && !keyInTheCity)
+        {
+            if (enemyHandler.CheckIfDead(3))
+            {
+                objectives.CompleteObjective();
+            }
+            string[] newText = { "Looks like there is a city over here... I might want to go check for survivors here..." };
+
+            dialogueBox.GetComponent<Dialogue>().SetText(newText);
+            dialogueBox.GetComponent<Dialogue>().Start();
+
+            keyInTheCity = true;
+        }
+        else if (other.gameObject.tag == "Key")
+        {
+            hasKey = true;
+            Destroy(other.gameObject);
+            objectives.CompleteObjective();
+        }
+        else if (other.gameObject.tag == "FindKey")
+        {
+            if (hasKey)
+            {
+                objectives.CompleteObjective();
+                TransitionManagerClass.Transition("BossArea");
+            }
+            if (!findKey)
+            {
+                string[] newText = { "The gate is locked... There may be a key in a near by cemetery..." };
+
+                dialogueBox.GetComponent<Dialogue>().SetText(newText);
+                dialogueBox.GetComponent<Dialogue>().Start();
+
+                findKey = true;
+            }
+        }
+        else if (other.gameObject.tag == "EnterForest" && !forestNotEntered)
+        {
+            forestNotEntered = true;
+            objectives.CompleteObjective();
+        }
+        else if (other.gameObject.tag == "EnterCemetery" && !cemeteryNotEntered)
+        {
+            cemeteryNotEntered = true;
+            objectives.CompleteObjective();
+        }
         else if (other.gameObject.tag == "Gate")
         {
             //if (!lookForKey) 
@@ -482,7 +533,7 @@ public class PlayerController : MonoBehaviour
 
     public void ReloadTip()
     {
-        if (!gaveReloadTip)
+        if (!gaveReloadTip && SceneManager.GetActiveScene().name == "TutorialScene")
         {
             gaveReloadTip = true;
             string[] newText = { "I am out of ammo! That gun is not going to reload itself. I must press 'r' to reload it." };
