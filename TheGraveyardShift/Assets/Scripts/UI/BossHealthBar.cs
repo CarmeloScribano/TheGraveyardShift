@@ -13,7 +13,7 @@ public class BossHealthBar : MonoBehaviour
     void Start()
     {
         boss = GameObject.FindWithTag("Boss");
-        maxHealth = boss.GetComponent <EnemyAI>().health;
+        maxHealth = boss.GetComponent<EnemyAI>().health;
         SetHealth(maxHealth);
     }
 

@@ -559,7 +559,7 @@ public class Gun : MonoBehaviour
         //if (Physics.Raycast(p1, transform.forward, out hit))
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
         {
-            if (hit.transform.tag == "Enemy")
+            if (hit.transform.tag == "Enemy" || hit.transform.tag == "Boss")
             {
                 if (hit.distance < knifeRange)
                 {
@@ -612,7 +612,7 @@ public class Gun : MonoBehaviour
         Vector3 fwd = transform.TransformDirection(Vector3.forward);
         if (Physics.Raycast(spawnPoints.bulletSpawnPoint.position, fwd, out hit, bulletRange))
         {
-            if (hit.transform.tag == "Enemy")
+            if (hit.transform.tag == "Enemy" || hit.transform.tag == "Boss")
             {
                 EnemyAI ai = hit.transform.gameObject.GetComponent<EnemyAI>();
                 if (ai != null)
