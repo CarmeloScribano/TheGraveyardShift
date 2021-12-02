@@ -20,6 +20,7 @@ public class TransitionManagerClass : MonoBehaviour
         UpdateTransitionManager();
         if (transitionManager != null)
         {
+            Time.timeScale = 1f;
             transitionManager.Transition(sceneName);
         }
     }
