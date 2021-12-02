@@ -20,7 +20,7 @@ public class ScreenController : MonoBehaviour
     public void RestartTutorialButton()
     {
         Time.timeScale = 1f;
-        TransitionManagerClass.Transition("TutorialScene");
+        TransitionManagerClass.Transition("TutorialMap");
     }
 
     public void RestartMainMapButton()
@@ -32,7 +32,7 @@ public class ScreenController : MonoBehaviour
     public void RestartBossAreaButton()
     {
         Time.timeScale = 1f;
-        TransitionManagerClass.Transition("BossArea");
+        TransitionManagerClass.Transition("BossMap");
     }
 
     public void MainMapButton()

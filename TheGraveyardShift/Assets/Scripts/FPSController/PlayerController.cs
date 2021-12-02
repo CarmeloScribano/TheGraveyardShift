@@ -498,7 +498,7 @@ public class PlayerController : MonoBehaviour
             if (hasKey)
             {
                 objectives.CompleteObjective();
-                TransitionManagerClass.Transition("BossArea");
+                TransitionManagerClass.Transition("BossMap");
             }
             if (!findKey)
             {
@@ -545,7 +545,7 @@ public class PlayerController : MonoBehaviour
 
     public void ReloadTip()
     {
-        if (!gaveReloadTip && SceneManager.GetActiveScene().name == "TutorialScene")
+        if (!gaveReloadTip && SceneManager.GetActiveScene().name == "TutorialMap")
         {
             gaveReloadTip = true;
             string[] newText = { "I am out of ammo! That gun is not going to reload itself. I must press 'r' to reload it." };
