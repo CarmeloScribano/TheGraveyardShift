@@ -579,7 +579,7 @@ GameObject:
   - component: {fileID: 2068850184}
   - component: {fileID: 2068850183}
   m_Layer: 6
-  m_Name: Text (TMP)
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -929,7 +929,7 @@ GameObject:
   - component: {fileID: 8209764486017960807}
   - component: {fileID: 8209764486017960804}
   m_Layer: 6
-  m_Name: DeathScreen
+  m_Name: GameOverScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1757,7 +1757,7 @@ GameObject:
   - component: {fileID: 8209764487227138915}
   - component: {fileID: 8209764487227138912}
   m_Layer: 6
-  m_Name: Controls
+  m_Name: ControlsScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2497,7 +2497,7 @@ GameObject:
   - component: {fileID: 8209764487806643365}
   - component: {fileID: 8209764487806643362}
   m_Layer: 6
-  m_Name: EscapeMenu
+  m_Name: PauseScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

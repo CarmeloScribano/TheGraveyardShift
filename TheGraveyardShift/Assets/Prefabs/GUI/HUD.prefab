@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 6972181351709946900}
   - component: {fileID: 2583907031051737190}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: BatterySlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
