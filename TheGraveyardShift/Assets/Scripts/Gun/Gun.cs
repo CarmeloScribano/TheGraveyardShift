@@ -117,8 +117,9 @@ public class Gun : MonoBehaviour
 
     //How much ammo is currently left
     private int currentAmmo;
+    private int reservedAmmo;
     //Totalt amount of ammo
-    [Tooltip("How much ammo the weapon should have.")]
+
     public int ammo;
     public int maxAmmo;
     //Check if out of ammo
@@ -179,6 +180,7 @@ public class Gun : MonoBehaviour
         TakeOut();
 
         totalAmmo = ammo;
+        reservedAmmo = maxAmmo;
 
         //GameObject canvas = GameObject.FindGameObjectWithTag("HUD");
 
@@ -187,7 +189,7 @@ public class Gun : MonoBehaviour
         //Get weapon name from string to text
         currentWeaponText.text = weaponName;
         //Set total ammo text from total ammo int
-        totalAmmoText.text = maxAmmo.ToString();
+        totalAmmoText.text = reservedAmmo.ToString();
 
         //Weapon sway
         initialSwayPosition = transform.localPosition;
@@ -230,7 +232,7 @@ public class Gun : MonoBehaviour
         currentWeaponIcon.sprite = WeaponIcon;
         //}
 
-        totalAmmoText.text = maxAmmo.ToString();
+        totalAmmoText.text = reservedAmmo.ToString();
 
         TakeOut();
     }
@@ -267,6 +269,11 @@ public class Gun : MonoBehaviour
     //{
         
     //}
+
+    public void AddAmmo()
+    {
+        reservedAmmo += ammo;        
+    }
 
     public void Shoot()
     {
@@ -657,7 +664,7 @@ public class Gun : MonoBehaviour
 
     private IEnumerator Reload()
     {
-        if (currentAmmo < totalAmmo && maxAmmo > 0)
+        if (currentAmmo < totalAmmo && reservedAmmo > 0)
         {
             float reloadTime = 0f;
 
@@ -704,35 +711,35 @@ public class Gun : MonoBehaviour
             {
                 //Restore ammo when reloading
                 //if totalAmmo itself have enough bullets
-                if (maxAmmo >= totalAmmo)
+                if (reservedAmmo >= totalAmmo)
                 {
                     //get the ammo required to fill the magazine
                     int neededAmmo = totalAmmo - currentAmmo;
                     //decrement the ammo required to fill the magazine from total 
-                    maxAmmo -= neededAmmo;
+                    reservedAmmo -= neededAmmo;
                     //then increment the ammo required to fill the magazine  
                     currentAmmo += neededAmmo;
                 }
                 //if total ammo is less then the magazineCapacity
-                else if (maxAmmo > 0)
+                else if (reservedAmmo > 0)
                 {
                     //get the ammo required to fill the magazine
                     int neededAmmo = ammo - currentAmmo;
                     //if totalAmmo has enough bullets required to fill the magazine
-                    if (neededAmmo < maxAmmo)
+                    if (neededAmmo < reservedAmmo)
                     {
-                        maxAmmo -= neededAmmo;
+                        reservedAmmo -= neededAmmo;
                         currentAmmo += neededAmmo;
                     }
                     //if totalAmmo is less then the required neededAmmo then incerement all the bullets in the currentAmmo from totalAmmo
                     else
                     {
-                        currentAmmo += maxAmmo;
-                        maxAmmo = 0;
+                        currentAmmo += reservedAmmo;
+                        reservedAmmo = 0;
                     }
                 }
 
-                totalAmmoText.text = maxAmmo.ToString();
+                totalAmmoText.text = reservedAmmo.ToString();
             }
 
             outOfAmmo = false;
