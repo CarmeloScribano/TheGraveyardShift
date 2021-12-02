@@ -28,6 +28,12 @@ public class ScreenController : MonoBehaviour
         SceneManager.LoadScene("MainMap");
     }
 
+    public void RestartBossAreaButton()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("BossArea");
+    }
+
     public void MainMapButton()
     {
         Time.timeScale = 1;
