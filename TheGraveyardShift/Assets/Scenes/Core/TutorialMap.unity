@@ -43100,6 +43100,10 @@ PrefabInstance:
       propertyPath: settingsScreen
       value: 
       objectReference: {fileID: 233861565}
+    - target: {fileID: 8209764487679734882, guid: 212ef6a8e609a3445abae07dd13ba687, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartTutorialMapButton
+      objectReference: {fileID: 0}
     - target: {fileID: 8209764487806643362, guid: 212ef6a8e609a3445abae07dd13ba687, type: 3}
       propertyPath: hud
       value: 

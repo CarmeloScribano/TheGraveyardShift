@@ -6915,7 +6915,7 @@ PrefabInstance:
       objectReference: {fileID: 1490610598}
     - target: {fileID: 7902203011446276774, guid: e273e3515e3cd484e893fe7907c5cbf1, type: 3}
       propertyPath: runningSpeed
-      value: 50
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7902203011446276774, guid: e273e3515e3cd484e893fe7907c5cbf1, type: 3}
       propertyPath: batterySlider
@@ -19414,6 +19414,14 @@ PrefabInstance:
       propertyPath: hud
       value: 
       objectReference: {fileID: 1778087074}
+    - target: {fileID: 8209764486113792516, guid: 212ef6a8e609a3445abae07dd13ba687, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8209764486113792517, guid: 212ef6a8e609a3445abae07dd13ba687, type: 3}
+      propertyPath: m_Colors.m_FadeDuration
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 8209764486692016368, guid: 212ef6a8e609a3445abae07dd13ba687, type: 3}
       propertyPath: m_Name
       value: Screens
@@ -19468,7 +19476,7 @@ PrefabInstance:
       objectReference: {fileID: 1778087074}
     - target: {fileID: 8209764487679734882, guid: 212ef6a8e609a3445abae07dd13ba687, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RestartBossAreaButton
+      value: RestartBossMapButton
       objectReference: {fileID: 0}
     - target: {fileID: 8209764487806643362, guid: 212ef6a8e609a3445abae07dd13ba687, type: 3}
       propertyPath: hud
