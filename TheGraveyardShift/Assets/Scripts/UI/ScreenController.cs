@@ -17,7 +17,7 @@ public class ScreenController : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
     }
 
-    public void RestartTutorialButton()
+    public void RestartTutorialMapButton()
     {
         Time.timeScale = 1f;
         TransitionManagerClass.Transition("TutorialMap");
@@ -29,7 +29,7 @@ public class ScreenController : MonoBehaviour
         TransitionManagerClass.Transition("MainMap");
     }
 
-    public void RestartBossAreaButton()
+    public void RestartBossMapButton()
     {
         Time.timeScale = 1f;
         TransitionManagerClass.Transition("BossMap");

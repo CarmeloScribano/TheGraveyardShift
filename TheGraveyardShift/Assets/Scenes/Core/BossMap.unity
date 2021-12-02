@@ -7691,7 +7691,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -40.6
+      value: -40.7
       objectReference: {fileID: 0}
     - target: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
       propertyPath: m_LocalPosition.z
@@ -17080,7 +17080,7 @@ PrefabInstance:
     - target: {fileID: 9036344205368527856, guid: 3c8f6fa1ad7071b47bbea35aaffe5535, type: 3}
       propertyPath: enemies
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 867917781}
     - target: {fileID: 9036344205368527857, guid: 3c8f6fa1ad7071b47bbea35aaffe5535, type: 3}
       propertyPath: m_RootOrder
       value: 2
