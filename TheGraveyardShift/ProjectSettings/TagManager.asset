@@ -24,6 +24,8 @@ TagManager:
   - FadeImage
   - TransitionManager
   - Snow
+  - Objectives
+  - EnemyManager
   layers:
   - Default
   - TransparentFX

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 /// Manages a first person character
@@ -96,6 +97,9 @@ public class PlayerController : MonoBehaviour
 
     private bool gaveReloadTip = false;
 
+    private Objectives objectives;
+    private EnemyHandler enemyHandler;
+
 
     private readonly RaycastHit[] _groundCastResults = new RaycastHit[8];
     private readonly RaycastHit[] _wallCastResults = new RaycastHit[8];
@@ -104,6 +108,8 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1;
+        objectives = GameObject.FindWithTag("Objectives").GetComponent<Objectives>();
+        enemyHandler = GameObject.FindWithTag("EnemyManager").GetComponent<EnemyHandler>();
         _rigidbody = GetComponent<Rigidbody>();
         _rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
         _collider = GetComponent<CapsuleCollider>();
@@ -430,6 +436,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.gameObject.tag == "FireTutorial" && !fireTutorial)
         {
+            objectives.CompleteObjective();
             string[] newText = { "Oh no, Enemies incoming!", "Remember, left mouse click is to shoot and right mouse click is to aim!" };
 
             dialogueBox.GetComponent<Dialogue>().SetText(newText);
@@ -439,6 +446,10 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.gameObject.tag == "keyInTheCity" && !keyInTheCity)
         {
+            if (enemyHandler.CheckIfDead(3))
+            {
+                objectives.CompleteObjective();
+            }
             string[] newText = { "Looks like there is a city over here... I might want to go check for survivors here..." };
 
             dialogueBox.GetComponent<Dialogue>().SetText(newText);
@@ -446,15 +457,27 @@ public class PlayerController : MonoBehaviour
 
             keyInTheCity = true;
         }
-        else if (other.gameObject.tag == "Gate" && !lookForKey)
+        else if (other.gameObject.tag == "Gate")
         {
-            string[] newText = { "This gate is locked! Maybe I could find the key for it in the city..." };
+            //if (!lookForKey) 
+            //{
+            //    string[] newText = { "This gate is locked! Maybe I could find the key for it in the city..." };
 
-            dialogueBox.GetComponent<Dialogue>().SetText(newText);
-            dialogueBox.GetComponent<Dialogue>().Start();
+            //    dialogueBox.GetComponent<Dialogue>().SetText(newText);
+            //    dialogueBox.GetComponent<Dialogue>().Start();
 
-            lookForKey = true;
+            //    lookForKey = true;
+            //}
+            //else
+            //{
+            if (enemyHandler.CheckIfDead(enemyHandler.initialCount))
+            {
+                objectives.CompleteObjective();
+                TransitionManagerClass.Transition("MainMap");
+            }
+            
         }
+       
     }
 
     public void ReloadTip()
