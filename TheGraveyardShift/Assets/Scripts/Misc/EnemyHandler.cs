@@ -48,7 +48,7 @@ public class EnemyHandler : MonoBehaviour
     private void Update()
     {
         GetCurrentEnemyCount();
-        if (SceneManager.GetActiveScene().name == "TutorialScene")
+        if (SceneManager.GetActiveScene().name == "TutorialMap")
         {
             bool killedEnough = CheckIfDead(3);
             if (!tutorialSmallHerd && killedEnough)

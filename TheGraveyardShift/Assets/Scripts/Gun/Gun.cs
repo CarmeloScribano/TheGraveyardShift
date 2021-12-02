@@ -156,7 +156,7 @@ public class Gun : MonoBehaviour
     public Transform[] bloodImpactPrefabs;
 
     private float recoil = 0.0f;
-    private float maxRecoil_x = -3f;
+    private float maxRecoil_x = -0.5f;
 
     private float maxRecoil_y = 0f;
     private float recoilSpeed = 10f;
@@ -248,11 +248,15 @@ public class Gun : MonoBehaviour
 
     void Recoil()
     {
-        maxRecoil_y = Random.Range(-5.0f, 5.0f);
         if (!isAiming)
         {
             maxRecoil_x = -7f;
             maxRecoil_y = Random.Range(-8f, 8f);
+        }
+        else
+        {
+            maxRecoil_x = -1f;
+            maxRecoil_y = Random.Range(-5.0f, 5.0f);
         }
 
         if (recoil > 0f)

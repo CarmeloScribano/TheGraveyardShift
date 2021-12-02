@@ -21,7 +21,7 @@ public class PlaneCutsceneTimeout : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) && !pressed)
         {
             pressed = true;
-            TransitionManagerClass.Transition("TutorialScene");
+            TransitionManagerClass.Transition("TutorialMap");
         }
     }
 
@@ -35,6 +35,6 @@ public class PlaneCutsceneTimeout : MonoBehaviour
             StartCoroutine(inducer.Explode());
         }
         yield return new WaitForSeconds(1f);
-        TransitionManagerClass.Transition("TutorialScene");        
+        TransitionManagerClass.Transition("TutorialMap");        
     }
 }
