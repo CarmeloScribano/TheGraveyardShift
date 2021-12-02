@@ -249,6 +249,12 @@ public class Gun : MonoBehaviour
     void Recoil()
     {
         maxRecoil_y = Random.Range(-5.0f, 5.0f);
+        if (!isAiming)
+        {
+            maxRecoil_x = -7f;
+            maxRecoil_y = Random.Range(-8f, 8f);
+        }
+
         if (recoil > 0f)
         {
             Quaternion maxRecoil = Quaternion.Euler(maxRecoil_x, maxRecoil_y, 0f);
