@@ -81,6 +81,7 @@ public class PlayerController : MonoBehaviour
     [Header("HUD Options")]
     public ScreenController gameOverScreen;
     public ScreenController pauseScreen;
+    public ScreenController controlsScreen;
     public GameObject hud;
     public GameObject healthBar;
     public GameObject healthBarBackground;
@@ -97,6 +98,8 @@ public class PlayerController : MonoBehaviour
     private bool findKey = false;
     private bool forestNotEntered = false;
     private bool cemeteryNotEntered = false;
+    private bool inEscapeMenu = false;
+    private bool playerIsDead = false;
 
     private bool hasKey = false;
 
@@ -220,13 +223,21 @@ public class PlayerController : MonoBehaviour
             Time.timeScale = 0;
             gameOverScreen.Setup();
             hud.SetActive(false);
+            playerIsDead = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.M) && !inEscapeMenu && !playerIsDead)
         {
             Time.timeScale = 0;
             pauseScreen.Setup();
             hud.SetActive(false);
+            inEscapeMenu = true;
+        }
+        else if (Input.GetKeyDown(KeyCode.M) && inEscapeMenu && !playerIsDead)
+        {
+            pauseScreen.ResumeButton();
+            controlsScreen.ResumeButton();
+            inEscapeMenu = false;
         }
     }
 

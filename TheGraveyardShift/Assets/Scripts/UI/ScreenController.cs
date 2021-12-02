@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class ScreenController : MonoBehaviour
 {
     public ScreenController settingsScreen;
+    public ScreenController escapeScreen;
     public GameObject hud;
 
     public void Setup()
@@ -19,19 +20,25 @@ public class ScreenController : MonoBehaviour
     public void RestartTutorialButton()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("TutorialScene");
+        TransitionManagerClass.Transition("TutorialScene");
     }
 
     public void RestartMainMapButton()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMap");
+        TransitionManagerClass.Transition("MainMap");
+    }
+
+    public void RestartBossAreaButton()
+    {
+        Time.timeScale = 1f;
+        TransitionManagerClass.Transition("BossArea");
     }
 
     public void MainMapButton()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMap");
+        TransitionManagerClass.Transition("MainMap");
     }
 
     public void MainMenuButton()
@@ -70,6 +77,6 @@ public class ScreenController : MonoBehaviour
     public void PauseButton()
     {
         gameObject.SetActive(false);
-        settingsScreen.Setup();
+        escapeScreen.Setup();
     }
 }
