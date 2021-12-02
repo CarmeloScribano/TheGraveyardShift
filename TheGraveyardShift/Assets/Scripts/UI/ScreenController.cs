@@ -37,7 +37,6 @@ public class ScreenController : MonoBehaviour
     public void MainMenuButton()
     {
         Time.timeScale = 1f;
-        Debug.Log(Time.timeScale);
         TransitionManagerClass.Transition("MainMenu");
     }
 

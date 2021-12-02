@@ -62807,6 +62807,10 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 926763463, guid: 54b66db3131c1564d907c0a8a8f6f0f3, type: 3}
+      propertyPath: lines.Array.data[3]
+      value: Oh my god what is that! James run away from here.. NO NOOOOOO HELP!
+      objectReference: {fileID: 0}
+    - target: {fileID: 926763463, guid: 54b66db3131c1564d907c0a8a8f6f0f3, type: 3}
       propertyPath: lines.Array.data[4]
       value: I have to go save the Sergeant!
       objectReference: {fileID: 0}
@@ -62864,6 +62868,10 @@ PrefabInstance:
       propertyPath: m_Colors.m_NormalColor.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8209764486017960802, guid: 54b66db3131c1564d907c0a8a8f6f0f3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8209764486017960805, guid: 54b66db3131c1564d907c0a8a8f6f0f3, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -62915,6 +62923,10 @@ PrefabInstance:
     - target: {fileID: 8209764486692016371, guid: 54b66db3131c1564d907c0a8a8f6f0f3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8209764486825600788, guid: 54b66db3131c1564d907c0a8a8f6f0f3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8209764487227138913, guid: 54b66db3131c1564d907c0a8a8f6f0f3, type: 3}
       propertyPath: m_RootOrder

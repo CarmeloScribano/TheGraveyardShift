@@ -216,6 +216,7 @@ public class PlayerController : MonoBehaviour
 
         if (health <= 0)
         {
+            health = 0.1f;
             Time.timeScale = 0;
             gameOverScreen.Setup();
             hud.SetActive(false);
