@@ -8882,6 +8882,75 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
+--- !u!1001 &732510127
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 817363978839062266}
+    m_Modifications:
+    - target: {fileID: 1693745898190018, guid: 9d9b8bb6415028e488ab9999685f4c5b, type: 3}
+      propertyPath: m_Name
+      value: Cross
+      objectReference: {fileID: 0}
+    - target: {fileID: 4086640482951398, guid: 9d9b8bb6415028e488ab9999685f4c5b, type: 3}
+      propertyPath: m_RootOrder
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 4086640482951398, guid: 9d9b8bb6415028e488ab9999685f4c5b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.04292026
+      objectReference: {fileID: 0}
+    - target: {fileID: 4086640482951398, guid: 9d9b8bb6415028e488ab9999685f4c5b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.042920265
+      objectReference: {fileID: 0}
+    - target: {fileID: 4086640482951398, guid: 9d9b8bb6415028e488ab9999685f4c5b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.04999353
+      objectReference: {fileID: 0}
+    - target: {fileID: 4086640482951398, guid: 9d9b8bb6415028e488ab9999685f4c5b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.2353
+      objectReference: {fileID: 0}
+    - target: {fileID: 4086640482951398, guid: 9d9b8bb6415028e488ab9999685f4c5b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.14548
+      objectReference: {fileID: 0}
+    - target: {fileID: 4086640482951398, guid: 9d9b8bb6415028e488ab9999685f4c5b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.00588
+      objectReference: {fileID: 0}
+    - target: {fileID: 4086640482951398, guid: 9d9b8bb6415028e488ab9999685f4c5b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4086640482951398, guid: 9d9b8bb6415028e488ab9999685f4c5b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4086640482951398, guid: 9d9b8bb6415028e488ab9999685f4c5b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4086640482951398, guid: 9d9b8bb6415028e488ab9999685f4c5b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4086640482951398, guid: 9d9b8bb6415028e488ab9999685f4c5b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4086640482951398, guid: 9d9b8bb6415028e488ab9999685f4c5b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4086640482951398, guid: 9d9b8bb6415028e488ab9999685f4c5b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9d9b8bb6415028e488ab9999685f4c5b, type: 3}
 --- !u!1 &738622133 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
@@ -25553,6 +25622,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &2090645257 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4086640482951398, guid: 9d9b8bb6415028e488ab9999685f4c5b, type: 3}
+  m_PrefabInstance: {fileID: 732510127}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2092141864 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1668012353984422, guid: 5877b7f391c9e474e94282600de544d8, type: 3}
@@ -26510,6 +26584,7 @@ Transform:
   - {fileID: 1754967494}
   - {fileID: 1138400225}
   - {fileID: 881235795}
+  - {fileID: 2090645257}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
