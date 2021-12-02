@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.574817, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6754,6 +6754,79 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 0d64ef243d84f914cb89a82cafc2c628, type: 3}
+--- !u!1 &541900988 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3357532240521514763, guid: 9c133dce4fc409f41a710d932268912e, type: 3}
+  m_PrefabInstance: {fileID: 8174635040764247967}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &541900992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541900988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2850fc6d80c9e624d8dd3094f8039baf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Delay: 1
+  MaximumStress: 0.6
+  Range: 45
+--- !u!195 &541900993
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541900988}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.21727683
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 0.18842071
+  m_BaseOffset: 0.09421036
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &541900994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541900988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 793a7de0c90cfac449c0b438e975a6b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 541900993}
+  player: {fileID: 2057104339}
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 128
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 256
+  health: 300
+  animator: {fileID: 988816689}
+  damage: 100
+  walkPoint: {x: 0, y: 0, z: 0}
+  walkPointRange: 0
+  timeBetweenAttacks: 5
+  sightRange: 20
+  attackRange: 7
+  playerInSightRange: 0
+  playerInAttackRange: 0
+  inducer: {fileID: 541900992}
 --- !u!1 &559766594 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1069567032315564, guid: bdf8e7438a7816543998181bd3067573, type: 3}
@@ -11708,6 +11781,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4143605848347396, guid: 42a171cf451b4d64399d37a24140f30c, type: 3}
   m_PrefabInstance: {fileID: 988649685}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &988816689 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1128075475090572807, guid: 9c133dce4fc409f41a710d932268912e, type: 3}
+  m_PrefabInstance: {fileID: 8174635040764247967}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &999540195
 PrefabInstance:
@@ -29590,7 +29668,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 3357532240521514763, guid: 9c133dce4fc409f41a710d932268912e, type: 3}
+      propertyPath: m_Name
+      value: BossBody
+      objectReference: {fileID: 0}
+    - target: {fileID: 3357532240521514763, guid: 9c133dce4fc409f41a710d932268912e, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1114464323547349172, guid: 9c133dce4fc409f41a710d932268912e, type: 3}
+    - {fileID: 2816854628219970472, guid: 9c133dce4fc409f41a710d932268912e, type: 3}
+    - {fileID: 1064651971, guid: 9c133dce4fc409f41a710d932268912e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9c133dce4fc409f41a710d932268912e, type: 3}
 --- !u!1 &8219576166423643085
 GameObject:

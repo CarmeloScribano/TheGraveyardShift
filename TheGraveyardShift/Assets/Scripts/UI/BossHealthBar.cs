@@ -12,9 +12,10 @@ public class BossHealthBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        boss = GameObject.FindWithTag("Boss");
+        boss = GameObject.Find("BossBody");
         maxHealth = boss.GetComponent <EnemyAI>().health;
         SetHealth(maxHealth);
+        
     }
 
     // Update is called once per frame
