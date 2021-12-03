@@ -12,6 +12,7 @@ public class EnemyHandler : MonoBehaviour
 
     private bool tutorialSmallHerd = false;
     private bool clearedTutorialLevel = false;
+    private bool bossDead = false;
 
     private Objectives objectives;
 
@@ -28,6 +29,25 @@ public class EnemyHandler : MonoBehaviour
     {
         enemyCount = enemies.childCount;
         return enemyCount;
+    }
+
+    public bool CheckDeadBoss()
+    {
+        GameObject boss = GameObject.FindWithTag("Boss");
+
+        if (boss != null)
+        {
+            EnemyAI ai = boss.GetComponent<EnemyAI>();
+            if (ai != null)
+            {
+                if (ai.health <= 0)
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
     public bool CheckIfDead(int required)
@@ -63,5 +83,21 @@ public class EnemyHandler : MonoBehaviour
                 objectives.CompleteObjective();
             }
         }
+        else if (SceneManager.GetActiveScene().name == "BossMap")
+        {
+            if (!bossDead && CheckDeadBoss())
+            {
+                bossDead = true;
+                objectives.CompleteObjective();
+                StartCoroutine(EndGame());
+            }
+        }
     }
+
+    private IEnumerator EndGame()
+    {
+        yield return new WaitForSeconds(1f);
+        TransitionManagerClass.Transition("Credits");
+    }
+
 }

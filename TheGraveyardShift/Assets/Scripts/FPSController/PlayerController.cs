@@ -100,6 +100,7 @@ public class PlayerController : MonoBehaviour
     private bool cemeteryNotEntered = false;
     private bool inEscapeMenu = false;
     private bool playerIsDead = false;
+    private bool playerEnteredChurch = false;
 
     private bool hasKey = false;
 
@@ -491,6 +492,11 @@ public class PlayerController : MonoBehaviour
         {
             hasKey = true;
             Destroy(other.gameObject);
+            objectives.CompleteObjective();
+        }
+        else if (other.gameObject.tag == "EnterChurch" && !playerEnteredChurch)
+        {
+            playerEnteredChurch = true;
             objectives.CompleteObjective();
         }
         else if (other.gameObject.tag == "FindKey")

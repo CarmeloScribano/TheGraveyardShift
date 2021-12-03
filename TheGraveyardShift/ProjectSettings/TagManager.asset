@@ -30,6 +30,8 @@ TagManager:
   - EnterForest
   - EnterCemetery
   - Key
+  - Boss
+  - EnterChurch
   layers:
   - Default
   - TransparentFX
