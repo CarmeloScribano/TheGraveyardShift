@@ -17,6 +17,8 @@ public class EnemyAI : MonoBehaviour
 
     [SerializeField] private float damage;
 
+    public PlayerController controller;
+
     //Patroling
     public Vector3 walkPoint;
     bool walkPointSet;
@@ -149,12 +151,12 @@ public class EnemyAI : MonoBehaviour
         {
             alreadyAttacked = true;
             animator.Play("Attack");
-            StartCoroutine(DealDamange());
+            StartCoroutine(DealDamage());
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
     }
 
-    private IEnumerator DealDamange()
+    private IEnumerator DealDamage()
     {
         float attackDelay = GetAnimationTime("Attack");
         if (transform.name.Contains("Zombie"))
@@ -178,7 +180,9 @@ public class EnemyAI : MonoBehaviour
                 StartCoroutine(inducer.Explode());
                 //AttackDirectionChange();
             }
-            player.gameObject.GetComponent<PlayerController>().TakeDamage(damage);
+            //yield return new WaitUntil(() => player.gameObject.GetComponent<PlayerController>() != null);
+            //player.gameObject.GetComponent<PlayerController>().TakeDamage(damage);
+            controller.TakeDamage(damage);
         }
     }
 

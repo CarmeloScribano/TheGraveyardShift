@@ -353,7 +353,15 @@ public class Gun : MonoBehaviour
             //	StartCoroutine(AutoReload());
             //}
 
-            GameObject.FindWithTag("Player").GetComponent<PlayerController>().ReloadTip();
+            GameObject player = GameObject.FindWithTag("Player");
+            if (player != null)
+            {
+                PlayerController controller = player.GetComponent<PlayerController>();
+                if (controller != null)
+                {
+                    controller.ReloadTip();
+                }
+            }
 
         }
         else

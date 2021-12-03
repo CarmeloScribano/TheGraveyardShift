@@ -17,10 +17,10 @@ public class TransitionManagerClass : MonoBehaviour
 
     public static void Transition(string sceneName)
     {
+        Time.timeScale = 1f;
         UpdateTransitionManager();
         if (transitionManager != null)
         {
-            Time.timeScale = 1f;
             transitionManager.Transition(sceneName);
         }
     }

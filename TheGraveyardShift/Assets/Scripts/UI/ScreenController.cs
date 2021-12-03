@@ -20,19 +20,19 @@ public class ScreenController : MonoBehaviour
     public void RestartTutorialMapButton()
     {
         Time.timeScale = 1f;
-        TransitionManagerClass.Transition("TutorialMap");
+        SceneManager.LoadScene("TutorialMap");
     }
 
     public void RestartMainMapButton()
     {
         Time.timeScale = 1f;
-        TransitionManagerClass.Transition("MainMap");
+        SceneManager.LoadScene("MainMap");
     }
 
     public void RestartBossMapButton()
     {
         Time.timeScale = 1f;
-        TransitionManagerClass.Transition("BossMap");
+        SceneManager.LoadScene("BossMap");
     }
 
     public void MainMapButton()
