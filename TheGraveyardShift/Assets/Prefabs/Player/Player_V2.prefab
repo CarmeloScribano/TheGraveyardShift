@@ -50615,6 +50615,7 @@ MonoBehaviour:
   armPosition: {x: 0, y: 0, z: 0}
   flashlight: {fileID: 2348502352465193812}
   flashlightComponent: {fileID: 9151702109928515247}
+  maxFlashlightLife: 120
   walkingSound: {fileID: 8300000, guid: 6597a368cd74a924eaedb0171d5b28d3, type: 3}
   runningSound: {fileID: 8300000, guid: 0c58744c3b6fdd844b8348066c3f703e, type: 3}
   walkingSpeed: 5
@@ -50634,9 +50635,9 @@ MonoBehaviour:
     jump: Jump
     flashlight: Flashlight
   maxHealth: 150
-  numberBatteries: 1
   gameOverScreen: {fileID: 0}
   pauseScreen: {fileID: 0}
+  controlsScreen: {fileID: 0}
   hud: {fileID: 0}
   healthBar: {fileID: 0}
   healthBarBackground: {fileID: 0}
@@ -50655,6 +50656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae96bec315fc10b449ba887057a00a74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentWpnIndex: 0
   weapons:
   - {fileID: 2845353316277418736}
   - {fileID: 800928672858476904}

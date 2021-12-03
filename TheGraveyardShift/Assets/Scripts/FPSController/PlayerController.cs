@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     public Light flashlightComponent;
     private bool flashlightToggle;
     private bool flashlightDead;
-    public float maxFlashlightLife = 60f;
+    public float maxFlashlightLife;
     private float flashlightLife;
 
     [Header("Audio Clips")]
@@ -436,7 +436,7 @@ public class PlayerController : MonoBehaviour
         {
             if (flashlightLife < maxFlashlightLife)
             {
-                flashlightLife += (maxFlashlightLife / 4);
+                flashlightLife += (maxFlashlightLife / 2);
                 float batteryPercentage = flashlightLife / maxFlashlightLife;
                 if (flashlightLife > maxFlashlightLife)
                     flashlightLife = maxFlashlightLife;
