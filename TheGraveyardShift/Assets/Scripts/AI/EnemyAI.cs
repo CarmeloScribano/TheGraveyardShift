@@ -159,24 +159,16 @@ public class EnemyAI : MonoBehaviour
         float attackDelay = GetAnimationTime("Attack");
         if (transform.name.Contains("Zombie"))
         {
-            attackDelay = attackDelay * 0.5f;
+            attackDelay *= 0.5f;
+        }
+        else if (transform.name.Contains("Boss"))
+        {
+            attackDelay *= 0.75f;
         }
         else
         {
-            attackDelay = attackDelay * 0.65f;
+            attackDelay *= 0.65f;
         }
-        //else if (transform.name.Contains("Wolf"))
-        //{
-        //    attackDelay = attackDelay * 0.65f;
-        //}
-        //else if (transform.name.Contains("Werewolf"))
-        //{
-        //    attackDelay = attackDelay * 0.65f;
-        //}
-        //else if (transform.name.Contains("Yeti"))
-        //{
-        //    attackDelay = attackDelay * 0.65f;
-        //}
         yield return new WaitForSeconds(attackDelay);
         float distance = Vector3.Distance(player.position, transform.position);
         if (distance <= attackRange + 1 && !dead)

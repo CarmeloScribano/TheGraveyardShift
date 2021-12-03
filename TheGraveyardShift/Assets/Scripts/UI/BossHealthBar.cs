@@ -14,6 +14,7 @@ public class BossHealthBar : MonoBehaviour
     {
         boss = GameObject.FindWithTag("Boss");
         maxHealth = boss.GetComponent<EnemyAI>().health;
+        slider.maxValue = maxHealth;
         SetHealth(maxHealth);
     }
 

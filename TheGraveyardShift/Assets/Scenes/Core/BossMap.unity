@@ -37340,14 +37340,14 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 256
-  health: 300
+  health: 1000
   animator: {fileID: 9139380244181694872}
   damage: 100
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 0
   timeBetweenAttacks: 5
   sightRange: 20
-  attackRange: 7
+  attackRange: 4
   playerInSightRange: 0
   playerInAttackRange: 0
   inducer: {fileID: 9139380244181694876}
