@@ -97,6 +97,8 @@ public class EnemyHandler : MonoBehaviour
     private IEnumerator EndGame()
     {
         yield return new WaitForSeconds(1f);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         TransitionManagerClass.Transition("Credits");
     }
 

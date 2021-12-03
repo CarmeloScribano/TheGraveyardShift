@@ -2562,7 +2562,7 @@ PrefabInstance:
       objectReference: {fileID: 1342947860}
     - target: {fileID: 7902203011446276774, guid: e273e3515e3cd484e893fe7907c5cbf1, type: 3}
       propertyPath: runningSpeed
-      value: 100
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7902203011446276774, guid: e273e3515e3cd484e893fe7907c5cbf1, type: 3}
       propertyPath: batterySlider

@@ -378,8 +378,9 @@ public class PlayerController : MonoBehaviour
 
         if (flashlightToggle)
         {
-            if (flashlightLife == 60f)
+            if (flashlightLife >= maxFlashlightLife || flashlightLife > 60f)
             {
+                flashlightComponent.intensity = 2f;
                 batteryBar.GetComponent<Image>().color = Color.green;
                 //rt.SetPositionAndRotation(new Vector3(-115, 115, 0), new Quaternion(0, 0, 0, 0));
             }
@@ -393,12 +394,12 @@ public class PlayerController : MonoBehaviour
                 flashlightToggle = false;
                 flashlight.SetActive(false);
             }
-            else if (batteryPercentage <= 0.25)
+            else if (flashlightLife <= maxFlashlightLife / 4)
             {
                 flashlightComponent.intensity = 0.5f;
                 batteryBar.GetComponent<Image>().color = Color.red;
             }
-            else if (batteryPercentage <= 0.5)
+            else if (flashlightLife <= maxFlashlightLife / 2)
             {
                 flashlightComponent.intensity = 1f;
                 batteryBar.GetComponent<Image>().color = Color.yellow;
@@ -511,7 +512,7 @@ public class PlayerController : MonoBehaviour
                 objectives.CompleteObjective();
                 TransitionManagerClass.Transition("BossMap");
             }
-            if (!findKey)
+            if (!findKey && !hasKey)
             {
                 string[] newText = { "The gate is locked... There may be a key in a near by cemetery..." };
 
