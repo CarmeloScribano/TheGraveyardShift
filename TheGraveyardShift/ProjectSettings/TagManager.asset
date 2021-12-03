@@ -32,6 +32,7 @@ TagManager:
   - Key
   - Boss
   - EnterChurch
+  - Secret
   layers:
   - Default
   - TransparentFX

@@ -444,6 +444,10 @@ public class PlayerController : MonoBehaviour
                 batterySlider.value = batteryPercentage;
             }
         }
+        else if (other.gameObject.tag == "Secret")
+        {
+            Destroy(other.gameObject);
+        }
         else if (other.gameObject.tag == "JumpLog" && !jumpTutorial)
         {
             string[] newText = { "Common James, remember boot camp...", "You have to press the Space Key to jump!" };
