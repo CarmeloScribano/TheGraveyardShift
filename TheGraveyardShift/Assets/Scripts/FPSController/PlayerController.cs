@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     public Light flashlightComponent;
     private bool flashlightToggle;
     private bool flashlightDead;
-    private float maxFlashlightLife = 60f;
+    public float maxFlashlightLife = 60f;
     private float flashlightLife;
 
     [Header("Audio Clips")]
@@ -76,7 +76,6 @@ public class PlayerController : MonoBehaviour
     [Header("Player Health")]
     public float maxHealth = 150f;
     private float health;
-    public int numberBatteries = 1;
 
     [Header("HUD Options")]
     public ScreenController gameOverScreen;
@@ -420,28 +419,30 @@ public class PlayerController : MonoBehaviour
         {
             if (health < maxHealth)
             {
-                health += (maxHealth / 3);
+                TakeDamage(-(maxHealth / 3));
                 if (health > maxHealth)
                     health = maxHealth;
                 Destroy(other.gameObject);
             }
-            Debug.Log("medkit");
         }
         else if (other.gameObject.tag == "Ammo")
         {
+            int index = gameObject.GetComponent<SwitchWeapon>().currentWpnIndex;
+            GameObject[] weapons = gameObject.GetComponent<SwitchWeapon>().weapons;
+            weapons[index].GetComponent<Gun>().AddAmmo();
             Destroy(other.gameObject);
-            Debug.Log("ammo");
         }
         else if (other.gameObject.tag == "Battery")
         {
             if (flashlightLife < maxFlashlightLife)
             {
                 flashlightLife += (maxFlashlightLife / 4);
+                float batteryPercentage = flashlightLife / maxFlashlightLife;
                 if (flashlightLife > maxFlashlightLife)
                     flashlightLife = maxFlashlightLife;
                 Destroy(other.gameObject);
+                batterySlider.value = batteryPercentage;
             }
-            Debug.Log("battery");
         }
         else if (other.gameObject.tag == "JumpLog" && !jumpTutorial)
         {

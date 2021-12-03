@@ -282,7 +282,8 @@ public class Gun : MonoBehaviour
 
     public void AddAmmo()
     {
-        reservedAmmo += ammo;        
+        reservedAmmo += ammo;
+        totalAmmoText.text = reservedAmmo.ToString();
     }
 
     public void Shoot()
