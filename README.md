@@ -1,4 +1,4 @@
-# The Graveyard Shift - Best Project of the Cohort
+# The Graveyard Shift - #1 Project of the Cohort
 
 <p align="center">
   <img alt="Start Screen Picture" src="/ReadMePictures/MainMenuPicture.png">
