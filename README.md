@@ -1,7 +1,7 @@
 # The Graveyard Shift - #1 Project of the Cohort
 
 <p align="center">
-  <a href="https://play.unity.com/mg/other/the-graveyard-shift">Click here to play the game on Unity Play</a>
+  <a href="https://play.unity.com/mg/other/the-graveyard-shift" target="_blank">Click here to play the game on Unity Play</a>
   <img alt="Start Screen Picture" src="/ReadMePictures/MainMenuPicture.png">
 </p>
 
